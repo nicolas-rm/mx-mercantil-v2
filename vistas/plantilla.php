@@ -119,7 +119,8 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "usuarios" ||   //ya esta .. falta editar cambiar foto  < ------------------  
          $_GET["ruta"] == "empleados" ||  //ya esta 
          $_GET["ruta"] == "mantenimiento" ||
-         $_GET["ruta"] == "sucursales"){  //ya esta .. falta editar y eliminar .. (modulo de ricardo)
+         $_GET["ruta"] == "sucursales" || //ya esta .. falta editar y eliminar .. (modulo de ricardo)
+         $_GET["ruta"] == "conductores"){  
          
 
         include "modulos/".$_GET["ruta"].".php";

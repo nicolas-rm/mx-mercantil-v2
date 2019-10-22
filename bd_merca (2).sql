@@ -28,43 +28,13 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `camiones`
 --
 
-DROP TABLE IF EXISTS `camiones`;
-CREATE TABLE IF NOT EXISTS `camiones` (
-  `ID_CAMIONES` int(11) NOT NULL AUTO_INCREMENT,
-  `NUMERO_PLACAS` varchar(100) NOT NULL,
-  `NOMBRE_CAMION` varchar(100) NOT NULL,
-  `MODELO` varchar(300) NOT NULL,
-  `CAPACIDAD_CARGA` int(11) NOT NULL,
-  `ANTIGUEDAD` int(11) NOT NULL,
-  `TIPO_CAMION` varchar(100) NOT NULL,
-  `ID_ESTATUS_CAMIONES` int(11) NOT NULL,
-  `ID_ESTATUS_CONDUCTORES` int(11) NOT NULL,
-  PRIMARY KEY (`ID_CAMIONES`),
-  KEY `ID_ESTATUS_CAMIONES` (`ID_ESTATUS_CAMIONES`),
-  KEY `ID_ESTATUS_CONDUCTORES` (`ID_ESTATUS_CONDUCTORES`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `conductores`
 --
-
-DROP TABLE IF EXISTS `conductores`;
-CREATE TABLE IF NOT EXISTS `conductores` (
-  `ID_CONDUCTORES` int(11) NOT NULL AUTO_INCREMENT,
-  `NOMBRE` varchar(50) NOT NULL,
-  `APELLIDO_PATERNO` varchar(50) NOT NULL,
-  `APELLIDO_MATERNO` varchar(50) NOT NULL,
-  `FECHA_NACIMIENTO` date NOT NULL,
-  `CURP` varchar(100) NOT NULL,
-  `DIRECCION` text NOT NULL,
-  `NUMERO_LICENCIA` varchar(100) NOT NULL,
-  `ANTIGUEDAD` int(11) NOT NULL,
-  `ID_ESTATUS_CONDUCTORES` int(11) NOT NULL,
-  PRIMARY KEY (`ID_CONDUCTORES`),
-  KEY `ID_ESTATUS_CONDUCTORES` (`ID_ESTATUS_CONDUCTORES`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -98,29 +68,7 @@ INSERT INTO `empleados` (`id`, `id_sucursal`, `nombre`, `apellidos`, `telefono`,
 -- Estructura de tabla para la tabla `estatus_camiones`
 --
 
-DROP TABLE IF EXISTS `estatus_camiones`;
-CREATE TABLE IF NOT EXISTS `estatus_camiones` (
-  `ID_ESTATUS_CAMIONES` int(11) NOT NULL AUTO_INCREMENT,
-  `DESCRIPCION` varchar(30) NOT NULL,
-  `ESTATUS` int(11) NOT NULL,
-  PRIMARY KEY (`ID_ESTATUS_CAMIONES`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estatus_conductores`
---
-
-DROP TABLE IF EXISTS `estatus_conductores`;
-CREATE TABLE IF NOT EXISTS `estatus_conductores` (
-  `ID_ESTATUS_CONDUCTORES` int(11) NOT NULL AUTO_INCREMENT,
-  `DESCRIPCION` varchar(30) NOT NULL,
-  `ESTATUS` int(11) NOT NULL,
-  PRIMARY KEY (`ID_ESTATUS_CONDUCTORES`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `mantenimiento`
@@ -155,17 +103,6 @@ INSERT INTO `mantenimiento` (`id`, `id_sucursal`, `fecha_servicio`, `nombre_tall
 -- Estructura de tabla para la tabla `refacciones`
 --
 
-DROP TABLE IF EXISTS `refacciones`;
-CREATE TABLE IF NOT EXISTS `refacciones` (
-  `ID_REFACCIONES` int(11) NOT NULL AUTO_INCREMENT,
-  `CODIGO` varchar(80) NOT NULL,
-  `NOMBRE` varchar(200) NOT NULL,
-  `CANTIDAD` int(11) NOT NULL,
-  `DESCRIPCION` text NOT NULL,
-  PRIMARY KEY (`ID_REFACCIONES`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `roles`
@@ -243,20 +180,7 @@ INSERT INTO `usuarios` (`id`, `id_empleado`, `id_rol`, `usuario`, `password`, `f
 
 --
 -- Estructura de tabla para la tabla `viaje`
---
-
-DROP TABLE IF EXISTS `viaje`;
-CREATE TABLE IF NOT EXISTS `viaje` (
-  `ID_VIAJE` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_CAMIONES` int(11) NOT NULL,
-  `ID_CONDUCTORES` int(11) NOT NULL,
-  `ID_REFACCIONES` int(11) NOT NULL,
-  `DESCRIPCION` text NOT NULL,
-  PRIMARY KEY (`ID_VIAJE`),
-  KEY `ID_CAMIONES` (`ID_CAMIONES`),
-  KEY `ID_CONDUCTORES` (`ID_CONDUCTORES`),
-  KEY `ID_REFACCIONES` (`ID_REFACCIONES`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  
 
 --
 -- Restricciones para tablas volcadas
