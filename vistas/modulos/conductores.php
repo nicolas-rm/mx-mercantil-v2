@@ -21,7 +21,7 @@
     <section class="content">
 
       <div class="row">
-        <div >
+        <div>
           <!-- xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
           <div class="box box-primary">
             <form role="form" method="post" enctype="multipart/form-data">
@@ -119,13 +119,14 @@
               </div>
 
               <div class="modal-footer">
-
-                <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
-
                 <button type="submit" class="btn btn-primary">Guardar Conductor</button>
 
               </div>
 
+              <?php
+              $insert = new ConductoresControlador();
+              $insert->agregarConductorControlador();
+              ?>
             </form>
           </div>
         </div>
