@@ -213,6 +213,16 @@
 
 					<li>
 
+						<a href="estatus">
+
+							<i class="fa fa-podcast"></i>
+							<span>Estatus</span>
+
+						</a>
+
+					</li>
+					<li>
+
 						<a href="conductores">
 
 							<i class="fa fa-podcast"></i>

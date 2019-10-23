@@ -7,7 +7,19 @@ class ModeloConductores
 
     /*=============================================
 	MOSTRAR USUARIOS
-	=============================================*/
+    =============================================*/
+    static public function mostrarConductorModelo($tabla)
+    {
+        # code...
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+        $stmt->execute();
+
+        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
+        return $stmt->fetchAll();
+
+        /* CERRAR LA CONEXION DE LA CONSULTA */
+        $stmt->close();
+    }
 
     /*=============================================
 	REGISTRO DE SUCURSAL

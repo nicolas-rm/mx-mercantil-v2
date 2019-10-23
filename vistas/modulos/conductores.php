@@ -18,7 +18,7 @@
 
 
 
-    <section class="content">
+    <section class="content" style="height: max-content;">
 
       <div class="row">
         <div>
@@ -105,10 +105,18 @@
                     <label>Estatus:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+
                       <select class="form-control" id="nuevoEstatusConductores" name="nuevoEstatusConductores" required>
                         <option value="default" disabled selected>Estatus</option>
-                        <option value="1">Inactivo</option>
-                        <option value="2">Activo</option>
+                        <?php
+                        $status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+
+                        foreach ($status as $key => $value) {
+                          if ($value["DESCRIPCION"] != "INACTIVO") {
+                            echo '<option value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -116,12 +124,20 @@
 
                 </div>
 
+                <div class="modal-body">
+  
+                  <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
+  
+                  <button type="submit" class="btn btn-primary pull-right">Guardar Mantenimientos</button>
+  
+                </div>
               </div>
+              <!-- <div class="modal-footer col-md-12 pull-right">
+                <button type="submit" class="btn btn-primary pull-right">Guardar Conductor</button>
 
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Guardar Conductor</button>
+              </div> -->
 
-              </div>
+
 
               <?php
               $insert = new ConductoresControlador();
@@ -131,9 +147,75 @@
           </div>
         </div>
         <!-- /.col (right) -->
+
       </div>
       <!-- /.row -->
+      <div class="row">
+        <div class="">
+          <div class="box box-primary">
+            <div class="box-header">
+              <h3 class="box-title">Roles agregadas</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered dt-responsive example">
+                <thead>
+                  <tr>
+                    <th>
+                      #
+                    </th>
+                    <th>
+                      Nombre
+                    </th>
+                    <th>
+                      Apellidos
+                    </th>
+                    <th>
+                      Fecha Nacimiento
+                    </th>
+                    <th>
+                      Curp
+                    </th>
+                    <th>
+                      Direccion
+                    </th>
+                    <th>
+                      Numero Licencia
+                    </th>
+                    <th>
+                      Antiguedad
+                    </th>
+                    <th>
+                      Estatus
+                    </th>
+                    <th style="width:50px">
+                      Acciones
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
 
+                  <?php
+
+                  $read = new ConductoresControlador();
+                  $read->mostrarConductorControlador();
+
+
+                  ?>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- /.box-body -->
+          </div>
+
+          <!-- /.box -->
+        </div>
+      </div>
     </section>
+
+    <!-- <section class="content"> -->
+
+    <!-- </section> -->
     <!-- /.content -->
   </div>
