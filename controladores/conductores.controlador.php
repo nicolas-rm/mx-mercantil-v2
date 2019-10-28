@@ -6,7 +6,7 @@ class ConductoresControlador
 	/*=============================================
 	REGISTRO DE CONDUCTORES
 	=============================================*/
-
+	public $editConductor;
 	static public function agregarConductorControlador()
 	{
 
@@ -166,7 +166,7 @@ class ConductoresControlador
 
                   <div class="btn-group">
 
-                  <button id="editConductor" type="button" class="btn btn-primary editConductor" data-toggle="modal" data-target="#modalEditarConductor" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
 
                   <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
 
@@ -182,9 +182,70 @@ class ConductoresControlador
 	static public function editarConductorControlador($editConductor)
 	{
 		# code...
-		echo '...................si entro...........';
+		// echo '...................si entro...........';
+		// $_POST[$editConductor] = $editConductor;
+
+		// $editConductor = '<script> document.write(idMantenimiento) </script>';
 		$tabladb = "CONDUCTORES";
-		$respuesta = ModeloConductores::editarConductorModelo($editConductor, $tabladb);
+		$respuesta = ModeloConductores::editarConductorModelo($tabladb, $editConductor);
 		return $respuesta;
+	}
+
+	static public function actualizarConductorControlador()
+	{
+		if (isset($_POST["editNombre"])) {
+			/* DATOS ENVIADOS Y ALMACENA EN UN ARRAY CON LOS NOMBRES DE LA BASE DE DATOS */
+			$datosControlador = array(
+				"ID_CONDUCTORES" => $_POST["editConductor"],
+				"NOMBRE" => $_POST["editNombre"],
+				"APELLIDOS" => $_POST["editApellidos"],
+				"FECHA_NACIMIENTO" => $_POST["editFechaNacimiento"],
+				"CURP" => $_POST["editCurp"],
+				"DIRECCION" => $_POST["editDireccion"],
+				"NUMERO_LICENCIA" => $_POST["editNumeroLicencia"],
+				"ANTIGUEDAD" => $_POST["editAntiguedad"],
+				"ID_ESTATUS_CONDUCTORES" => $_POST["editEstatusConductores"]
+			);
+
+			/* TABLA DE BASE DE DATOS */
+			$tabladb = "CONDUCTORES";
+
+			/* METODO DE LA BASE DE DATOS */
+			$respuesta = ModeloConductores::actualizarConductorModelo($datosControlador, $tabladb);
+
+			if ($respuesta == "ok") {
+
+
+				echo '<script>
+				
+				swal({
+					
+					type: "success",
+					title: "Conductor Guardado Correctamente",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar",
+					closeOnConfirm: false
+					
+				}).then((result)=>{
+					
+					if(result.value){
+						
+						window.location = "conductores";
+						
+					}
+					
+				});
+				
+				
+				</script>';
+			}
+			/* RESPUESTA DEL METODO DE LA BASE DE DATOS */
+			// if ($respuesta == "bien") {
+			// 	header("location:ConductoresRead");
+			// } else {
+			// 	echo "Error En la edicion de datos de datos";
+			// 	// echo "<br/>";
+			// }
+		}
 	}
 }

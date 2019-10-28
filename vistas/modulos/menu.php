@@ -231,6 +231,16 @@
 						</a>
 
 					</li>
+					<li>
+
+						<a href="conductoresRead">
+
+							<i class="fa fa-podcast"></i>
+							<span>Mostrar Conductor</span>
+
+						</a>
+
+					</li>
 
 
 

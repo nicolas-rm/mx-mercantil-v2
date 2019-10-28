@@ -1,6 +1,7 @@
 <?php
-require_once "controladores/conductores.controlador.php";
-require_once "modelos/conductores.modelo.php";
+require_once "../controladores/conductores.controlador.php";
+require_once "../modelos/conductores.modelo.php";
+// require_once "./modelos/conexion.php";
 
 class AjaxConductores
 {
@@ -13,13 +14,12 @@ class AjaxConductores
 
 	public function ajaxEditarConductor()
 	{
-		// $editConductor = $this->editConductor;
-		// $respuesta = ConductoresControlador::editarConductorControlador($editConductor);
-		$id = $this->editConductor;
-		$respuesta = new ConductoresControlador();
-		$respuesta -> editarConductorControlador($id);
-		// $respuesta = "hola tio como estas";
-		echo json_encode($respuesta);
+
+		$valor = $this->editConductor;
+		$datos = ConductoresControlador::editarConductorControlador($valor);
+		// var_dump($datos);
+		// $_POST["ID_ESTATUS_CONDUCTORES"] = $datos["ID_ESTATUS_CONDUCTORES"];
+		echo json_encode($datos);
 	}
 }
 

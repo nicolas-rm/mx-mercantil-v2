@@ -123,7 +123,8 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "empleados" ||  //ya esta 
         $_GET["ruta"] == "mantenimiento" ||
         $_GET["ruta"] == "sucursales" || //ya esta .. falta editar y eliminar .. (modulo de ricardo)
-        $_GET["ruta"] == "conductores"
+        $_GET["ruta"] == "conductores" || 
+        $_GET["ruta"] == "conductoresRead" 
       ) {
 
 

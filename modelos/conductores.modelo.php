@@ -19,6 +19,8 @@ class ModeloConductores
 
         /* CERRAR LA CONEXION DE LA CONSULTA */
         $stmt->close();
+
+        $stmt = null;
     }
 
     /*=============================================
@@ -57,20 +59,56 @@ class ModeloConductores
 	EDITAR CONDUCTORES
     =============================================*/
 
-    static public function editarConductorModelo($editConductor, $tabladb)
+    static public function editarConductorModelo($tabla, $datos)
+    {
+        # code...
+
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE ID_CONDUCTORES = :ID_CONDUCTORES");
+        $stmt->bindParam(":ID_CONDUCTORES", $datos, PDO::PARAM_INT);
+        $stmt->execute();
+
+        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
+        return $stmt->fetch();
+
+        /* CERRAR LA CONEXION DE LA CONSULTA */
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+    public function actualizarConductorModelo($datosC, $tabladb)
     {
 
         /* QUERY PARA LA INSERCCION A LA BASE DE DATOS */
-        $pdo = Conexiondb::conexion()->prepare("SELECT * FROM $tabladb WHERE ID_CONDUCTORES = :ID_CONDUCTORES");
+        $pdo = Conexion::conectar()->prepare("UPDATE $tabladb SET NOMBRE = :NOMBRE, APELLIDOS = :APELLIDOS, CURP = :CURP, DIRECCION = :DIRECCION, NUMERO_LICENCIA = :NUMERO_LICENCIA,
+        ANTIGUEDAD = :ANTIGUEDAD, ID_ESTATUS_CONDUCTORES = :ID_ESTATUS_CONDUCTORES WHERE ID_CONDUCTORES = :ID_CONDUCTORES");
         /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
-        $pdo->bindParam(":ID_CONDUCTORES", $editConductor, PDO::PARAM_INT);
+        $pdo->bindParam(":ID_CONDUCTORES", $datosC["ID_CONDUCTORES"], PDO::PARAM_INT);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":NOMBRE", $datosC["NOMBRE"], PDO::PARAM_STR);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":APELLIDOS", $datosC["APELLIDOS"], PDO::PARAM_STR);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":CURP", $datosC["CURP"], PDO::PARAM_STR);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":DIRECCION", $datosC["DIRECCION"], PDO::PARAM_STR);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":NUMERO_LICENCIA", $datosC["NUMERO_LICENCIA"], PDO::PARAM_STR);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":ANTIGUEDAD", $datosC["ANTIGUEDAD"], PDO::PARAM_STR);
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":ID_ESTATUS_CONDUCTORES", $datosC["ID_ESTATUS_CONDUCTORES"], PDO::PARAM_STR);
+
+        /* CONDICION PARA VER SI EXISTE ALGUN ERROR */
         /* FUNCION PARA EJECUTAR LA QUERY */
-        $pdo->execute();
+        if ($pdo->execute()) {
+            /* RESPUESTA POR SI TODO SALIO BIEN */
+            return "ok";
+        } else {
+            /* RESPUESTA POR SI TODO SALIO MAL*/
+            return "error";
+        }
 
-        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
-        return $pdo->fetch();
-
-        /* CERRAR LA CONEXION DE LA CONSULTA */
         $pdo->close();
     }
 }
