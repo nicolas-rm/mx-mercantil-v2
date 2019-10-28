@@ -6,7 +6,7 @@ class ModeloConductores
 {
 
     /*=============================================
-	MOSTRAR USUARIOS
+	MOSTRAR CONDUCTORES
     =============================================*/
     static public function mostrarConductorModelo($tabla)
     {
@@ -22,7 +22,7 @@ class ModeloConductores
     }
 
     /*=============================================
-	REGISTRO DE SUCURSAL
+	REGISTRAR CONDUCTORES
 	=============================================*/
 
     static public function agregarConductorModelo($tabla, $datos)
@@ -54,6 +54,23 @@ class ModeloConductores
 
 
     /*=============================================
-	EDITAR CATEGORIA
-	=============================================*/
+	EDITAR CONDUCTORES
+    =============================================*/
+
+    static public function editarConductorModelo($editConductor, $tabladb)
+    {
+
+        /* QUERY PARA LA INSERCCION A LA BASE DE DATOS */
+        $pdo = Conexiondb::conexion()->prepare("SELECT * FROM $tabladb WHERE ID_CONDUCTORES = :ID_CONDUCTORES");
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+        $pdo->bindParam(":ID_CONDUCTORES", $editConductor, PDO::PARAM_INT);
+        /* FUNCION PARA EJECUTAR LA QUERY */
+        $pdo->execute();
+
+        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
+        return $pdo->fetch();
+
+        /* CERRAR LA CONEXION DE LA CONSULTA */
+        $pdo->close();
+    }
 }

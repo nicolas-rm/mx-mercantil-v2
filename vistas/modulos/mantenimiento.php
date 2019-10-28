@@ -261,7 +261,7 @@
 
                     <div class="btn-group">
               
-               <button class="btn btn-primary btnEditarMantenimiento" data-toggle="modal" data-target="#modalEditarMantenimiento" idMantenimiento="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
+               <button id="btnEditarMantenimiento" type="button" class="btn btn-primary btnEditarMantenimiento" data-toggle="modal" data-target="#modalEditarMantenimiento" value="' . $value["id"] . '" idMantenimiento="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
                     </div>  
                   </td>';
                   }

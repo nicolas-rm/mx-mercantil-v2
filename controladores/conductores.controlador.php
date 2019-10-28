@@ -140,50 +140,51 @@ class ConductoresControlador
 		/* METODO DE LA BASE DE DATOS */
 		$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
 
-		$id = null;
 		/* FILAS DE LA BASE DE DATOS */
 		foreach ($respuesta as $key => $value) {
-			$estatus = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
-			/* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-			$descripcion = null;
-			foreach ($estatus as $key => $val) {
-				if ($value["ID_ESTATUS_CONDUCTORES"] == $val["ID_ESTATUS_CONDUCTORES"]) {
-					$descripcion = $val["DESCRIPCION"];
-				}
-			}
+			echo '
+			<tr>
+				<td>
+				' . $value["NOMBRE"] . '
+				</td>
+				<td>
+				' . $value["APELLIDOS"] . '
+				</td>
+				<td>
+				' . $value["FECHA_NACIMIENTO"] . '
+				</td>
+				<td>
+				' . $value["CURP"] . '"
+				</td>
+				<td>
+				' . $value["DIRECCION"] . '
+				</td>
+				<td>
+				' . $value["NUMERO_LICENCIA"] . '
+				</td>
+				<td>
 
-			if ($descripcion != "INACTIVO") {
+                  <div class="btn-group">
 
-				// $id = $value["ID_CONDUCTORES"];
-				// echo '<br/>';
-				// echo ($value["ID_CONDUCTORES"]);
-				// echo '<br/>';
-				echo
-					'<tr>
-                    <td>' . $value["ID_CONDUCTORES"] . '</td>
-                    <td>' . $value["NOMBRE"] . '</td>
-                    <td>' . $value["APELLIDOS"] . '</td>
-                    <td>' . $value["FECHA_NACIMIENTO"] . '</td>
-                    <td>' . $value["CURP"] . '</td>
-                    <td>' . $value["DIRECCION"] . '</td>
-                    <td>' . $value["NUMERO_LICENCIA"] . '</td>
-                    <td>' . $value["ANTIGUEDAD"] . '</td>
-                    <td>' . $descripcion . '</td>
+                  <button id="editConductor" type="button" class="btn btn-primary editConductor" data-toggle="modal" data-target="#modalEditarConductor" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
 
-					<td>
-					<div class="btn-group">
+                  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
 
-					<button class="btn btn-primary btnEditarUsuario" idUsuario="' . $value["ID_CONDUCTORES"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
-					</div>  
-                    </td>
-                </tr>';
-			}
+                  </div>  
 
-
-
-			// $_POST["ruta"] == "ConductoresEdit";}
-			// $_GET["ruta"] == "ConductoresEdit";
-
+                  </td>
+			</tr>';
 		}
+	}
+
+
+
+	static public function editarConductorControlador($editConductor)
+	{
+		# code...
+		echo '...................si entro...........';
+		$tabladb = "CONDUCTORES";
+		$respuesta = ModeloConductores::editarConductorModelo($editConductor, $tabladb);
+		return $respuesta;
 	}
 }

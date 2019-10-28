@@ -138,8 +138,10 @@ $(".btnEliminarUsuario").click(function () {
 });
 
 $(".btnEditarUsuario").click(function () {
-  var idUsuario = $(this).attr("idUsuario");
 
+
+  var idUsuario = $(this).attr("idUsuario");
+  console.log("ID USUARIO ", idUsuario);
   var datos = new FormData();
   datos.append("idUsuario", idUsuario);
 

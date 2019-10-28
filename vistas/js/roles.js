@@ -73,7 +73,7 @@ EDITAR ROL
 $(".btnEditarRol").click(function(){
 
   var idRol = $(this).attr("idRol");
-  
+  console.log("AQUI ENTRO AL EDITAR ROL");
   var datos = new FormData();
   datos.append("idRol", idRol);
 

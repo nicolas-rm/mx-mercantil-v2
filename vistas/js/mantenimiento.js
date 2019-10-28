@@ -2,38 +2,45 @@
 EDITAR USUARIO
 =============================================*/
 
-$(".btnEditarMantenimiento").click(function() { //cuando de clic traiga todo los datos del usuario
+$(function () {
+    // console.log("ENTRO A DENTRO DE LA FUNCION");
+    $('body').on('click', 'button.btnEditarMantenimiento', function (e) {
+        // console.log("HOLA");
 
-    var idMantenimiento = $(this).attr("idMantenimiento");
+        var idMantenimiento = $(this).attr("value");
 
-    var datos = new FormData(); //guardo los datos
-    datos.append('idMantenimiento', idMantenimiento); //le asigno el id a la variable datos
+        var datos = new FormData(); //guardo los datos
+        datos.append('idMantenimiento', idMantenimiento); //le asigno el id a la variable datos
 
-    $.ajax({
-
-        url: "ajax/mantenimiento.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: "json",
-        success: function(respuesta) {
-
-            $("#editarFechaServicio").val(respuesta["fecha_servicio"]);
-            $("#editarNombreTaller").val(respuesta["nombre_taller"]);
-            $("#editarkilometraje").val(respuesta["kilometraje"]);
-            $("#editarDescripcion").val(respuesta["descripcion"]);
-            $("#editarNombreMecanico").val(respuesta["nombre_mecanico"]);
-            $("#editarCosto").val(respuesta["precio"]);
-            $("#editarProximoServicio").val(respuesta["proximo_servicio"]);
-            $("#idMantenimiento").val(respuesta["id"]);
-        }
+        $.ajax({
+    
+            url: "ajax/mantenimiento.ajax.php",
+            method: "POST",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function(respuesta) {
+    
+                $("#editarFechaServicio").val(respuesta["fecha_servicio"]);
+                $("#editarNombreTaller").val(respuesta["nombre_taller"]);
+                $("#editarkilometraje").val(respuesta["kilometraje"]);
+                $("#editarDescripcion").val(respuesta["descripcion"]);
+                $("#editarNombreMecanico").val(respuesta["nombre_mecanico"]);
+                $("#editarCosto").val(respuesta["precio"]);
+                $("#editarProximoServicio").val(respuesta["proximo_servicio"]);
+                $("#idMantenimiento").val(respuesta["id"]);
+            }
+    
+        });
 
     });
-
 });
 
+// $(".btnEditarMantenimiento").click(function() { //cuando de clic traiga todo los datos del usuario
+
+    
 $("#nuevoFechaServicio").change(function(){
     //Comprobamos que tenga formato correcto
     var n = new Date(); 
@@ -80,3 +87,5 @@ $("#nuevoFechaServicio").change(function(){
         $("#nuevoFechaServicio").val( '' );
     }
 });
+// });
+
