@@ -139,41 +139,58 @@ class ConductoresControlador
 		// $_POST["edit"] == null;
 		/* METODO DE LA BASE DE DATOS */
 		$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
-
+		$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 		/* FILAS DE LA BASE DE DATOS */
 		foreach ($respuesta as $key => $value) {
-			echo '
-			<tr>
-				<td>
-				' . $value["NOMBRE"] . '
-				</td>
-				<td>
-				' . $value["APELLIDOS"] . '
-				</td>
-				<td>
-				' . $value["FECHA_NACIMIENTO"] . '
-				</td>
-				<td>
-				' . $value["CURP"] . '"
-				</td>
-				<td>
-				' . $value["DIRECCION"] . '
-				</td>
-				<td>
-				' . $value["NUMERO_LICENCIA"] . '
-				</td>
-				<td>
+			$descripcion = null;
+			foreach ($status as $val => $valor) {
+				# code...
+				if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
+					# code...
+					$descripcion = $valor["DESCRIPCION"];
+				}
+			}
 
-                  <div class="btn-group">
-
-                  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
-
-                  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
-
-                  </div>  
-
-                  </td>
-			</tr>';
+			if ($descripcion != "inactivo" && $descripcion != "INACTIVO") {
+				echo '
+				<tr>
+					<td>
+					' . $value["NOMBRE"] . '
+					</td>
+					<td>
+					' . $value["APELLIDOS"] . '
+					</td>
+					<td>
+					' . $value["FECHA_NACIMIENTO"] . '
+					</td>
+					<td>
+					' . $value["CURP"] . '"
+					</td>
+					<td>
+					' . $value["DIRECCION"] . '
+					</td>
+					<td>
+					' . $value["NUMERO_LICENCIA"] . '
+					</td>
+					<td>
+					' . $value["ANTIGUEDAD"] . '
+					</td>
+					<td>
+					' . $descripcion . '
+					</td>
+					<td>
+	
+					  <div class="btn-group">
+	
+					  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
+	
+					  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
+	
+					  </div>  
+	
+					  </td>
+				</tr>';
+			}
 		}
 	}
 
@@ -186,6 +203,12 @@ class ConductoresControlador
 		// $_POST[$editConductor] = $editConductor;
 
 		// $editConductor = '<script> document.write(idMantenimiento) </script>';
+		// $id = null;
+		$edit = new AjaxConductores();
+		$id = $edit->ajaxEditar();
+
+		// var_dump($id);
+		// echo '<script> console.log("valor de ese id: " + id); </script>';
 		$tabladb = "CONDUCTORES";
 		$respuesta = ModeloConductores::editarConductorModelo($tabladb, $editConductor);
 		return $respuesta;
@@ -230,7 +253,7 @@ class ConductoresControlador
 					
 					if(result.value){
 						
-						window.location = "conductores";
+						window.location = "conductoresRead";
 						
 					}
 					

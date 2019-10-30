@@ -50,7 +50,15 @@
                                       <th>
                                           NUMERO LICENCIA
                                       </th>
-                                      <th style="width:50px">Acciones</th>
+                                      <th>
+                                          ANTIGUEDAD
+                                      </th>
+                                      <th>
+                                          ESTATUS
+                                      </th>
+                                      <th style="width:50px">
+                                          Acciones
+                                      </th>
                                   </tr>
                               </thead>
                               <tbody>
