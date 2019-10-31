@@ -5,11 +5,11 @@
     <section class="content-header">
       <h1>
         Administrar Roles
-        
+
       </h1>
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        
+
         <li class="active">Roles</li>
       </ol>
     </section>
@@ -18,7 +18,8 @@
     <section class="content">
 
       <div class="row">
-        <div class="col-md-4"> <!-- xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
+        <div class="col-md-4">
+          <!-- xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
 
           <div class="box box-primary">
 
@@ -35,7 +36,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
                     <input type="text" class="form-control " id="nuevoRol" name="nuevoRol" placeholder="requerido" required>
 
@@ -56,7 +57,7 @@
                 <?php
 
                 $crearRol = new ControladorRoles();
-                $crearRol -> ctrCrearRol();
+                $crearRol->ctrCrearRol();
 
                 ?>
 
@@ -64,174 +65,174 @@
 
               </div>
             </form>
-             
-          </div>
-          
 
-        </div> 
-       
-        
+          </div>
+
+
+        </div>
+
+
         <div class="col-md-8">
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Roles agregadas</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body"> 
-              <table class="table table-bordered dt-responsive example"> 
+            <div class="box-body">
+              <table class="table table-bordered dt-responsive example">
 
 
                 <thead>
 
-                 <tr>
- 
-                   <th style="width:500px">Nombre</th>
+                  <tr>
 
-                   <th  style="width:50px">Acciones</th>
+                    <th style="width:500px">Nombre</th>
 
-                 </tr> 
+                    <th style="width:50px">Acciones</th>
 
-               </thead>
+                  </tr>
 
-                  <tbody>
+                </thead>
 
-                    <?php
+                <tbody>
 
-                    $item = null;
-                    $valor = null;
+                  <?php
 
-                    $roles = ControladorRoles::ctrMostrarRoles($item, $valor);
+                  $item = null;
+                  $valor = null;
 
-                      foreach ($roles as $key => $value){
-         
-                           echo ' <tr>
+                  $roles = ControladorRoles::ctrMostrarRoles($item, $valor);
+
+                  foreach ($roles as $key => $value) {
+
+                    echo ' <tr>
                    
                    
-                  <td>'.$value["nombre"].'</td>';
+                  <td>' . $value["nombre"] . '</td>';
 
-                              
 
-                  echo ' 
+
+                    echo ' 
                   <td>
 
                     <div class="btn-group">
                         
-                      <button class="btn btn-primary btnEditarRol" data-toggle="modal" data-target="#modalEditarRol" idRol="'.$value["id"].'" ><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-primary btnEditarRol" data-toggle="modal" data-target="#modalEditarRol" idRol="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
 
-                      <button class="btn btn-danger btnEliminarRol" idRol="'.$value["id"].'"  ><i class="fa fa-times"></i></button>
+                      <button class="btn btn-danger btnEliminarRol" idRol="' . $value["id"] . '"  ><i class="fa fa-times"></i></button>
 
                     </div>  
 
                   </td>
 
                 </tr>';
-        }
+                  }
 
 
-        ?> 
+                  ?>
 
-               </tbody>
+                </tbody>
 
-            </table>
+              </table>
+            </div>
+            <!-- /.box-body -->
           </div>
-          <!-- /.box-body -->
+
+          <!-- /.box -->
         </div>
-
-        <!-- /.box -->
+        <!-- /.col (right) -->
       </div>
-      <!-- /.col (right) -->
-    </div>
-    <!-- /.row -->
+      <!-- /.row -->
 
-  </section>
-  <!-- /.content -->
-</div>
+    </section>
+    <!-- /.content -->
+  </div>
 
-<!--=====================================
+  <!--=====================================
 MODAL EDITAR ROL
 ======================================-->
 
-<div id="modalEditarRol" class="modal fade" role="dialog">
-  
-  <div class="modal-dialog">
+  <div id="modalEditarRol" class="modal fade" role="dialog">
 
-    <div class="modal-content">
+    <div class="modal-dialog">
 
-      <form role="form" method="post" enctype="multipart/form-data">
+      <div class="modal-content">
 
-        <!--=====================================
+        <form role="form" method="post" enctype="multipart/form-data">
+
+          <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+          <div class="modal-header" style="background:#3c8dbc; color:white">
 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar rol</h4>
+            <h4 class="modal-title">Editar rol</h4>
 
-        </div>
+          </div>
 
-        <!--=====================================
+          <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
-        <div class="modal-body">
+          <div class="modal-body">
 
-          <div class="box-body">
+            <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
-                <div class="form-group">
-                  <label>Nombre:</label>
+              <!-- ENTRADA PARA EL NOMBRE -->
 
-                  <div class="input-group">
+              <div class="form-group">
+                <label>Nombre:</label>
 
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
+                <div class="input-group">
 
-                    <input type="text" class="form-control " id="editarRol" name="editarRol" required>
+                  <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                     <input type="hidden"  name="idRol" id="idRol">
+                  <input type="text" class="form-control " id="editarRol" name="editarRol" required>
 
-                  </div>
+                  <input type="hidden" name="idRol" id="idRol">
 
                 </div>
 
+              </div>
+
+
+            </div>
 
           </div>
- 
-        </div>
 
-        <!--=====================================
+          <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
-        <div class="modal-footer">
+          <div class="modal-footer">
 
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Modificar rol</button>
+            <button type="submit" class="btn btn-primary">Modificar rol</button>
 
-        </div>
+          </div>
 
-        <?php
+          <?php
 
-         $editarRol = new ControladorRoles();
-         $editarRol -> ctrEditarRol();
+          $editarRol = new ControladorRoles();
+          $editarRol->ctrEditarRol();
 
-?> 
+          ?>
 
 
-      </form>
+        </form>
+
+      </div>
 
     </div>
 
   </div>
 
-</div>
-
-<?php
+  <?php
 
   $borrarRol = new ControladorRoles();
-  $borrarRol -> ctrBorrarRol();
+  $borrarRol->ctrBorrarRol();
 
-?> 
+  ?>

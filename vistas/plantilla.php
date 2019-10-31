@@ -5,13 +5,12 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mercantil del Constructor SA de CV</title>
 
   <!-- Tell the browser to be responsive to screen width -->
@@ -78,15 +77,7 @@ session_start();
   <!-- SweetAlert 2 -->
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
 
-
-
-
 </head>
-
-<!--=====================================
-CUERPO DOCUMENTO
-======================================-->
-<!-- oncontextmenu="return false"   ponerselo al body -->
 
 <body class="hold-transition skin-blue sidebar-mini login-page">
 
@@ -123,8 +114,10 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "empleados" ||  //ya esta 
         $_GET["ruta"] == "mantenimiento" ||
         $_GET["ruta"] == "sucursales" || //ya esta .. falta editar y eliminar .. (modulo de ricardo)
-        $_GET["ruta"] == "conductores" || 
-        $_GET["ruta"] == "conductoresRead" 
+        $_GET["ruta"] == "conductores" ||
+        $_GET["ruta"] == "conductoresRead" ||
+        $_GET["ruta"] == "estatus" ||
+        $_GET["ruta"] == "estatusRead"
       ) {
 
 
@@ -152,7 +145,6 @@ CUERPO DOCUMENTO
 
   ?>
 
-
   <script src="vistas/js/plantilla.js"></script>
   <script src="vistas/js/roles.js"></script>
   <script src="vistas/js/empleados.js"></script>
@@ -163,7 +155,6 @@ CUERPO DOCUMENTO
   <script src="vistas/js/sucursales.js"></script>
   <script src="vistas/js/mantenimiento.js"></script>
   <script src="vistas/js/conductores.js"></script>
-
 </body>
 
 </html>
