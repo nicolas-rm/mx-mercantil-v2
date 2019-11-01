@@ -34,9 +34,8 @@ class EstatusControlador
 						closeOnConfirm: false
 
 					}).then((result)=>{
-
 						if(result.value){
-						
+                            window.location = "estatus";
 						}
 
 					});
@@ -65,6 +64,164 @@ class EstatusControlador
 				
 
 					</script>';
+            } else {
+                echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "Estatus No Creado.",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+						}
+
+					});
+				
+
+					</script>';
+            }
+        }
+    }
+
+    public function mostrarEstatusTabla()
+    {
+        # code...
+
+
+        if (isset($_POST["mostrarEstatusPertenencia"])) {
+            if ($_POST["mostrarEstatusPertenencia"] == "1") {
+                # code...
+                $tableid = null;
+
+                $statusConductores = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+                $statusCamiones = EstatusModelo::MostrarEstatus("ESTATUS_CAMIONES");
+
+                foreach ($statusConductores as $key => $value) {
+                    $tableid++;
+                    /* CONVERSION DE DATOS DEL ESTATUS */
+                    $estatus = null;
+                    if ($value["ESTATUS"] == 1) {
+                        $estatus = "ACTIVO";
+                    } else {
+                        $estatus = "INACTIVO";
+                    }
+                    /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
+                    echo '<tr>
+            <td>' . $tableid . '</td>
+            <td>' . $value["DESCRIPCION"] . '</td>
+            <td>' . $estatus . '</td>
+            <td>' . "CONDUCTORES" . '</td>
+            
+        </tr>';
+                }
+                foreach ($statusCamiones as $key => $value) {
+                    $tableid++;
+                    /* CONVERSION DE DATOS DEL ESTATUS */
+                    $estatus = null;
+                    if ($value["ESTATUS"] == 1) {
+                        $estatus = "ACTIVO";
+                    } else {
+                        $estatus = "INACTIVO";
+                    }
+                    /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
+                    echo '<tr>
+            <td>' . $tableid . '</td>
+            <td>' . $value["DESCRIPCION"] . '</td>
+            <td>' . $estatus . '</td>
+            <td>' . "CAMIONES" . '</td>
+            
+        </tr>';
+                }
+            } else if ($_POST["mostrarEstatusPertenencia"] == "2") {
+                # code...
+                $statusConductores = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+                foreach ($statusConductores as $key => $value) {
+                    // $tableid++;
+                    /* CONVERSION DE DATOS DEL ESTATUS */
+                    $estatus = null;
+                    if ($value["ESTATUS"] == 1) {
+                        $estatus = "ACTIVO";
+                    } else {
+                        $estatus = "INACTIVO";
+                    }
+                    /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
+                    echo '<tr>
+                    <td>' . ($key + 1) . '</td>
+                    <td>' . $value["DESCRIPCION"] . '</td>
+                    <td>' . $estatus . '</td>
+                    <td>' . "CONDUCTORES" . '</td>
+                    
+                </tr>';
+                }
+            } else if ($_POST["mostrarEstatusPertenencia"] == "3") {
+                # code...
+                $statusCamiones = EstatusModelo::MostrarEstatus("ESTATUS_CAMIONES");
+                foreach ($statusCamiones as $key => $value) {
+                    // $tableid++;
+                    /* CONVERSION DE DATOS DEL ESTATUS */
+                    $estatus = null;
+                    if ($value["ESTATUS"] == 1) {
+                        $estatus = "ACTIVO";
+                    } else {
+                        $estatus = "INACTIVO";
+                    }
+                    /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
+                    echo '<tr>
+                    <td>' . ($key + 1) . '</td>
+                    <td>' . $value["DESCRIPCION"] . '</td>
+                    <td>' . $estatus . '</td>
+                    <td>' . "CONDUCTORES" . '</td>
+                    
+                </tr>';
+                }
+            }
+        } else {
+            $tableid = null;
+
+            $statusConductores = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+            $statusCamiones = EstatusModelo::MostrarEstatus("ESTATUS_CAMIONES");
+
+            foreach ($statusConductores as $key => $value) {
+                $tableid++;
+                /* CONVERSION DE DATOS DEL ESTATUS */
+                $estatus = null;
+                if ($value["ESTATUS"] == 1) {
+                    $estatus = "ACTIVO";
+                } else {
+                    $estatus = "INACTIVO";
+                }
+                /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
+                echo '<tr>
+            <td>' . $tableid . '</td>
+            <td>' . $value["DESCRIPCION"] . '</td>
+            <td>' . $estatus . '</td>
+            <td>' . "CONDUCTORES" . '</td>
+            
+        </tr>';
+            }
+            foreach ($statusCamiones as $key => $value) {
+                $tableid++;
+                /* CONVERSION DE DATOS DEL ESTATUS */
+                $estatus = null;
+                if ($value["ESTATUS"] == 1) {
+                    $estatus = "ACTIVO";
+                } else {
+                    $estatus = "INACTIVO";
+                }
+                /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
+                echo '<tr>
+            <td>' . $tableid . '</td>
+            <td>' . $value["DESCRIPCION"] . '</td>
+            <td>' . $estatus . '</td>
+            <td>' . "CAMIONES" . '</td>
+            
+        </tr>';
             }
         }
     }

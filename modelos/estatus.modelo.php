@@ -7,7 +7,7 @@ class EstatusModelo
     static public function MostrarEstatus($tabladb)
     {
         /* QUERY PARA LA INSERCCION A LA BASE DE DATOS */
-        $pdo = Conexion::conectar()->prepare("SELECT * FROM $tabladb WHERE ESTATUS = 1");
+        $pdo = Conexion::conectar()->prepare("SELECT * FROM $tabladb");
 
         /* FUNCION PARA EJECUTAR LA QUERY */
         $pdo->execute();

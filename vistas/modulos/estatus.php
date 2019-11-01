@@ -93,75 +93,83 @@
                       <div class="box-header">
                           <h3 class="box-title">Roles agregadas</h3>
                       </div>
-                      <!-- /.box-header -->
-                      <div class="box-body">
-                          <table class="table table-bordered dt-responsive example">
 
+                      <form role="form" method="post" enctype="multipart/form-data">
 
-                              <thead>
+                          <div class="box-header">
+                              <h3 class="box-title">Insertar datos</h3>
+                          </div>
 
-                                  <tr>
+                          <div class="box-body">
 
-                                      <th style="width:500px">Nombre</th>
+                              <!-- <div class="form-group">
+                                  <label>Nombre Estatus:</label>
 
-                                      <th style="width:50px">Acciones</th>
+                                  <div class="input-group">
 
-                                  </tr>
+                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                              </thead>
+                                      <input type="text" class="form-control " id="nuevoEstatusNombre" name="nuevoEstatusNombre" placeholder="Nombre Estatus" required>
 
-                              <tbody>
+                                  </div>
 
-                                  <?php
+                              </div> -->
+                              <label>Mostrar Estatus:</label>
+                              <div class="form-group form-inline">
 
-                                    $item = null;
-                                    $valor = null;
+                                  <div class="input-group">
 
-                                    $roles = ControladorRoles::ctrMostrarRoles($item, $valor);
+                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                                    foreach ($roles as $key => $value) {
+                                      <select class="form-control" id="mostrarEstatusPertenencia" name="mostrarEstatusPertenencia" required>
+                                          <option value="default" disabled selected>Tipo</option>
+                                          <option value="1">Todos</option>
+                                          <option value="2">Conductores</option>
+                                          <option value="3">Camiones</option>
+                                      </select>
 
-                                        echo ' <tr>
-                   
-                   
-                  <td>' . $value["nombre"] . '</td>';
+                                  </div>
 
-
-
-                                        echo ' 
-                  <td>
-
-                    <div class="btn-group">
-                        
-                      <button class="btn btn-primary btnEditarRol" data-toggle="modal" data-target="#modalEditarRol" idRol="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
-
-                      <button class="btn btn-danger btnEliminarRol" idRol="' . $value["id"] . '"  ><i class="fa fa-times"></i></button>
-
-                    </div>  
-
-                  </td>
-
-                </tr>';
-                                    }
-
-
-                                    ?>
-
-                              </tbody>
-
-                          </table>
-                      </div>
-                      <!-- /.box-body -->
+                                  <button type="submit" class="btn btn-primary">Mostrar Estatus</button>
+                              </div>
+                          </div>
+                      </form>
+                      <table class="table table-bordered dt-responsive example">
+                          <thead>
+                              <tr>
+                                  <th>
+                                      #
+                                  </th>
+                                  <th>
+                                      Descripcion
+                                  </th>
+                                  <th>
+                                      Estatus
+                                  </th>
+                                  <th>
+                                      Tipo Estatus
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <?php
+                                $mostrar = new EstatusControlador();
+                                $mostrar->mostrarEstatusTabla();
+                                ?>
+                          </tbody>
+                      </table>
                   </div>
-
-                  <!-- /.box -->
+                  <!-- /.box-body -->
               </div>
-              <!-- /.col (right) -->
-          </div>
-          <!-- /.row -->
 
-      </section>
-      <!-- /.content -->
+              <!-- /.box -->
+          </div>
+          <!-- /.col (right) -->
+  </div>
+  <!-- /.row -->
+
+  </section>
+  <!-- /.content -->
   </div>
 
   <!--=====================================
