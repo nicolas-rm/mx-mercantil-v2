@@ -76,6 +76,8 @@ session_start();
 
   <!-- SweetAlert 2 -->
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+  <script src="vistas/bower_components/jspdf/dist/jspdf.min.js"></script>
+  <script src="vistas/bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
 
 </head>
 
@@ -117,7 +119,8 @@ session_start();
         $_GET["ruta"] == "conductores" ||
         $_GET["ruta"] == "conductoresRead" ||
         $_GET["ruta"] == "estatus" ||
-        $_GET["ruta"] == "estatusRead"
+        $_GET["ruta"] == "estatusRead" ||
+        $_GET["ruta"] == "pdf"
       ) {
 
 
@@ -155,6 +158,7 @@ session_start();
   <script src="vistas/js/sucursales.js"></script>
   <script src="vistas/js/mantenimiento.js"></script>
   <script src="vistas/js/conductores.js"></script>
+  <script src="vistas/js/pdf.js"></script>
 </body>
 
 </html>

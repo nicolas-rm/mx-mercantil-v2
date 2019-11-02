@@ -95,11 +95,6 @@
                       </div>
 
                       <form role="form" method="post" enctype="multipart/form-data">
-
-                          <div class="box-header">
-                              <h3 class="box-title">Insertar datos</h3>
-                          </div>
-
                           <div class="box-body">
 
                               <!-- <div class="form-group">
@@ -149,6 +144,9 @@
                                   <th>
                                       Tipo Estatus
                                   </th>
+                                  <th>
+                                      Acciones
+                                  </th>
                               </tr>
                           </thead>
                           <tbody>
@@ -165,11 +163,11 @@
               <!-- /.box -->
           </div>
           <!-- /.col (right) -->
-  </div>
-  <!-- /.row -->
 
-  </section>
-  <!-- /.content -->
+          <!-- /.row -->
+
+      </section>
+      <!-- /.content -->
   </div>
 
   <!--=====================================
@@ -253,7 +251,6 @@ MODAL EDITAR ROL
       </div>
 
   </div>
-
   <?php
 
     $borrarRol = new ControladorRoles();

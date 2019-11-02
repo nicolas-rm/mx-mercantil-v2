@@ -282,6 +282,38 @@
 
 			</li>
 
+			<!-- PDF -->
+
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-star"></i>
+
+					<span>PDF</span>
+
+					<span class="pull-right-container">
+
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					<li>
+
+						<a href="pdf">
+
+							<i class="fa fa-podcast"></i>
+							<span>Generar PDF</span>
+
+						</a>
+
+					</li>
+				</ul>
+			</li>
+
 
 		</ul>
 
