@@ -159,6 +159,7 @@ session_start();
   <script src="vistas/js/mantenimiento.js"></script>
   <script src="vistas/js/conductores.js"></script>
   <script src="vistas/js/pdf.js"></script>
+  <script src="vistas/js/generatePDF.js"></script>
 </body>
 
 </html>

@@ -192,4 +192,4 @@ export interface HTMLConfig extends BaseConfig {
 }
 export declare type autoTable = (options: UserOptions) => void;
 
-export {};
+export { };

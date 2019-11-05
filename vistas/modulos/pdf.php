@@ -18,10 +18,11 @@
       <section class="content">
 
           <div class="col-md-4">
-              <p><strong>Creando PDF con JavaScript.</strong></p>
-              <button id="GenerarPDF" class="btn btn-default">Crear PDF</button>
-              <br>
+              <p><strong>Ejemplo usando PHP y MySQL.</strong></p>
+              <button id="Generar" class="btn btn-default">Crear PDF MySQL</button>
+              <!-- <br> -->
           </div>
+
       </section>
       <!-- /.content -->
   </div>
