@@ -111,20 +111,15 @@
                               </div> -->
                               <label>Mostrar Estatus:</label>
                               <div class="form-group form-inline">
-
                                   <div class="input-group">
-
                                       <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
                                       <select class="form-control" id="mostrarEstatusPertenencia" name="mostrarEstatusPertenencia" required>
                                           <option value="default" disabled selected>Tipo</option>
                                           <option value="1">Todos</option>
                                           <option value="2">Conductores</option>
                                           <option value="3">Camiones</option>
                                       </select>
-
                                   </div>
-
                                   <button type="submit" class="btn btn-primary">Mostrar Estatus</button>
                               </div>
                           </div>
@@ -144,9 +139,9 @@
                                   <th>
                                       Tipo Estatus
                                   </th>
-                                  <!-- <th>
+                                  <th>
                                       Acciones
-                                  </th> -->
+                                  </th>
                               </tr>
                           </thead>
                           <tbody>
@@ -170,6 +165,63 @@
       <!-- /.content -->
   </div>
 
+  <div id="modalEditarEstatus" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <form role="form" method="post" enctype="multipart/form-data">
+                  <div class="modal-header" style="background:#3c8dbc; color:white">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Editar Estatus</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form role="form" method="post" enctype="multipart/form-data">
+                          <div class="box-header">
+                              <span class="box-title">Datos Principales</span>
+                          </div>
+
+                          <div class="box-body">
+                              <input type="hidden" class="form-control text-uppercase" value="" id="editEstatus" value="" name="editEstatus" required>
+
+                              <div class="form-group">
+                                  <label>Nombre Estatus:</label>
+
+                                  <div class="input-group">
+
+                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+
+                                      <input type="text" class="form-control " id="estatusEstatusNombre" name="estatusEstatusNombre" placeholder="Nombre Estatus" required>
+
+                                  </div>
+
+                              </div>
+                              <div class="form-group">
+                                  <label>Pertenencia Estatus:</label>
+
+                                  <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+                                      <select class="form-control" id="estatusEstatusPertenencia" name="estatusEstatusPertenencia" required>
+                                          <option value="default" disabled selected>Tipo</option>
+                                          <option value="1">Camiones</option>
+                                          <option value="2">Conductores</option>
+                                      </select>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                              <button type="submit" class="btn btn-primary">Actualizar Conductor</button>
+                          </div>
+                      </form>
+                  </div>
+
+
+              </form>
+          </div>
+      </div>
+  </div>
   <!--=====================================
 MODAL EDITAR ROL
 ======================================-->

@@ -1,6 +1,6 @@
-$(function() {
+$(function () {
     // console.log("ENTRO A DENTRO DE LA FUNCION");
-    $('body').on('click', 'button.editConductor', function(e) {
+    $('body').on('click', 'button.editConductor', function (e) {
         // console.log("HOLA");
 
         var editConductor = $(this).attr("value");
@@ -17,7 +17,7 @@ $(function() {
             contentType: false,
             processData: false,
             dataType: "json",
-            success: function(respuesta) {
+            success: function (respuesta) {
                 // console.log("el valor de respuesta: ");
                 console.log(respuesta);
                 $('#editConductor').val(respuesta["ID_CONDUCTORES"]);

@@ -1,6 +1,14 @@
 /* SE CREA UN EVENTO COMPLETO LA CUAL GENERA UNA FUNCION  */
 $('body').on('click', '#Generar', function(e) {
+
+    // <script language="javascript">
+    var fecha = new Date();
+    // alert("Día: " + fecha.getDate() + "\nMes: " + (fecha.getMonth() + 1) + "\nAño: " + fecha.getFullYear());
+    // alert("Hora: " + fecha.getHours() + "\nMinuto: " + fecha.getMinutes() + "\nSegundo: " + fecha.getSeconds() + "\nMilisegundo: " + fecha.getMilliseconds()); 
+    { /* </script> */ }
     /* CREA UNA VARIABLE COMO REQUERIMIENTO */
+
+    var nombre = "Camiones - " + fecha.getDate() + "-" + (fecha.getMonth() + 1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "" + fecha.getMinutes() + "" + fecha.getSeconds() + ".pdf";
     var datos = new FormData();
     /* SE GUARDA EL VALOR DE LA VARIABLE Y COMO SERA TRASMITIDA / ENCONTRADA */
     datos.append('PDFJS', "PDFJS");
@@ -91,7 +99,7 @@ $('body').on('click', '#Generar', function(e) {
             // }
 
             pdf.autoTable(columns, data, { margin: { top: 25 } });
-            pdf.save('MiTabla.pdf');
+            pdf.save(nombre);
 
             /*  ---------> NOTA IMPORTANTE, ESTOS DATOS SON LOS DATOS A MOSTRAR EN TIPO OBJETO (LLAVES FORANEAS) <---------*/
             // console.log("PRUEBAS INDIVIDUALES ARRAY - OBJECTO");

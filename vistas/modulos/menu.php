@@ -260,12 +260,12 @@
 						<a href="estatus">
 
 							<i class="fa fa-podcast"></i>
-							<span>Agregar Estatus</span>
+							<span>Estatus</span>
 
 						</a>
 
 					</li>
-					<li>
+					<!-- <li>
 
 						<a href="conductoresRead">
 
@@ -274,7 +274,7 @@
 
 						</a>
 
-					</li>
+					</li> -->
 
 
 

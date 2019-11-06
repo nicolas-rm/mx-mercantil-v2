@@ -160,6 +160,7 @@ session_start();
   <script src="vistas/js/conductores.js"></script>
   <script src="vistas/js/pdf.js"></script>
   <script src="vistas/js/generatePDF.js"></script>
+  <script src="vistas/js/estatus.js"></script>
 </body>
 
 </html>

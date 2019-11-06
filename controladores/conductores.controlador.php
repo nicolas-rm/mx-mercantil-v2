@@ -139,8 +139,6 @@ class ConductoresControlador
 		// $_POST["edit"] == null;
 		/* METODO DE LA BASE DE DATOS */
 		$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
-		$pdf = pdfModelo::mostrarDatosPDF($tabladb);
-
 		$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 		/* FILAS DE LA BASE DE DATOS */
 		foreach ($respuesta as $key => $value) {
@@ -149,13 +147,12 @@ class ConductoresControlador
 				# code...
 				if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
 					# code...
-					$value["ID_ESTATUS_CONDUCTORES"] = $valor["DESCRIPCION"];
+					$descripcion = $valor["DESCRIPCION"];
 				}
 			}
 
 			if ($descripcion != "inactivo" && $descripcion != "INACTIVO") {
 				echo '
-				
 				<tr>
 					<td>
 					' . $value["NOMBRE"] . '
@@ -179,14 +176,13 @@ class ConductoresControlador
 					' . $value["ANTIGUEDAD"] . '
 					</td>
 					<td>
-					' . $value["ID_ESTATUS_CONDUCTORES"] . '
+					' . $descripcion . '
 					</td>
 					<td>
 	
 					  <div class="btn-group">
 	
-					  <button class="btn btn-primary editConductor"  
-					  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
+					  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
 	
 					  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
 	

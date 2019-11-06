@@ -92,8 +92,6 @@ class EstatusControlador
     public function mostrarEstatusTabla()
     {
         # code...
-
-
         if (isset($_POST["mostrarEstatusPertenencia"])) {
             if ($_POST["mostrarEstatusPertenencia"] == "1") {
                 # code...
@@ -112,24 +110,19 @@ class EstatusControlador
                         $estatus = "INACTIVO";
                     }
                     /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-                    echo '<tr>
-            <td>' . $tableid . '</td>
-            <td>' . $value["DESCRIPCION"] . '</td>
-            <td>' . $estatus . '</td>
-            <td>' . "CONDUCTORES" . '</td>
-            <td>
-	
-					  <div class="btn-group">
-	
-                      <button class="btn btn-primary"><i class="fa fa-pencil"></i></button>
-	
-					  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-	
-					  </div>  
-	
-					  </td>
-            
-        </tr>';
+                    echo '
+                    <tr>
+                        <td>' . $tableid . '</td>
+                        <td>' . $value["DESCRIPCION"] . '</td>
+                        <td>' . $estatus . '</td>
+                        <td>' . "CONDUCTORES" . '</td>    
+                        <td>
+                            <div class="btn-group">
+                                <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CONDUCTORES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>  
+                        </td>    
+                    </tr>';
                 }
                 foreach ($statusCamiones as $key => $value) {
                     $tableid++;
@@ -141,13 +134,19 @@ class EstatusControlador
                         $estatus = "INACTIVO";
                     }
                     /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-                    echo '<tr>
-            <td>' . $tableid . '</td>
-            <td>' . $value["DESCRIPCION"] . '</td>
-            <td>' . $estatus . '</td>
-            <td>' . "CAMIONES" . '</td>
-            
-        </tr>';
+                    echo '
+                    <tr>
+                        <td>' . $tableid . '</td>
+                        <td>' . $value["DESCRIPCION"] . '</td>
+                        <td>' . $estatus . '</td>
+                        <td>' . "CAMIONES" . '</td>
+                        <td>
+                            <div class="btn-group">
+                            <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CAMIONES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>  
+                        </td>
+                    </tr>';
                 }
             } else if ($_POST["mostrarEstatusPertenencia"] == "2") {
                 # code...
@@ -167,6 +166,12 @@ class EstatusControlador
                     <td>' . $value["DESCRIPCION"] . '</td>
                     <td>' . $estatus . '</td>
                     <td>' . "CONDUCTORES" . '</td>
+                    <td>
+                        <div class="btn-group">
+                            <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CONDUCTORES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+					  </div>  
+                        </td>    
                     
                 </tr>';
                 }
@@ -183,13 +188,19 @@ class EstatusControlador
                         $estatus = "INACTIVO";
                     }
                     /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-                    echo '<tr>
-                    <td>' . ($key + 1) . '</td>
-                    <td>' . $value["DESCRIPCION"] . '</td>
-                    <td>' . $estatus . '</td>
-                    <td>' . "CONDUCTORES" . '</td>
-                    
-                </tr>';
+                    echo '
+                    <tr>
+                        <td>' . ($key + 1) . '</td>
+                        <td>' . $value["DESCRIPCION"] . '</td>
+                        <td>' . $estatus . '</td>
+                        <td>' . "CAMIONES" . '</td>
+                        <td>
+                            <div class="btn-group">
+                                <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CAMIONES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>  
+                        </td>    
+                    </tr>';
                 }
             }
         } else {
@@ -208,13 +219,19 @@ class EstatusControlador
                     $estatus = "INACTIVO";
                 }
                 /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-                echo '<tr>
-            <td>' . $tableid . '</td>
-            <td>' . $value["DESCRIPCION"] . '</td>
-            <td>' . $estatus . '</td>
-            <td>' . "CONDUCTORES" . '</td>
-            
-        </tr>';
+                echo 
+                '<tr>
+                    <td>' . $tableid . '</td>
+                    <td>' . $value["DESCRIPCION"] . '</td>
+                    <td>' . $estatus . '</td>
+                    <td>' . "CONDUCTORES" . '</td>
+                    <td>
+                        <div class="btn-group">
+                            <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CONDUCTORES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        </div>  
+                    </td>
+                </tr>';
             }
             foreach ($statusCamiones as $key => $value) {
                 $tableid++;
@@ -226,13 +243,19 @@ class EstatusControlador
                     $estatus = "INACTIVO";
                 }
                 /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-                echo '<tr>
-            <td>' . $tableid . '</td>
-            <td>' . $value["DESCRIPCION"] . '</td>
-            <td>' . $estatus . '</td>
-            <td>' . "CAMIONES" . '</td>
-            
-        </tr>';
+                echo '
+            <tr>
+                <td>' . $tableid . '</td>
+                <td>' . $value["DESCRIPCION"] . '</td>
+                <td>' . $estatus . '</td>
+                <td>' . "CAMIONES" . '</td>
+                <td>
+                    <div class="btn-group">
+                        <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CAMIONES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </div>  
+                </td>
+            </tr>';
             }
         }
     }

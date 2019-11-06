@@ -5,7 +5,7 @@ require_once "conexion.php";
 class pdfModelo
 {
 
-    static public function mostrarDatosPDF($tabla)
+    static public function mostrarDatosPDFConductores()
     {
         # code...
         $stmt = Conexion::conectar()->prepare("SELECT T1.ID_CONDUCTORES, T1.NOMBRE, T1.APELLIDOS, T1.CURP, T1.NUMERO_LICENCIA, T1.ANTIGUEDAD, T2.DESCRIPCION FROM CONDUCTORES AS T1 INNER JOIN ESTATUS_CONDUCTORES AS T2 ON T1.ID_ESTATUS_CONDUCTORES = T2.ID_ESTATUS_CONDUCTORES AND T2.DESCRIPCION != 'INACTIVO' ");
