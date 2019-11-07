@@ -27,6 +27,36 @@
                       <div class="box-header">
                           <h3 class="box-title">Roles agregadas</h3>
                       </div>
+                      <form role="form" method="post" enctype="multipart/form-data">
+                          <div class="box-body">
+
+                              <!-- <div class="form-group">
+                                  <label>Nombre Estatus:</label>
+
+                                  <div class="input-group">
+
+                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+
+                                      <input type="text" class="form-control " id="nuevoEstatusNombre" name="nuevoEstatusNombre" placeholder="Nombre Estatus" required>
+
+                                  </div>
+
+                              </div> -->
+                              <label>Mostrar Estatus:</label>
+                              <div class="form-group form-inline">
+                                  <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+                                      <select class="form-control" id="mostrarConductoresPertenencia" name="mostrarConductoresPertenencia" required>
+                                          <option value="default" disabled selected>Tipo</option>
+                                          <option value="1">Todos</option>
+                                          <option value="2">Locales</option>
+                                          <option value="3">Foraneo</option>
+                                      </select>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">Mostrar Estatus</button>
+                              </div>
+                          </div>
+                      </form>
                       <!-- /.box-header -->
                       <div class="box-body">
                           <table class="table table-bordered dt-responsive example">
@@ -56,7 +86,10 @@
                                       <th>
                                           ESTATUS
                                       </th>
-                                      <th style="width:50px">
+                                      <th>
+                                          SUCURSAL
+                                      </th>
+                                      <th>
                                           Acciones
                                       </th>
                                   </tr>
@@ -175,6 +208,25 @@
                                                 $status = $readStatus->mostrarEstatus("ESTATUS_CONDUCTORES");
                                                 foreach ($status as $key => $value) {
                                                     echo '<option value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
+                                                }
+                                                ?>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                      <label>Sucursal:</label>
+                                      <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+                                          <select class="form-control" id="editSucursalConductores" name="editSucursalConductores" required>
+                                              <option value="default" disabled selected>Sucursal</option>
+                                              <?php
+                                                $value = null;
+                                                $item = null;
+
+                                                $sucursales = ControladorSucursales::ctrMostrarSucursales($value, $item);
+
+                                                foreach ($sucursales as $key => $value) {
+                                                    echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
                                                 }
                                                 ?>
                                           </select>

@@ -20,6 +20,7 @@ require_once "modelos/mantenimiento.modelo.php";
 require_once "modelos/conductores.modelo.php";
 require_once "modelos/estatus.modelo.php";
 require_once "modelos/pdf.modelo.php";
+require_once "modelos/condiciones.modelo.php";
 
 $plantilla = new ControladorPlantilla();
 $plantilla -> ctrPlantilla();

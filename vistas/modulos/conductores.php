@@ -121,6 +121,26 @@
                     </div>
                   </div>
 
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <label>Antiguedad:</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+                      <select class="form-control" id="nuevoSucursalConductores" name="nuevoSucursalConductores" required>
+                        <option value="default" disabled selected>Estatus</option>
+                        <?php
+                        $value = null;
+                        $item = null;
+
+                        $sucursales = ControladorSucursales::ctrMostrarSucursales($value,$item);
+
+                        foreach ($sucursales as $key => $value) {
+                          echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
+                        }
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+
 
                 </div>
 

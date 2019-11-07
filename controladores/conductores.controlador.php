@@ -25,7 +25,8 @@ class ConductoresControlador
 					"DIRECCION" => $_POST["nuevoDireccion"],
 					"NUMERO_LICENCIA" => $_POST["nuevoNumeroLicencia"],
 					"ANTIGUEDAD" => $_POST["nuevoAntiguedad"],
-					"ID_ESTATUS_CONDUCTORES" => $_POST["nuevoEstatusConductores"]
+					"ID_ESTATUS_CONDUCTORES" => $_POST["nuevoEstatusConductores"],
+					"ID_SUCURSALES" => $_POST["nuevoSucursalConductores"]
 				);
 
 				$respuesta = ModeloConductores::agregarConductorModelo($tabla, $datos);
@@ -133,26 +134,48 @@ class ConductoresControlador
 	}
 	static public function mostrarConductorControlador()
 	{
-		// header('location:ConductoresEdit');
-		/* TABLA DE BASE DE DATOS */
-		$tabladb = "CONDUCTORES";
-		// $_POST["edit"] == null;
-		/* METODO DE LA BASE DE DATOS */
-		$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
-		$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
-		/* FILAS DE LA BASE DE DATOS */
-		foreach ($respuesta as $key => $value) {
-			$descripcion = null;
-			foreach ($status as $val => $valor) {
-				# code...
-				if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
-					# code...
-					$descripcion = $valor["DESCRIPCION"];
-				}
-			}
 
-			if ($descripcion != "inactivo" && $descripcion != "INACTIVO") {
-				echo '
+
+
+
+
+
+
+		if (isset($_POST["mostrarConductoresPertenencia"])) {
+			if ($_POST["mostrarConductoresPertenencia"] == "1") {
+				# code...
+				$tabladb = "CONDUCTORES";
+				// $_POST["edit"] == null;
+				/* METODO DE LA BASE DE DATOS */
+				$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
+				$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+				$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
+				/* FILAS DE LA BASE DE DATOS */
+				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+				// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
+				foreach ($respuesta as $key => $value) {
+					$descripcion = null;
+					$nombre = null;
+					foreach ($status as $val => $valor) {
+						# code...
+						if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
+							# code...
+							$descripcion = $valor["DESCRIPCION"];
+						}
+					}
+
+					foreach ($sucursales as $key => $vale) {
+						# code...
+						if ($value["ID_SUCURSALES"] == $vale["id"]) {
+							# code...
+							$nombre = $vale["nombre"];
+						}
+					}
+
+					if (
+						$descripcion != "inactivo" && $descripcion != "INACTIVO"
+					) {
+						echo '
 				<tr>
 					<td>
 					' . $value["NOMBRE"] . '
@@ -164,7 +187,7 @@ class ConductoresControlador
 					' . $value["FECHA_NACIMIENTO"] . '
 					</td>
 					<td>
-					' . $value["CURP"] . '"
+					' . $value["CURP"] . '
 					</td>
 					<td>
 					' . $value["DIRECCION"] . '
@@ -179,6 +202,9 @@ class ConductoresControlador
 					' . $descripcion . '
 					</td>
 					<td>
+					' . $nombre . '
+					</td>
+					<td>
 	
 					  <div class="btn-group">
 	
@@ -190,9 +216,244 @@ class ConductoresControlador
 	
 					  </td>
 				</tr>';
+					}
+				}
+			} else if ($_POST["mostrarConductoresPertenencia"] == "2") {
+				# code...
+				$tabladb = "CONDUCTORES";
+				// $_POST["edit"] == null;
+				/* METODO DE LA BASE DE DATOS */
+				$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
+				$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+				$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
+				/* FILAS DE LA BASE DE DATOS */
+				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+				// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
+				foreach ($respuesta as $key => $value) {
+					$descripcion = null;
+					$nombre = null;
+					foreach ($status as $val => $valor) {
+						# code...
+						if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
+							# code...
+							$descripcion = $valor["DESCRIPCION"];
+						}
+					}
+
+					foreach ($sucursales as $key => $vale) {
+						# code...
+						if ($value["ID_SUCURSALES"] == $vale["id"]) {
+							# code...
+							$nombre = $vale["nombre"];
+						}
+					}
+
+					if (
+						$descripcion != "inactivo" && $descripcion != "INACTIVO"
+						&& $value["ID_SUCURSALES"] == $idSucursal["id_sucursal"]
+					) {
+						echo '
+				<tr>
+					<td>
+					' . $value["NOMBRE"] . '
+					</td>
+					<td>
+					' . $value["APELLIDOS"] . '
+					</td>
+					<td>
+					' . $value["FECHA_NACIMIENTO"] . '
+					</td>
+					<td>
+					' . $value["CURP"] . '
+					</td>
+					<td>
+					' . $value["DIRECCION"] . '
+					</td>
+					<td>
+					' . $value["NUMERO_LICENCIA"] . '
+					</td>
+					<td>
+					' . $value["ANTIGUEDAD"] . '
+					</td>
+					<td>
+					' . $descripcion . '
+					</td>
+					<td>
+					' . $nombre . '
+					</td>
+					<td>
+	
+					  <div class="btn-group">
+	
+					  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
+	
+					  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
+	
+					  </div>  
+	
+					  </td>
+				</tr>';
+					}
+				}
+			} else if ($_POST["mostrarConductoresPertenencia"] == "3") {
+				# code...
+				$tabladb = "CONDUCTORES";
+				// $_POST["edit"] == null;
+				/* METODO DE LA BASE DE DATOS */
+				$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
+				$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+				$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
+				/* FILAS DE LA BASE DE DATOS */
+				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+				// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
+				foreach ($respuesta as $key => $value) {
+					$descripcion = null;
+					$nombre = null;
+					foreach ($status as $val => $valor) {
+						# code...
+						if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
+							# code...
+							$descripcion = $valor["DESCRIPCION"];
+						}
+					}
+
+					foreach ($sucursales as $key => $vale) {
+						# code...
+						if ($value["ID_SUCURSALES"] == $vale["id"]) {
+							# code...
+							$nombre = $vale["nombre"];
+						}
+					}
+
+					if (
+						$descripcion != "inactivo" && $descripcion != "INACTIVO"
+						&& $value["ID_SUCURSALES"] != $idSucursal["id_sucursal"]
+					) {
+						echo '
+				<tr>
+					<td>
+					' . $value["NOMBRE"] . '
+					</td>
+					<td>
+					' . $value["APELLIDOS"] . '
+					</td>
+					<td>
+					' . $value["FECHA_NACIMIENTO"] . '
+					</td>
+					<td>
+					' . $value["CURP"] . '
+					</td>
+					<td>
+					' . $value["DIRECCION"] . '
+					</td>
+					<td>
+					' . $value["NUMERO_LICENCIA"] . '
+					</td>
+					<td>
+					' . $value["ANTIGUEDAD"] . '
+					</td>
+					<td>
+					' . $descripcion . '
+					</td>
+					<td>
+					' . $nombre . '
+					</td>
+					<td>
+	
+					  <div class="btn-group">
+	
+					  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
+	
+					  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
+	
+					  </div>  
+	
+					  </td>
+				</tr>';
+					}
+				}
+			}
+		} else {
+
+			$tabladb = "CONDUCTORES";
+			// $_POST["edit"] == null;
+			/* METODO DE LA BASE DE DATOS */
+			$respuesta = ModeloConductores::mostrarConductorModelo($tabladb);
+			$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+			$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
+			/* FILAS DE LA BASE DE DATOS */
+			$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+			// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
+			foreach ($respuesta as $key => $value) {
+				$descripcion = null;
+				$nombre = null;
+				foreach ($status as $val => $valor) {
+					# code...
+					if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
+						# code...
+						$descripcion = $valor["DESCRIPCION"];
+					}
+				}
+
+				foreach ($sucursales as $key => $vale) {
+					# code...
+					if ($value["ID_SUCURSALES"] == $vale["id"]) {
+						# code...
+						$nombre = $vale["nombre"];
+					}
+				}
+
+				if (
+					$descripcion != "inactivo" && $descripcion != "INACTIVO"
+				) {
+					echo '
+				<tr>
+					<td>
+					' . $value["NOMBRE"] . '
+					</td>
+					<td>
+					' . $value["APELLIDOS"] . '
+					</td>
+					<td>
+					' . $value["FECHA_NACIMIENTO"] . '
+					</td>
+					<td>
+					' . $value["CURP"] . '
+					</td>
+					<td>
+					' . $value["DIRECCION"] . '
+					</td>
+					<td>
+					' . $value["NUMERO_LICENCIA"] . '
+					</td>
+					<td>
+					' . $value["ANTIGUEDAD"] . '
+					</td>
+					<td>
+					' . $descripcion . '
+					</td>
+					<td>
+					' . $nombre . '
+					</td>
+					<td>
+	
+					  <div class="btn-group">
+	
+					  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
+	
+					  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
+	
+					  </div>  
+	
+					  </td>
+				</tr>';
+				}
 			}
 		}
 	}
+
+	static public function foraneos()
+	{ }
 
 
 
@@ -227,7 +488,8 @@ class ConductoresControlador
 				"DIRECCION" => $_POST["editDireccion"],
 				"NUMERO_LICENCIA" => $_POST["editNumeroLicencia"],
 				"ANTIGUEDAD" => $_POST["editAntiguedad"],
-				"ID_ESTATUS_CONDUCTORES" => $_POST["editEstatusConductores"]
+				"ID_ESTATUS_CONDUCTORES" => $_POST["editEstatusConductores"],
+				"ID_SUCURSALES" => $_POST["editSucursalConductores"]
 			);
 
 			/* TABLA DE BASE DE DATOS */
