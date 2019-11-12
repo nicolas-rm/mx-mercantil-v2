@@ -1,6 +1,6 @@
 <?php
-require_once "../controladores/conductores.controlador.php";
-require_once "../modelos/conductores.modelo.php";
+// require_once "../controladores/conductores.controlador.php";
+require_once "../modelos//estatus.modelo.php";
 // require_once "./modelos/conexion.php";
 
 class AjaxEstatus
@@ -9,23 +9,19 @@ class AjaxEstatus
     public $estatusEdit;
     public $tablaEdit;
 
-    public function ajaxEstatus()
+
+    public function Estatus()
     {
 
         $idEstatus = $this->estatusEdit;
         $tabla = $this->tablaEdit;
-        $status = EstatusModelo::MostrarEstatus("CONDUCTORES");
+        $status = null;
+        if ($tabla == "conductores") {
+            $status = EstatusModelo::EditarEstatus("ESTATUS_CONDUCTORES","ID_ESTATUS_CONDUCTORES",$idEstatus);
+        }else if ($tabla == "camiones") {
+            $status = EstatusModelo::EditarEstatus("ESTATUS_CAMIONES","ID_ESTATUS_CAMIONES",$idEstatus);
+        }
         echo json_encode($status);
-    }
-
-    public function ajaxEditar()
-    {
-
-        $valor = $this->estatusEdit;
-        // $datos = ConductoresControlador::editarConductorControlador($valor);
-        // var_dump($datos);
-        // $_POST["ID_ESTATUS_CONDUCTORES"] = $datos["ID_ESTATUS_CONDUCTORES"];
-        return $valor;
     }
 }
 
@@ -38,7 +34,7 @@ if (isset($_POST["estatusEdit"])) {
     $editar = new AjaxEstatus();
     $editar->estatusEdit = $_POST["estatusEdit"];
     $editar->tablaEdit = $_POST["tablaEdit"];
-    $editar->ajaxEstatus();
+    $editar->Estatus();
 }
 
 // echo '<script> console.log("SI ENTRO AL AJAX"); </script>';

@@ -6,12 +6,19 @@ $(function() {
         var estatusEdit = $(this).attr("value");
         var tablaEdit = $(this).attr("data");
         console.log("estatusEdit ", estatusEdit);
-        console.log("estatusEdit ", estatusEdit);
+        // console.log("estatusEdit ", estatusEdit);
         console.log("tablaEdit", tablaEdit);
         var datos = new FormData(); //guardo los datos
         datos.append('estatusEdit', estatusEdit); //le asigno el id a la variable datos
         datos.append('tablaEdit', tablaEdit); //le asigno el id a la variable datos
 
+        var id;
+        var pertenencia;
+        if (tablaEdit === "conductores") {
+            id = "ID_ESTATUS_CONDUCTORES";
+        } else {
+            id = "ID_ESTATUS_CAMIONES";
+        }
         $.ajax({
             url: "ajax/estatus.ajax.php",
             method: "POST",
@@ -23,8 +30,8 @@ $(function() {
             success: function(respuesta) {
                 // console.log("el valor de respuesta: ");
                 console.log(respuesta);
-                // $('#editEstatus').val(respuesta["editEstatus"]);
-                // $('#estatusEstatusNombre').val(respuesta["DESCRIPCION"]);
+                $('#editEstatus').val(respuesta[id]);
+                $('#editEstatusNombre').val(respuesta["DESCRIPCION"]);
                 // $('#editApellidos').val(respuesta["APELLIDOS"]);
                 // $('#editFechaNacimiento').val(respuesta["FECHA_NACIMIENTO"]);
                 // $('#editCurp').val(respuesta["CURP"]);

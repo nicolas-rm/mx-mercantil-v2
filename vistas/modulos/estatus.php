@@ -96,19 +96,6 @@
 
                       <form role="form" method="post" enctype="multipart/form-data">
                           <div class="box-body">
-
-                              <!-- <div class="form-group">
-                                  <label>Nombre Estatus:</label>
-
-                                  <div class="input-group">
-
-                                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-                                      <input type="text" class="form-control " id="nuevoEstatusNombre" name="nuevoEstatusNombre" placeholder="Nombre Estatus" required>
-
-                                  </div>
-
-                              </div> -->
                               <label>Mostrar Estatus:</label>
                               <div class="form-group form-inline">
                                   <div class="input-group">
@@ -189,7 +176,7 @@
 
                                       <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                                      <input type="text" class="form-control " id="estatusEstatusNombre" name="estatusEstatusNombre" placeholder="Nombre Estatus" required>
+                                      <input type="text" class="form-control " id="editEstatusNombre" name="editEstatusNombre" placeholder="Nombre Estatus" required>
 
                                   </div>
 
@@ -199,7 +186,7 @@
 
                                   <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                                      <select class="form-control" id="estatusEstatusPertenencia" name="estatusEstatusPertenencia" required>
+                                      <select class="form-control" id="editEstatusPertenencia" name="editEstatusPertenencia" required>
                                           <option value="default" disabled selected>Tipo</option>
                                           <option value="1">Camiones</option>
                                           <option value="2">Conductores</option>
@@ -214,6 +201,12 @@
                               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                               <button type="submit" class="btn btn-primary">Actualizar Conductor</button>
                           </div>
+                          <?php
+
+                            $edit = new EstatusControlador();
+                            $edit->actualizarEstatus();
+
+                            ?>
                       </form>
                   </div>
 

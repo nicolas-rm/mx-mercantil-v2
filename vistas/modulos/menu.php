@@ -215,24 +215,11 @@
 						<a href="conductores">
 
 							<i class="fa fa-podcast"></i>
-							<span>Agregar Conductor</span>
+							<span>Conductor</span>
 
 						</a>
 
 					</li>
-					<li>
-
-						<a href="conductoresRead">
-
-							<i class="fa fa-podcast"></i>
-							<span>Mostrar Conductor</span>
-
-						</a>
-
-					</li>
-
-
-
 				</ul>
 
 			</li>

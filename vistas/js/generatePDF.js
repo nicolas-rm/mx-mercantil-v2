@@ -39,9 +39,7 @@ $('body').on('click', '#Generar', function(e) {
                 "ID",
                 "NOMBRE",
                 "APELLIDOS",
-                "CURP",
                 "NUMERO LICENCIA",
-                "ANTIGUEDAD",
                 "ESTATUS"
             ];
             /* ARRAY PARA ALMACENAR LOS DATOS */

@@ -118,7 +118,7 @@ class EstatusControlador
                         <td>' . "CONDUCTORES" . '</td>    
                         <td>
                             <div class="btn-group">
-                                <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CONDUCTORES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="' . $value["ID_ESTATUS_CONDUCTORES"] . '" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                                 <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </div>  
                         </td>    
@@ -142,7 +142,7 @@ class EstatusControlador
                         <td>' . "CAMIONES" . '</td>
                         <td>
                             <div class="btn-group">
-                            <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CAMIONES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="' . $value["ID_ESTATUS_CAMIONES"] . '" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </div>  
                         </td>
@@ -168,7 +168,7 @@ class EstatusControlador
                     <td>' . "CONDUCTORES" . '</td>
                     <td>
                         <div class="btn-group">
-                            <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CONDUCTORES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="' . $value["ID_ESTATUS_CONDUCTORES"] . '" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
 					  </div>  
                         </td>    
@@ -196,7 +196,7 @@ class EstatusControlador
                         <td>' . "CAMIONES" . '</td>
                         <td>
                             <div class="btn-group">
-                                <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CAMIONES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                                <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="' . $value["ID_ESTATUS_CAMIONES"] . '" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                                 <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </div>  
                         </td>    
@@ -219,15 +219,15 @@ class EstatusControlador
                     $estatus = "INACTIVO";
                 }
                 /* CODIGO HTML EN PHP VISUALIZAR LAS FILAS DE LOS DATOS DE LAS TABLAS */
-                echo 
-                '<tr>
+                echo
+                    '<tr>
                     <td>' . $tableid . '</td>
                     <td>' . $value["DESCRIPCION"] . '</td>
                     <td>' . $estatus . '</td>
                     <td>' . "CONDUCTORES" . '</td>
                     <td>
                         <div class="btn-group">
-                            <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CONDUCTORES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                            <button id="estatusEdit" data="conductores" data-toggle="modal" data-target="#modalEditarEstatus" value="' . $value["ID_ESTATUS_CONDUCTORES"] . '" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </div>  
                     </td>
@@ -251,11 +251,95 @@ class EstatusControlador
                 <td>' . "CAMIONES" . '</td>
                 <td>
                     <div class="btn-group">
-                        <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="'.$value["ID_ESTATUS_CAMIONES"].'" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
+                        <button id="estatusEdit" data="camiones" data-toggle="modal" data-target="#modalEditarEstatus" value="' . $value["ID_ESTATUS_CAMIONES"] . '" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                         <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </div>  
                 </td>
             </tr>';
+            }
+        }
+    }
+
+    static public function actualizarEstatus()
+    {
+        if (isset($_POST["editEstatusNombre"])) {
+            if ($_POST["editEstatusPertenencia"] == "1") {
+                $datosControlador = array("ID_ESTATUS_CAMIONES" => $_POST["editEstatus"], "DESCRIPCION" => $_POST["editEstatusNombre"], "ESTATUS" => "1", "ID_SUCURSALES" => $_POST["editEstatusPertenencia"]);
+
+                $tabladb = "ESTATUS_CAMIONES";
+
+                $respuesta = EstatusModelo::actualizarEstatusModelo($datosControlador, $tabladb);
+            } else if ($_POST["editEstatusPertenencia"] == "2") {
+
+                $datosControlador = array("ID_ESTATUS_CONDUCTORES" => $_POST["editEstatus"], "DESCRIPCION" => $_POST["editEstatusNombre"], "ESTATUS" => "1", "ID_SUCURSALES" => $_POST["editEstatusPertenencia"]);
+
+                $tabladb = "ESTATUS_CONDUCTORES";
+
+                $respuesta = EstatusModelo::actualizarEstatusModelo($datosControlador, $tabladb);
+            } else {
+
+                echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "Error En La Inserccion De Datos, Verifique los Datos Insertados.",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+						if(result.value){
+                            window.location = "estatus";
+						}
+
+					});
+				
+
+				</script>';
+            }
+            if ($respuesta == "bien") {
+                echo '<script>
+
+					swal({
+
+						type: "success",
+						title: "Estatus Creado Correctamente.",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+						}
+
+					});
+				
+
+					</script>';
+            } else {
+                echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "Estatus No Creado.",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+						}
+
+					});
+				
+
+					</script>';
             }
         }
     }

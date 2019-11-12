@@ -20,11 +20,8 @@ class ConductoresControlador
 				$datos = array(
 					"NOMBRE" => $_POST["nuevoNombre"],
 					"APELLIDOS" => $_POST["nuevoApellidos"],
-					"FECHA_NACIMIENTO" => $_POST["nuevoFechaNacimiento"],
-					"CURP" => $_POST["nuevoCurp"],
-					"DIRECCION" => $_POST["nuevoDireccion"],
+					"TELEFONO" => $_POST["nuevoTelefono"],
 					"NUMERO_LICENCIA" => $_POST["nuevoNumeroLicencia"],
-					"ANTIGUEDAD" => $_POST["nuevoAntiguedad"],
 					"ID_ESTATUS_CONDUCTORES" => $_POST["nuevoEstatusConductores"],
 					"ID_SUCURSALES" => $_POST["nuevoSucursalConductores"]
 				);
@@ -178,26 +175,15 @@ class ConductoresControlador
 						echo '
 				<tr>
 					<td>
-					' . $value["NOMBRE"] . '
+					' . $value["NOMBRE"], " ", $value["APELLIDOS"] . '
 					</td>
 					<td>
-					' . $value["APELLIDOS"] . '
-					</td>
-					<td>
-					' . $value["FECHA_NACIMIENTO"] . '
-					</td>
-					<td>
-					' . $value["CURP"] . '
-					</td>
-					<td>
-					' . $value["DIRECCION"] . '
+					' . $value["TELEFONO"] . '
 					</td>
 					<td>
 					' . $value["NUMERO_LICENCIA"] . '
 					</td>
-					<td>
-					' . $value["ANTIGUEDAD"] . '
-					</td>
+					
 					<td>
 					' . $descripcion . '
 					</td>
@@ -254,33 +240,22 @@ class ConductoresControlador
 					) {
 						echo '
 				<tr>
-					<td>
-					' . $value["NOMBRE"] . '
+				<td>
+					' . $value["NOMBRE"], " ", $value["APELLIDOS"] . '
 					</td>
-					<td>
-					' . $value["APELLIDOS"] . '
+				<td>
+					' . $value["TELEFONO"] . '
 					</td>
-					<td>
-					' . $value["FECHA_NACIMIENTO"] . '
-					</td>
-					<td>
-					' . $value["CURP"] . '
-					</td>
-					<td>
-					' . $value["DIRECCION"] . '
-					</td>
-					<td>
-					' . $value["NUMERO_LICENCIA"] . '
-					</td>
-					<td>
-					' . $value["ANTIGUEDAD"] . '
-					</td>
-					<td>
-					' . $descripcion . '
-					</td>
-					<td>
-					' . $nombre . '
-					</td>
+				<td>
+				' . $value["NUMERO_LICENCIA"] . '
+				</td>
+				
+				<td>
+				' . $descripcion . '
+				</td>
+				<td>
+				' . $nombre . '
+				</td>
 					<td>
 	
 					  <div class="btn-group">
@@ -331,33 +306,22 @@ class ConductoresControlador
 					) {
 						echo '
 				<tr>
-					<td>
-					' . $value["NOMBRE"] . '
+				<td>
+					' . $value["NOMBRE"], " ", $value["APELLIDOS"] . '
 					</td>
-					<td>
-					' . $value["APELLIDOS"] . '
+				<td>
+					' . $value["TELEFONO"] . '
 					</td>
-					<td>
-					' . $value["FECHA_NACIMIENTO"] . '
-					</td>
-					<td>
-					' . $value["CURP"] . '
-					</td>
-					<td>
-					' . $value["DIRECCION"] . '
-					</td>
-					<td>
-					' . $value["NUMERO_LICENCIA"] . '
-					</td>
-					<td>
-					' . $value["ANTIGUEDAD"] . '
-					</td>
-					<td>
-					' . $descripcion . '
-					</td>
-					<td>
-					' . $nombre . '
-					</td>
+				<td>
+				' . $value["NUMERO_LICENCIA"] . '
+				</td>
+				
+				<td>
+				' . $descripcion . '
+				</td>
+				<td>
+				' . $nombre . '
+				</td>
 					<td>
 	
 					  <div class="btn-group">
@@ -408,33 +372,22 @@ class ConductoresControlador
 				) {
 					echo '
 				<tr>
-					<td>
-					' . $value["NOMBRE"] . '
+				<td>
+				' . $value["NOMBRE"], " ", $value["APELLIDOS"] . '				
+				</td>
+				<td>
+					' . $value["TELEFONO"] . '
 					</td>
-					<td>
-					' . $value["APELLIDOS"] . '
-					</td>
-					<td>
-					' . $value["FECHA_NACIMIENTO"] . '
-					</td>
-					<td>
-					' . $value["CURP"] . '
-					</td>
-					<td>
-					' . $value["DIRECCION"] . '
-					</td>
-					<td>
-					' . $value["NUMERO_LICENCIA"] . '
-					</td>
-					<td>
-					' . $value["ANTIGUEDAD"] . '
-					</td>
-					<td>
-					' . $descripcion . '
-					</td>
-					<td>
-					' . $nombre . '
-					</td>
+				<td>
+				' . $value["NUMERO_LICENCIA"] . '
+				</td>
+				
+				<td>
+				' . $descripcion . '
+				</td>
+				<td>
+				' . $nombre . '
+				</td>
 					<td>
 	
 					  <div class="btn-group">
@@ -451,11 +404,6 @@ class ConductoresControlador
 			}
 		}
 	}
-
-	static public function foraneos()
-	{ }
-
-
 
 	static public function editarConductorControlador($editConductor)
 	{
@@ -483,11 +431,8 @@ class ConductoresControlador
 				"ID_CONDUCTORES" => $_POST["editConductor"],
 				"NOMBRE" => $_POST["editNombre"],
 				"APELLIDOS" => $_POST["editApellidos"],
-				"FECHA_NACIMIENTO" => $_POST["editFechaNacimiento"],
-				"CURP" => $_POST["editCurp"],
-				"DIRECCION" => $_POST["editDireccion"],
+				"TELEFONO" => $_POST["nuevoTelefono"],
 				"NUMERO_LICENCIA" => $_POST["editNumeroLicencia"],
-				"ANTIGUEDAD" => $_POST["editAntiguedad"],
 				"ID_ESTATUS_CONDUCTORES" => $_POST["editEstatusConductores"],
 				"ID_SUCURSALES" => $_POST["editSucursalConductores"]
 			);
@@ -515,7 +460,7 @@ class ConductoresControlador
 					
 					if(result.value){
 						
-						window.location = "conductoresRead";
+						window.location = "conductores";
 						
 					}
 					
