@@ -211,14 +211,14 @@
 
                  <tr>
 
-                   <th>FECHA SERVICIO</th>
+                   <!-- <th>FECHA SERVICIO</th> -->
                    <th>PROCEDENCIA</th>
                    <th>TALLER</th>
                    <th>KILOMETRAJE</th>
                    <th>SERVICIO</th>
                    <th>MECANICO</th>
                    <th>COSTO</th>
-                   <th>PROXIMO SERVICIO</th>
+                   <!-- <th>PROXIMO SERVICIO</th> -->
 
 
                    <th style="width:50px">Acciones</th>
@@ -239,8 +239,7 @@
                   foreach ($mantenimiento as $key => $value) {
 
 
-                    echo ' <tr>
-                  <td>' . $value["fecha_servicio"] . '</td>';
+                    echo ' <tr>';
                     $item = "id";
 
 
@@ -253,7 +252,7 @@
                     echo '<td>' . $value["descripcion"] . '</td>';
                     echo '<td>' . $value["nombre_mecanico"] . '</td>';
                     echo '<td>' . $value["precio"] . '</td>';
-                    echo '<td>' . $value["proximo_servicio"] . '</td>';
+                    // echo '<td>' . $value["proximo_servicio"] . '</td>';
 
                     echo ' 
 

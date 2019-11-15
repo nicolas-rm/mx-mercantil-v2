@@ -37,4 +37,12 @@ if (isset($_POST["estatusEdit"])) {
     $editar->Estatus();
 }
 
+
+if (isset($_POST["ESTATUS_CAMIONES"])) {
+    $editar = new AjaxEstatus();
+    $editar->estatusEdit = $_POST["estatusEdit"];
+    $editar->tablaEdit = $_POST["tablaEdit"];
+    $editar->Estatus();
+}
+
 // echo '<script> console.log("SI ENTRO AL AJAX"); </script>';

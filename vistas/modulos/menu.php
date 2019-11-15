@@ -269,8 +269,52 @@
 
 			</li>
 
-			<!-- PDF -->
+			<!-- CAMIONES -->
+			<li class="treeview">
 
+				<a href="#">
+
+					<i class="fa fa-star"></i>
+
+					<span>Camiones</span>
+
+					<span class="pull-right-container">
+
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					<li>
+
+						<a href="camiones">
+
+							<i class="fa fa-podcast"></i>
+							<span>Camiones</span>
+
+						</a>
+
+					</li>
+					<!-- <li>
+
+						<a href="conductoresRead">
+
+							<i class="fa fa-podcast"></i>
+							<span>Mostrar Estatus</span>
+
+						</a>
+
+					</li> -->
+
+
+
+				</ul>
+
+			</li>
+
+			<!-- PDF -->
 			<li class="treeview">
 
 				<a href="#">

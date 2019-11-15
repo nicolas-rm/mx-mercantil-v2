@@ -132,12 +132,6 @@ class ConductoresControlador
 	static public function mostrarConductorControlador()
 	{
 
-
-
-
-
-
-
 		if (isset($_POST["mostrarConductoresPertenencia"])) {
 			if ($_POST["mostrarConductoresPertenencia"] == "1") {
 				# code...
@@ -169,9 +163,7 @@ class ConductoresControlador
 						}
 					}
 
-					if (
-						$descripcion != "inactivo" && $descripcion != "INACTIVO"
-					) {
+					if ($descripcion != "inactivo" && $descripcion != "INACTIVO" && $value["ID_CONDUCTORES"] != "1") {
 						echo '
 				<tr>
 					<td>
@@ -236,7 +228,7 @@ class ConductoresControlador
 
 					if (
 						$descripcion != "inactivo" && $descripcion != "INACTIVO"
-						&& $value["ID_SUCURSALES"] == $idSucursal["id_sucursal"]
+						&& $value["ID_SUCURSALES"] == $idSucursal["id_sucursal"] && $value["ID_CONDUCTORES"] != "1"
 					) {
 						echo '
 				<tr>
@@ -302,7 +294,7 @@ class ConductoresControlador
 
 					if (
 						$descripcion != "inactivo" && $descripcion != "INACTIVO"
-						&& $value["ID_SUCURSALES"] != $idSucursal["id_sucursal"]
+						&& $value["ID_SUCURSALES"] != $idSucursal["id_sucursal"] && $value["ID_CONDUCTORES"] != "1"
 					) {
 						echo '
 				<tr>
@@ -368,7 +360,7 @@ class ConductoresControlador
 				}
 
 				if (
-					$descripcion != "inactivo" && $descripcion != "INACTIVO"
+					$descripcion != "inactivo" && $descripcion != "INACTIVO" && $value["ID_CONDUCTORES"] != "1"
 				) {
 					echo '
 				<tr>

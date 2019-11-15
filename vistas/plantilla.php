@@ -118,6 +118,7 @@ session_start();
         $_GET["ruta"] == "sucursales" || //ya esta .. falta editar y eliminar .. (modulo de ricardo)
         $_GET["ruta"] == "conductores" ||
         $_GET["ruta"] == "estatus" ||
+        $_GET["ruta"] == "camiones" ||
         $_GET["ruta"] == "pdf"
       ) {
 
@@ -159,6 +160,7 @@ session_start();
   <script src="vistas/js/pdf.js"></script>
   <script src="vistas/js/generatePDF.js"></script>
   <script src="vistas/js/estatus.js"></script>
+  <script src="vistas/js/camiones.js"></script>
 </body>
 
 </html>
