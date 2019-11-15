@@ -34,22 +34,7 @@
 
              <div class="box-body">
 
-               <div class="form-group">
-                 <label>fecha de servicio:</label>
-
-                 <div class="input-group">
-
-                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-                   <input type="date" class="form-control " id="nuevoFechaServicio" name="nuevoFechaServicio" placeholder="requerido" required>
-
-                 </div>
-
-
-
-
-               </div>
-
+            
                <div class="form-group">
 
                  <label>Procedencia:</label>
@@ -153,22 +138,6 @@
                  </div>
 
                </div>
-
-               <div class="form-group">
-                 <label>proximo servicio:</label>
-
-                 <div class="input-group">
-
-                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-                   <input type="date" class="form-control " id="nuevoProximoServicio" name="nuevoProximoServicio" placeholder="requerido" required>
-
-                 </div>
-
-               </div>
-
-
-
 
                <br>
                <div class="modal-footer">

@@ -29,13 +29,11 @@ class ControladorMantenimientos{
 				$tabla = "mantenimiento";
 
 				$datos = array("id_sucursal" => $_POST["nuevoSucursal"],
-					"fecha_servicio" => $_POST["nuevoFechaServicio"],
 					"nombre_taller" => $_POST["nuevoNombreTaller"],
 					"kilometraje" => $_POST["nuevoKilometraje"],
 					"descripcion" => $_POST["nuevoDescripcion"],
 					"nombre_mecanico" => $_POST["nuevoNombreMecanico"],
-					"precio" => $_POST["nuevoCosto"],
-					"proximo_servicio" => $_POST["nuevoProximoServicio"]);
+					"precio" => $_POST["nuevoCosto"]);
 
 				$respuesta = ModeloMantenimientos::mdlIngresarMantenimiento($tabla, $datos);
 
