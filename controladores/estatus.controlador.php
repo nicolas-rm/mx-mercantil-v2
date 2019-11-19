@@ -264,12 +264,14 @@ class EstatusControlador
     {
         if (isset($_POST["editEstatusNombre"])) {
             if ($_POST["editEstatusPertenencia"] == "1") {
+                $datosControlador = null;
                 $datosControlador = array("ID_ESTATUS_CAMIONES" => $_POST["editEstatus"], "DESCRIPCION" => $_POST["editEstatusNombre"], "ESTATUS" => "1", "ID_SUCURSALES" => $_POST["editEstatusPertenencia"]);
 
                 $tabladb = "ESTATUS_CAMIONES";
 
                 $respuesta = EstatusModelo::actualizarEstatusModelo($datosControlador, $tabladb);
             } else if ($_POST["editEstatusPertenencia"] == "2") {
+                $datosControlador = null;
 
                 $datosControlador = array("ID_ESTATUS_CONDUCTORES" => $_POST["editEstatus"], "DESCRIPCION" => $_POST["editEstatusNombre"], "ESTATUS" => "1", "ID_SUCURSALES" => $_POST["editEstatusPertenencia"]);
 
@@ -298,7 +300,7 @@ class EstatusControlador
 
 				</script>';
             }
-            if ($respuesta == "bien") {
+            if ($respuesta == "ok") {
                 echo '<script>
 
 					swal({
