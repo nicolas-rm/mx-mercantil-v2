@@ -7,7 +7,7 @@ require_once "../modelos/estatus.modelo.php";
 
 class ajaxPDF
 {
-    public function pdfConductores()
+    public function pdfMante()
     {
         $res = new pdfControlador();
         $respuesta = $res->mostrarDatosPDF();
@@ -18,5 +18,5 @@ class ajaxPDF
 if (isset($_POST["PDFJS"])) {
 
     $editar = new AjaxPDF();
-    $editar->pdfConductores();
+    $editar->pdfMante();
 }

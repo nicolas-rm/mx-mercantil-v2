@@ -5,10 +5,12 @@ require_once "conexion.php";
 class pdfModelo
 {
 
-    static public function mostrarDatosPDFConductores()
+    static public function mostrarDatosPDFMante()
     {
         # code...
-        $stmt = Conexion::conectar()->prepare("SELECT T1.ID_CONDUCTORES, T1.NOMBRE, T1.APELLIDOS, T1.NUMERO_LICENCIA, T2.DESCRIPCION FROM CONDUCTORES AS T1 INNER JOIN ESTATUS_CONDUCTORES AS T2 ON T1.ID_ESTATUS_CONDUCTORES = T2.ID_ESTATUS_CONDUCTORES AND T2.DESCRIPCION != 'INACTIVO' ");
+        $stmt = Conexion::conectar()->prepare("SELECT sucursales.nombre ,conductores.NOMBRE,mantenimiento.nombre_taller, mantenimiento.kilometraje,mantenimiento.descripcion,mantenimiento.nombre_mecanico,mantenimiento.precio FROM mantenimiento INNER JOIN sucursales on mantenimiento.id_sucursal=sucursales.id inner join camiones on mantenimiento.ID_CAMIONES=camiones.ID_CAMIONES inner join conductores on mantenimiento.ID_CONDUCTORES=conductores.ID_CONDUCTORES");
+         
+
         $stmt->execute();
 
         /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */

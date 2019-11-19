@@ -22,7 +22,7 @@
 
 $(function() {
     // console.log("ENTRO A DENTRO DE LA FUNCION");
-    $('body').on('click', '#GenerarMysql', function(e) {
+    $('body').on('click', '#', function(e) {
         // var conductores;
         console.log("HOLA");
 
