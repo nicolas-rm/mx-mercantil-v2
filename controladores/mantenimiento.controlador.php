@@ -29,8 +29,6 @@ class ControladorMantenimientos{
 				$tabla = "mantenimiento";
 
 				$datos = array("id_sucursal" => $_POST["nuevoSucursal"],
-					"ID_CONDUCTORES" => $_POST["nuevoConductor"],
-					"ID_CAMIONES" => $_POST["nuevoCamion"],
 					"nombre_taller" => $_POST["nuevoNombreTaller"],
 					"kilometraje" => $_POST["nuevoKilometraje"],
 					"descripcion" => $_POST["nuevoDescripcion"],
@@ -166,13 +164,13 @@ class ControladorMantenimientos{
 
 
 				$datos = array("id_sucursal" => $_POST["editarSucursal"],
-					"ID_CONDUCTORES" => $_POST["editarConductor"],
-					"ID_CAMIONES" => $_POST["editarCamion"],
+					"fecha_servicio" => $_POST["editarFechaServicio"],
 					"nombre_taller" => $_POST["editarNombreTaller"],
 					"kilometraje" => $_POST["editarkilometraje"],
 					"descripcion" => $_POST["editarDescripcion"],
 					"nombre_mecanico" => $_POST["editarNombreMecanico"],
 					"precio" => $_POST["editarCosto"],
+					"proximo_servicio" => $_POST["editarProximoServicio"],
 					"id"=>$_POST["idMantenimiento"]
 			);
 
