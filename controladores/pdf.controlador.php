@@ -6,7 +6,7 @@ class pdfControlador
     public function mostrarDatosPDF()
     {
         # code...
-        $datos = pdfModelo::mostrarDatosPDFConductores();
+        $datos = pdfModelo::mostrarDatosPDFMante();
         return $datos;
     }
 }

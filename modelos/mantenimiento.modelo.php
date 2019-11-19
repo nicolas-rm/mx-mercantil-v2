@@ -43,9 +43,11 @@ class ModeloMantenimientos{
 
 	static public function mdlIngresarMantenimiento($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_sucursal,nombre_taller,kilometraje,descripcion,nombre_mecanico,precio ) VALUES (:id_sucursal,:nombre_taller,:kilometraje,:descripcion,:nombre_mecanico,:precio)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_sucursal,ID_CONDUCTORES,ID_CAMIONES,nombre_taller,kilometraje,descripcion,nombre_mecanico,precio ) VALUES (:id_sucursal,:ID_CONDUCTORES,:ID_CAMIONES,:nombre_taller,:kilometraje,:descripcion,:nombre_mecanico,:precio)");
 
         $stmt->bindParam(":id_sucursal", $datos["id_sucursal"], PDO::PARAM_STR);
+        $stmt->bindParam(":ID_CONDUCTORES", $datos["ID_CONDUCTORES"], PDO::PARAM_STR);
+        $stmt->bindParam(":ID_CAMIONES", $datos["ID_CAMIONES"], PDO::PARAM_STR);
         $stmt->bindParam(":nombre_taller", $datos["nombre_taller"], PDO::PARAM_STR);
         $stmt->bindParam(":kilometraje", $datos["kilometraje"], PDO::PARAM_STR);
         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
@@ -75,16 +77,16 @@ class ModeloMantenimientos{
 
 	static public function mdlEditarMantenimiento($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  id_sucursal = :id_sucursal,fecha_servicio = :fecha_servicio, nombre_taller = :nombre_taller, kilometraje = :kilometraje, descripcion =:descripcion, nombre_mecanico = :nombre_mecanico ,precio = :precio, proximo_servicio = :proximo_servicio WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  id_sucursal = :id_sucursal,ID_CONDUCTORES = :ID_CONDUCTORES,ID_CAMIONES = :ID_CAMIONES, nombre_taller = :nombre_taller, kilometraje = :kilometraje, descripcion =:descripcion, nombre_mecanico = :nombre_mecanico ,precio = :precio WHERE id = :id");
 
          $stmt -> bindParam(":id_sucursal", $datos["id_sucursal"], PDO::PARAM_STR);
-		 $stmt->bindParam(":fecha_servicio", $datos["fecha_servicio"], PDO::PARAM_STR);
+         $stmt -> bindParam(":ID_CONDUCTORES", $datos["ID_CONDUCTORES"], PDO::PARAM_STR);
+         $stmt -> bindParam(":ID_CAMIONES", $datos["ID_CAMIONES"], PDO::PARAM_STR);
         $stmt->bindParam(":nombre_taller", $datos["nombre_taller"], PDO::PARAM_STR);
         $stmt->bindParam(":kilometraje", $datos["kilometraje"], PDO::PARAM_STR);
         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
         $stmt->bindParam(":nombre_mecanico", $datos["nombre_mecanico"], PDO::PARAM_STR);
 		$stmt->bindParam(":precio", $datos["precio"], PDO::PARAM_STR);
-		$stmt->bindParam(":proximo_servicio", $datos["proximo_servicio"], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
