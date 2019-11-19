@@ -31,6 +31,8 @@ $(function() {
                 // console.log("el valor de respuesta: ");
                 console.log(respuesta);
                 $('#editEstatus').val(respuesta[id]);
+                console.log("editEstatus editEstatus editEstatus ", (respuesta[id]));
+                // console.log("editEstatus editEstatus editEstatus ", id);
                 $('#editEstatusNombre').val(respuesta["DESCRIPCION"]);
                 // $('#editApellidos').val(respuesta["APELLIDOS"]);
                 // $('#editFechaNacimiento').val(respuesta["FECHA_NACIMIENTO"]);

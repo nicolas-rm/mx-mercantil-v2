@@ -11,30 +11,34 @@ class EstatusModelo
         if ($tabladb == "ESTATUS_CONDUCTORES") {
             $pdo = Conexion::conectar()->prepare("UPDATE $tabladb SET DESCRIPCION = :DESCRIPCION, ESTATUS = :ESTATUS WHERE ID_ESTATUS_CONDUCTORES = :ID_ESTATUS_CONDUCTORES");
 
-            $pdo->bindParam(":ID_ESTATUS_CONDUCTORES", $datosC["ID_ESTATUS_CONDUCTORES"], PDO::PARAM_INT);
+            $pdo->bindParam(":ID_ESTATUS_CONDUCTORES", $datosC["ID_ESTATUS_CONDUCTORES"], PDO::PARAM_STR);
         } else {
             $pdo = Conexion::conectar()->prepare("UPDATE $tabladb SET DESCRIPCION = :DESCRIPCION, ESTATUS = :ESTATUS WHERE ID_ESTATUS_CAMIONES = :ID_ESTATUS_CAMIONES");
 
-            $pdo->bindParam(":ID_ESTATUS_CAMIONES", $datosC["ID_ESTATUS_CAMIONES"], PDO::PARAM_INT);
+            $pdo->bindParam(":ID_ESTATUS_CAMIONES", $datosC["ID_ESTATUS_CAMIONES"], PDO::PARAM_STR);
         }
         /* QUERY PARA LA INSERCCION A LA BASE DE DATOS */
         /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
         $pdo->bindParam(":DESCRIPCION", $datosC["DESCRIPCION"], PDO::PARAM_STR);
         $pdo->bindParam(":ESTATUS", $datosC["ESTATUS"], PDO::PARAM_STR);
-        $pdo->bindParam(":ID_SUCURSALES", $datosC["ID_SUCURSALES"], PDO::PARAM_INT);
+        // $pdo->bindParam(":ID_SUCURSALES", $datosC["ID_SUCURSALES"], PDO::PARAM_);
 
         /* CONDICION PARA VER SI EXISTE ALGUN ERROR */
         /* FUNCION PARA EJECUTAR LA QUERY */
         if ($pdo->execute()) {
             /* RESPUESTA POR SI TODO SALIO BIEN */
+            // var_dump($datosC);
             return "ok";
         } else {
+            // var_dump($datosC);
+
             /* RESPUESTA POR SI TODO SALIO MAL*/
             return "error";
         }
 
         $pdo->close();
     }
+
 
 
     static public function MostrarEstatus($tabladb)
