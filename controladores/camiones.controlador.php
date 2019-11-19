@@ -156,7 +156,7 @@ class CamionesControlador
 			$nombre = null;
 			# code...
 			$encargado = null;
-			if ($value["TIPO_CAMION"] == "Camion") {
+			// if ($value["TIPO_CAMION"] == "Camion") {
 
 				foreach ($sucursales as $key => $vale) {
 					# code...
@@ -214,7 +214,7 @@ class CamionesControlador
 		
 						  </td>
 					</tr>';
-			}
+			// }
 		}
 	}
 

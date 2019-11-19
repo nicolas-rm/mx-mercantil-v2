@@ -1,0 +1,69 @@
+ <div class="row">
+          <div class="col-md-12">
+        
+        <div class="box box-danger">
+
+          <div class="card-body bg-danger text-white text-center">
+                          
+               <center><h3>MENU PRINCIPAL</h3></center> 
+          </div>
+
+ 
+              <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 text-center">
+                                        <p>
+                                            <a  target="_blank"><img src="vistas/img/plantilla/menuPrincipal/sucursales.png" width="80px" alt="Comunidad"></a>
+                                        </p>
+                                        <p><a   class="btn btn-primary waves-effect waves-light" target="_blank">SUCURSALES</a></p>
+                                        
+                                    </div> 
+
+                                    <div class="col-12 col-sm-4 text-center">
+                                        <p>
+                                            <a  target="_blank"><img src="vistas/img/plantilla/menuPrincipal/conductores.png" width="80px" alt="Comunidad"></a>
+                                        </p>
+                                        <p><a   class="btn btn-primary waves-effect waves-light" target="_blank">CONDUCTORES</a></p>
+                                         
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 text-center">
+                                        <p>
+                                            <a  target="_blank"><img src="vistas/img/plantilla/menuPrincipal/camiones.png" width="80px" alt="Comunidad"></a>
+                                        </p>
+                                        <p><a   class="btn btn-primary waves-effect waves-light" target="_blank">CAMIONES</a></p>
+                                        
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 text-center">
+                                        <p>
+                                            <a  target="_blank"><img src="vistas/img/plantilla/menuPrincipal/pedidos.png" width="80px" alt="Comunidad"></a>
+                                        </p>
+                                        <p><a   class="btn btn-primary waves-effect waves-light" target="_blank">PEDIDOS</a></p>
+                                        
+                                    </div>
+
+
+                                    <div class="col-12 col-sm-4 text-center">
+                                        <p>
+                                            <a target="_blank"><img src="vistas/img/plantilla/menuPrincipal/mantenimiento.png" width="80px" alt="Guía de Uso"></a>
+                                        </p>
+                                        <p><a class="btn btn-primary waves-effect waves-light" target="_blank">MANTENIMIENTOS</a></p>
+                                         
+                                        
+                                    </div>                                        
+                                    <div class="col-12 col-sm-4 text-center">
+                                        <p>
+                                            <a target="_blank"><img src="vistas/img/plantilla/menuPrincipal/reportes.png" width="80px" alt="Ticket"></a>
+                                        </p>
+                                        <p><a  class="btn btn-primary waves-effect waves-light">REPORTES</a></p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                 
+        </div>
+
+        </div>
+         
+      </div>
