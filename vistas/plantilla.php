@@ -120,6 +120,7 @@ session_start();
         $_GET["ruta"] == "estatus" ||
         $_GET["ruta"] == "camiones" ||
         $_GET["ruta"] == "viaje" ||
+        $_GET["ruta"] == "agenda" ||
         $_GET["ruta"] == "pdf"
       ) {
 

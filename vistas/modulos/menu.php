@@ -340,6 +340,12 @@
 							<span>Viaje</span>
 
 						</a>
+						<a href="agenda">
+
+							<i class="fa fa-podcast"></i>
+							<span>Agenda</span>
+
+						</a>
 
 					</li>
 					<!-- <li>

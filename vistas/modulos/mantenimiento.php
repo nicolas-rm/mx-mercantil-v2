@@ -34,6 +34,8 @@
 
              <div class="box-body">
 
+
+
             
                <div class="form-group">
 
@@ -69,6 +71,72 @@
 
 
 
+
+
+               <div class="form-group">
+
+                 <label>Nombre del conductor:</label>
+
+                 <div class="input-group">
+
+                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+
+                   <select class="form-control text-uppercase" id="nuevoConductor" name="nuevoConductor" required>
+
+                     <option value="">Seleccionar conductor</option>
+
+                     <?php
+
+
+                      $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+
+                      foreach ($respuesta as $key => $value) {
+
+                     if($value["ID_CONDUCTORES"] != "1"){
+                        echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
+
+}
+                      }
+
+                      ?>
+
+                   </select>
+
+                 </div>
+
+               </div>
+
+
+                <div class="form-group">
+
+                 <label>Nombre del camion:</label>
+
+                 <div class="input-group">
+
+                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+
+                   <select class="form-control text-uppercase" id="nuevoCamion" name="nuevoCamion" required>
+
+                     <option value="">Seleccionar camion</option>
+
+                     <?php
+
+                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+
+                      foreach ($respuesta as $key => $value) {
+                        if($value["ID_CAMIONES"] != "1"){
+
+                        echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                      }
+                    }
+
+                      ?>
+
+                   </select>
+
+                 </div>
+
+               </div>
 
 
                <div class="form-group">
@@ -141,10 +209,9 @@
 
                <br>
                <div class="modal-footer">
-
                  <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
-
                  <button type="submit" class="btn btn-primary">Guardar Mantenimientos</button>
+                 <button id="pdf" type="submit" class="btn btn-primary">TODOS LOS PDF</button>
 
                </div>
 
@@ -154,8 +221,6 @@
                 $crearMantenimiento->ctrCrearMantenimiento();
 
                 ?>
-
-
 
              </div>
            </form>
@@ -182,6 +247,8 @@
 
                    <!-- <th>FECHA SERVICIO</th> -->
                    <th>PROCEDENCIA</th>
+                   <th>CHOFER</th>
+                   <th>CAMION</th>
                    <th>TALLER</th>
                    <th>KILOMETRAJE</th>
                    <th>SERVICIO</th>
@@ -214,14 +281,38 @@
 
                     $valor = $value["id_sucursal"];
                     $sucur_nombre = ControladorSucursales::ctrMostrarSucursales($item, $valor);
-
                     echo '<td>' . $sucur_nombre["nombre"] . '</td>';
+
+
+                 $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+                      $chofe = null;
+                      foreach ($respuesta as $key => $val) {
+
+                        if($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]){
+                          $chofe=$val["NOMBRE"];
+
+                        }
+
+                      }
+
+                     $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+                      $camionzila = null;
+                      foreach ($respuesta as $key => $vale) {
+
+                        if($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]){
+                          $camionzila=$vale["NOMBRE_CAMION"];
+
+                        }
+
+                      }
+                      echo '<td>' . $chofe . '</td>';
+                      echo '<td>' . $camionzila . '</td>';
                     echo '<td>' . $value["nombre_taller"] . '</td>';
                     echo '<td>' . $value["kilometraje"] . '</td>';
                     echo '<td>' . $value["descripcion"] . '</td>';
                     echo '<td>' . $value["nombre_mecanico"] . '</td>';
                     echo '<td>' . $value["precio"] . '</td>';
-                    // echo '<td>' . $value["proximo_servicio"] . '</td>';
+                    
 
                     echo ' 
 
@@ -230,7 +321,10 @@
                     <div class="btn-group">
               
                <button id="btnEditarMantenimiento" type="button" class="btn btn-primary btnEditarMantenimiento" data-toggle="modal" data-target="#modalEditarMantenimiento" value="' . $value["id"] . '" idMantenimiento="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
+
+                <button id="unpdf" class="btn btn-danger" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
                     </div>  
+
                   </td>';
                   }
                   ?>
@@ -278,24 +372,7 @@
 
          <div class="modal-body">
 
-           <div class="box-body">
-
-             <!-- ENTRADA PARA EL NOMBRE -->
-
-             <div class="form-group">
-               <label>fecha de servicio:</label>
-
-               <div class="input-group">
-
-                 <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-                 <input type="date" class="form-control " id="editarFechaServicio" name="editarFechaServicio" required>
-
-               </div>
-
-             </div>
-
-           </div>
+          
 
            <div class="form-group">
 
@@ -328,6 +405,78 @@
              </div>
 
            </div>
+            <div class="form-group">
+
+                 <label>Nombre del conductor:</label>
+
+                 <div class="input-group">
+
+                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+
+                   <select class="form-control text-uppercase" id="editarConductor" name="editarConductor" required>
+
+                     <option value="">Seleccionar conductor</option>
+
+                     <?php
+
+
+                      $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+
+                      foreach ($respuesta as $key => $value) {
+
+                     if($value["ID_CONDUCTORES"] != "1"){
+                        echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
+
+}
+                      }
+
+                      ?>
+
+                   </select>
+
+                 </div>
+
+               </div>
+
+
+                <div class="form-group">
+
+                 <label>Nombre del camion:</label>
+
+                 <div class="input-group">
+
+                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+
+                   <select class="form-control text-uppercase" id="editarCamion" name="editarCamion" required>
+
+                     <option value="">Seleccionar camion</option>
+
+                     <?php
+
+                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+
+                      foreach ($respuesta as $key => $value) {
+                        if($value["ID_CAMIONES"] != "1"){
+
+                        echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                      }
+                    }
+
+                      ?>
+
+                   </select>
+
+                 </div>
+
+               </div>
+
+          
+
+
+
+
+
+
 
 
 
@@ -404,19 +553,6 @@
 
            </div>
 
-           <div class="form-group">
-             <label>proximo servicio:</label>
-
-             <div class="input-group">
-
-               <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-               <input type="date" class="form-control " id="editarProximoServicio" name="editarProximoServicio" required>
-
-             </div>
-
-           </div>
-
 
          </div>
 
@@ -447,4 +583,4 @@
 
  </div>
 
- </div>
+

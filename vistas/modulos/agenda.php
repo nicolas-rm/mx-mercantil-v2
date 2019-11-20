@@ -3,13 +3,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Administrar Pedidos
+      Administrar Camiones
 
     </h1>
     <ol class="breadcrumb">
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Pedidos</li>
+      <li class="active">Camiones</li>
     </ol>
   </section>
 
@@ -17,142 +17,79 @@
   <section class="content">
 
     <div class="row">
-      <div class="col-md-12">
-        <!-- xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
-        <div class="box box-primary">
-
-          <form role="form" method="post" enctype="multipart/form-data">
-
-            <div class="box-header">
-              <h3 class="box-title">Nuevo Pedido</h3>
-            </div>
-
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Camion:</label>
-                    <select class="form-control" id="nuevoCamionViaje" value="" name="nuevoCamionViaje" required>
-                      <option value="default" disabled selected>Camion</option>
-                      <!-- <option value="default">PRUEBA</option> -->
-                      <?php
-                      // $readStatus = new EstatusControlador();
-                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
-                      // $status = $readStatus->mostrarEstatus("ESTATUS_CAMIONES");
-                      foreach ($respuesta as $key => $value) {
-                        if ($value["TIPO_CAMION"] == "Camion" && $value["ESTATUS_CAMIONES"] == "Disponible") {
-                          # code...
-                          echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"], " - PLACAS ", "(", $value["NUMERO_PLACAS"], ")" . '</option>';
-                        }
-                      }
-                      ?>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Tipo Viaje:</label>
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                      <!-- <input type="text" class="form-control text-uppercase" id="nuevoNumSerie" name="nuevoNumSerie" placeholder="Numero Serie" required> -->
-                      <select class="form-control" value="" id="nuevoTipoViaje" value="" name="nuevoTipoViaje" required>
-                        <option value="Local">Local</option>
-                        <option value="Foraneo">Foraneo</option>
-                      </select>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Cantidad Pedidos:</label>
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                      <input type="text" class="form-control text-uppercase" id="nuevoCantidadPedidos" name="nuevoCantidadPedidos" placeholder="Cantidad Pedidos" required>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Pago Total Pedidos:</label>
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                      <input type="text" class="form-control text-uppercase" id="nuevoTotalPagos" name="nuevoTotalPagos" placeholder="Pago Total Pedidos" required>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Ruta:</label>
-
-                    <div class="input-group">
-
-                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-                      <textarea class="form-control" id="nuevoRutaViaje" name="nuevoRutaViaje" placeholder="requerido" required> </textarea>
-
-                    </div>
-
-                  </div>
-                </div>
-
-
-                <!--  <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Pago Total Pedidos:</label>
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                      <input type="text" class="form-control text-uppercase" id="nuevoNombreCamion" name="nuevoNombreCamion" placeholder="Nombre" required>
-                    </div>
-                  </div>
-                </div> -->
-              </div>
-
-
-
-              <!-- <div id="pertenencia" class="col-md-6 hidden">
-      <div class="form-group">
-        <label>Pertenencia:</label>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-          <input type="text" class="form-control text-uppercase" id="nuevoPertenencia" name="nuevoPertenencia" placeholder="Sucursal / Area" required>
-        </div>
-      </div>
-    </div> -->
-
-              <div class="modal-footer">
-
-                <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
-
-                <button type="submit" class="btn btn-primary">Guardar Pedido</button>
-
-              </div>
-
-              <?php
-              $insert = new ViajesControlador();
-              $insert->agregarCamionesControlador();
-              ?>
-
-
-            </div>
-          </form>
-
-        </div>
-      </div>
-
-
       <!-- /.col (right) -->
+      <div class="col-md-12">
+        <div class="box box-primary">
+          <div class="box-header">
+            <h3 class="box-title">Camiones Agregados</h3>
+          </div>
+          <!-- /.box-header -->
+          <form role="form" method="post" enctype="multipart/form-data">
+            <!-- <div class="box-body"> -->
+            <!-- <label>Mostrar Camiones:</label> -->
+            <!-- <div class="form-group form-inline">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+                  <select class="form-control" id="mostrarConductoresPertenencia" name="mostrarConductoresPertenencia" required>
+                    <option value="default" disabled selected>Tipo</option>
+                    <option value="1">Todos</option>
+                    <option value="2">Local</option>
+                    <option value="3">Foraneo</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Mostrar Estatus</button>
+              </div> -->
+            <!-- </div> -->
+          </form>
+          <div class="box-body">
+            <table class="table table-bordered dt-responsive example">
 
+
+              <thead>
+                <tr>
+                  <!-- <th>
+                    SUCURSAL
+                  </th> -->
+                  <th>
+                    CAMION
+                  </th>
+                  <!-- <th>
+                    NUM. SERIE
+                  </th> -->
+                  <th>
+                    VIAJE
+                  </th>
+                  <th>
+                    PEDIDOS
+                  </th>
+                  <th>
+                    MONTO PEDIDOS
+                  </th>
+                  <th>
+                    DESCRIPCION
+                  </th>
+                  <th>
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <?php
+                $read = new ViajesControlador();
+                $read->mostrarViajesControlador();
+                ?>
+
+              </tbody>
+
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+
+        <!-- /.box -->
+      </div>
     </div>
     <!-- /.row -->
 
