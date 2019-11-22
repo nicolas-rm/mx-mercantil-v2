@@ -103,7 +103,7 @@
 
               <div class="row">
 
-                <div id="conductor" class="col-md-6">
+                <div id="" class="col-md-8">
                   <div class="form-group">
                     <label>Conductor:</label>
                     <div class="input-group">
@@ -114,11 +114,22 @@
                         <?php
                         // $readStatus = new EstatusControlador();
                         $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+
+                        $value = null;
+                        $item = null;
+
+                        $sucursales = ControladorSucursales::ctrMostrarSucursales($value, $item);
+
+                        
                         // $status = $readStatus->mostrarEstatus("ESTATUS_CAMIONES");
                         foreach ($respuesta as $key => $value) {
                           if ($value["ID_CONDUCTORES"] != "1") {
                             # code...
-                            echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"], " ", $value["APELLIDOS"] . '</option>';
+                            foreach ($sucursales as $key => $vale) {
+                              if($value["ID_SUCURSALES"] == $vale["id"]){
+                                echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"], " ", $value["APELLIDOS"], " - ", $vale["nombre"] . '</option>';
+                              }
+                            }
                           }
                         }
                         ?>

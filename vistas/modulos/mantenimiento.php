@@ -36,7 +36,7 @@
 
 
 
-            
+
                <div class="form-group">
 
                  <label>Procedencia:</label>
@@ -92,10 +92,9 @@
 
                       foreach ($respuesta as $key => $value) {
 
-                     if($value["ID_CONDUCTORES"] != "1"){
-                        echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
-
-}
+                        if ($value["ID_CONDUCTORES"] != "1") {
+                          echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
+                        }
                       }
 
                       ?>
@@ -107,7 +106,7 @@
                </div>
 
 
-                <div class="form-group">
+               <div class="form-group">
 
                  <label>Nombre del camion:</label>
 
@@ -124,11 +123,11 @@
                       $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
 
                       foreach ($respuesta as $key => $value) {
-                        if($value["ID_CAMIONES"] != "1"){
+                        if ($value["ID_CAMIONES"] != "1") {
 
-                        echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                          echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                        }
                       }
-                    }
 
                       ?>
 
@@ -211,7 +210,6 @@
                <div class="modal-footer">
                  <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
                  <button type="submit" class="btn btn-primary">Guardar Mantenimientos</button>
-                 <button id="pdf" type="submit" class="btn btn-primary">TODOS LOS PDF</button>
 
                </div>
 
@@ -224,6 +222,7 @@
 
              </div>
            </form>
+           <button id="" class="btn btn-primary todoPDF">TODOS LOS PDF</button>
 
          </div>
 
@@ -284,35 +283,31 @@
                     echo '<td>' . $sucur_nombre["nombre"] . '</td>';
 
 
-                 $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
-                      $chofe = null;
-                      foreach ($respuesta as $key => $val) {
+                    $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+                    $chofe = null;
+                    foreach ($respuesta as $key => $val) {
 
-                        if($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]){
-                          $chofe=$val["NOMBRE"];
-
-                        }
-
+                      if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
+                        $chofe = $val["NOMBRE"];
                       }
+                    }
 
-                     $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
-                      $camionzila = null;
-                      foreach ($respuesta as $key => $vale) {
+                    $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+                    $camionzila = null;
+                    foreach ($respuesta as $key => $vale) {
 
-                        if($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]){
-                          $camionzila=$vale["NOMBRE_CAMION"];
-
-                        }
-
+                      if ($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]) {
+                        $camionzila = $vale["NOMBRE_CAMION"];
                       }
-                      echo '<td>' . $chofe . '</td>';
-                      echo '<td>' . $camionzila . '</td>';
+                    }
+                    echo '<td>' . $chofe . '</td>';
+                    echo '<td>' . $camionzila . '</td>';
                     echo '<td>' . $value["nombre_taller"] . '</td>';
                     echo '<td>' . $value["kilometraje"] . '</td>';
                     echo '<td>' . $value["descripcion"] . '</td>';
                     echo '<td>' . $value["nombre_mecanico"] . '</td>';
                     echo '<td>' . $value["precio"] . '</td>';
-                    
+
 
                     echo ' 
 
@@ -322,7 +317,7 @@
               
                <button id="btnEditarMantenimiento" type="button" class="btn btn-primary btnEditarMantenimiento" data-toggle="modal" data-target="#modalEditarMantenimiento" value="' . $value["id"] . '" idMantenimiento="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
 
-                <button id="unpdf" class="btn btn-danger" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
+                <button id="unpdf" class="btn btn-danger" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-file-pdf-o"></i></button>
                     </div>  
 
                   </td>';
@@ -372,7 +367,7 @@
 
          <div class="modal-body">
 
-          
+
 
            <div class="form-group">
 
@@ -405,72 +400,71 @@
              </div>
 
            </div>
-            <div class="form-group">
+           <div class="form-group">
 
-                 <label>Nombre del conductor:</label>
+             <label>Nombre del conductor:</label>
 
-                 <div class="input-group">
+             <div class="input-group">
 
-                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+               <span class="input-group-addon"><i class="fa fa-building"></i></span>
 
-                   <select class="form-control text-uppercase" id="editarConductor" name="editarConductor" required>
+               <select class="form-control text-uppercase" id="editarConductor" name="editarConductor" required>
 
-                     <option value="">Seleccionar conductor</option>
+                 <option value="">Seleccionar conductor</option>
 
-                     <?php
-
-
-                      $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
-
-                      foreach ($respuesta as $key => $value) {
-
-                     if($value["ID_CONDUCTORES"] != "1"){
-                        echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
-
-}
-                      }
-
-                      ?>
-
-                   </select>
-
-                 </div>
-
-               </div>
+                 <?php
 
 
-                <div class="form-group">
+                  $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
 
-                 <label>Nombre del camion:</label>
+                  foreach ($respuesta as $key => $value) {
 
-                 <div class="input-group">
-
-                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
-
-                   <select class="form-control text-uppercase" id="editarCamion" name="editarCamion" required>
-
-                     <option value="">Seleccionar camion</option>
-
-                     <?php
-
-                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
-
-                      foreach ($respuesta as $key => $value) {
-                        if($value["ID_CAMIONES"] != "1"){
-
-                        echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
-                      }
+                    if ($value["ID_CONDUCTORES"] != "1") {
+                      echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
                     }
+                  }
 
-                      ?>
+                  ?>
 
-                   </select>
+               </select>
 
-                 </div>
+             </div>
 
-               </div>
+           </div>
 
-          
+
+           <div class="form-group">
+
+             <label>Nombre del camion:</label>
+
+             <div class="input-group">
+
+               <span class="input-group-addon"><i class="fa fa-building"></i></span>
+
+               <select class="form-control text-uppercase" id="editarCamion" name="editarCamion" required>
+
+                 <option value="">Seleccionar camion</option>
+
+                 <?php
+
+                  $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+
+                  foreach ($respuesta as $key => $value) {
+                    if ($value["ID_CAMIONES"] != "1") {
+
+                      echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                    }
+                  }
+
+                  ?>
+
+               </select>
+
+             </div>
+
+           </div>
+
+
 
 
 
@@ -556,31 +550,29 @@
 
          </div>
 
+         <div class="modal-footer">
+
+           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+           <button type="submit" class="btn btn-primary">Modificar mantenimiento</button>
+
+         </div>
+
+         <?php
+
+          $editarMantenimiento = new ControladorMantenimientos();
+          $editarMantenimiento->ctrEditarMantenimiento();
+
+
+          ?>
      </div>
 
      <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
-     <div class="modal-footer">
-
-       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-       <button type="submit" class="btn btn-primary">Modificar mantenimiento</button>
-
-     </div>
-
-     <?php
-
-      $editarMantenimiento = new ControladorMantenimientos();
-      $editarMantenimiento->ctrEditarMantenimiento();
-
-
-      ?>
      </form>
 
    </div>
 
  </div>
-
-

@@ -53,11 +53,20 @@
                   <th>
                     CAMION
                   </th>
+                  <th>
+                    CONDUCTOR
+                  </th>
+                  <th>
+                    TELEFONO
+                  </th>
                   <!-- <th>
                     NUM. SERIE
                   </th> -->
                   <th>
                     VIAJE
+                  </th>
+                  <th>
+                    ESTATUS
                   </th>
                   <th>
                     PEDIDOS
@@ -68,6 +77,7 @@
                   <th>
                     DESCRIPCION
                   </th>
+
                   <th>
                     Acciones
                   </th>

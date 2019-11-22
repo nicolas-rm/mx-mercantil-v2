@@ -121,6 +121,7 @@ session_start();
         $_GET["ruta"] == "camiones" ||
         $_GET["ruta"] == "viaje" ||
         $_GET["ruta"] == "agenda" ||
+        $_GET["ruta"] == "historial" ||
         $_GET["ruta"] == "pdf"
       ) {
 
@@ -163,6 +164,7 @@ session_start();
   <script src="vistas/js/generatePDF.js"></script>
   <script src="vistas/js/estatus.js"></script>
   <script src="vistas/js/camiones.js"></script>
+  <script src="vistas/js/viaje.js"></script>
 </body>
 
 </html>

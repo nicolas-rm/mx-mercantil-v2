@@ -208,7 +208,7 @@ class CamionesControlador
 		
 						  <button id="' . $value["ID_CAMIONES"] . '" class="btn btn-primary editCamiones" data-toggle="modal" data-target="#modalEditarCamion"><i class="fa fa-pencil"></i></button>
 						  <button id="deletConductor"  class="btn btn-warning" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
-						  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-file-pdf-o"></i></button>
+						  <button id="pdfCamiones" class="btn btn-danger" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-file-pdf-o"></i></button>
 		
 						  </div>  
 		

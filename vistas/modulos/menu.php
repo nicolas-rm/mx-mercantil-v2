@@ -346,6 +346,12 @@
 							<span>Agenda</span>
 
 						</a>
+						<a href="historial">
+
+							<i class="fa fa-podcast"></i>
+							<span>Historial</span>
+
+						</a>
 
 					</li>
 					<!-- <li>
