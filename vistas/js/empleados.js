@@ -3,7 +3,7 @@ ELIMINAR EMPLEADO
 =============================================*/
 $(".btnEliminarEmpleado").click(function(){
 
-  var idUsuario = $(this).attr("idEmpleado"); 
+  var idEmpleado = $(this).attr("idEmpleado"); 
    
 
   swal({
@@ -19,7 +19,7 @@ $(".btnEliminarEmpleado").click(function(){
 
     if(result.value){
 
-      window.location = "index.php?ruta=empleados&idEmpleado="+idUsuario ;
+      window.location = "index.php?ruta=empleados&idEmpleado="+idEmpleado ;
 
     }
 

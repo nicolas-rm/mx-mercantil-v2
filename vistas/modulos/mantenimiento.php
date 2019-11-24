@@ -92,9 +92,9 @@
 
                       foreach ($respuesta as $key => $value) {
 
-                        if ($value["ID_CONDUCTORES"] != "1") {
+                        // if ($value["ID_CONDUCTORES"] != "1") {
                           echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"] . '</option>';
-                        }
+                        // }
                       }
 
                       ?>
@@ -123,10 +123,10 @@
                       $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
 
                       foreach ($respuesta as $key => $value) {
-                        if ($value["ID_CAMIONES"] != "1") {
+                        // if ($value["ID_CAMIONES"] != "1") {
 
                           echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
-                        }
+                        // }
                       }
 
                       ?>
@@ -158,7 +158,7 @@
 
                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                   <input type="number" class="form-control " id="nuevokilometraje" name="nuevoKilometraje" placeholder="requerido" required>
+                   <input type="number" class="form-control " id="nuevokilometraje"  step="0.01" name="nuevoKilometraje"  placeholder="requerido" required>
 
                  </div>
 
@@ -173,7 +173,7 @@
 
                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                   <textarea class="form-control" id="nuevoDescripcion" name="nuevoDescripcion" placeholder="requerido" required> </textarea>
+                   <textarea class="form-control" id="nuevoDescripcion"  step="0.01" name="nuevoDescripcion" placeholder="requerido" required> </textarea>
 
                  </div>
 
@@ -200,7 +200,7 @@
 
                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                   <input type="number" class="form-control " id="nuevoCosto" name="nuevoCosto" placeholder="requerido" required>
+                   <input type="number" class="form-control " id="nuevoCosto" name="nuevoCosto" step="0.01" placeholder="requerido" required>
 
                  </div>
 
@@ -222,7 +222,7 @@
 
              </div>
            </form>
-           <button id="" class="btn btn-primary todoPDF">TODOS LOS PDF</button>
+           <button id="todospdf" class="btn btn-primary todoPDF">TODOS LOS PDF</button>
 
          </div>
 
@@ -317,8 +317,13 @@
               
                <button id="btnEditarMantenimiento" type="button" class="btn btn-primary btnEditarMantenimiento" data-toggle="modal" data-target="#modalEditarMantenimiento" value="' . $value["id"] . '" idMantenimiento="' . $value["id"] . '" ><i class="fa fa-pencil"></i></button>
 
-                <button id="unpdf" class="btn btn-danger" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-file-pdf-o"></i></button>
+                <button id="unpdf" class="btn btn-danger" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
+
+
+                <button id="total" class="btn btn-warning" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
                     </div>  
+
+
 
                   </td>';
                   }
@@ -464,16 +469,6 @@
 
            </div>
 
-
-
-
-
-
-
-
-
-
-
            <div class="form-group">
              <label>nombre de taller:</label>
 
@@ -496,7 +491,7 @@
 
                <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-               <input type="number" class="form-control " id="editarkilometraje" name="editarKilometraje" required>
+               <input type="number" class="form-control " id="editarkilometraje" step="0.01" name="editarKilometraje" required>
 
              </div>
 
@@ -511,7 +506,7 @@
 
                <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-               <textarea class="form-control " id="editarDescripcion" name="editarDescripcion" required> </textarea>
+               <textarea class="form-control " id="editarDescripcion" step="0.01" name="editarDescripcion" required> </textarea>
 
              </div>
 
@@ -530,10 +525,6 @@
 
            </div>
 
-
-
-
-
            <div class="form-group">
              <label>costo:</label>
 
@@ -541,7 +532,7 @@
 
                <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-               <input type="number" class="form-control " id="editarCosto" name="editarCosto" required>
+               <input type="number" class="form-control " id="editarCosto" step="0.01" name="editarCosto" required>
 
              </div>
 

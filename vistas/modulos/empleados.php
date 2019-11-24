@@ -99,7 +99,7 @@
 
                 <div class="modal-footer">
 
-                  <button type="submit" class="btn btn-primary">Guardar Sucursal</button>
+                  <button type="submit" class="btn btn-primary">Guardar Empleado</button>
 
                 </div>
 
@@ -122,7 +122,7 @@
         <div class="col-md-8">
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Empleados agregadas</h3>
+              <h3 class="box-title">Empleados agregados</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body"> 

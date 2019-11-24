@@ -1,9 +1,9 @@
 /*=============================================
 SideBar Menu
 =============================================*/
-$(document).ready(function() {  
+  $(document).ready(function() {  
 		$('.sidebar-menu').tree()
-});
+    });
 
 /*=============================================
 Data Table
@@ -30,3 +30,9 @@ $(document).ready(function() {
             }
     });     
 });
+
+
+ $('.tablas').DataTable();
+
+ 
+ 

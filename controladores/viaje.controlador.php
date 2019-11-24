@@ -110,7 +110,7 @@ class ViajesControlador
     
                     <button id="viajeFin" idViaje="'.$value["ID_VIAJE"].'" class="btn btn-success viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-check"></i></button>
 
-                    <button id="viajeFin" idViaje="'.$value["ID_VIAJE"].'" class="btn btn-success viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-times"></i></button>
+                    <button id="viajeFin" idViaje="'.$value["ID_VIAJE"].'" class="btn btn-danger viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-times"></i></button>
 
                       </div>  
     

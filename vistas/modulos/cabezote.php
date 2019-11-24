@@ -3,8 +3,8 @@
   $item = null;
  $valor = null;
                
- $sucursales = ControladorSucursales::ctrMostrarSucursales($item, $valor);
- $totalSucursales = count($sucursales);
+ $Usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+ $totalUsuarios = count($Usuarios);
 
 // $conductores = ControladorConductores::ctrMostrarConductores($item, $valor);
 //  $totalConductores = count($conductores);
@@ -32,7 +32,7 @@
 
 		<span class="logo-lg">
 			
-			Sistema :v
+			Sistema SAUR
 
 		</span>
 
@@ -52,10 +52,10 @@
             <li class="dropdown notifications-menu"> 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-building"></i>
-              <span class="label label-warning"><?php echo number_format($totalSucursales); ?></span>
+              <span class="label label-warning"><?php echo number_format($totalUsuarios); ?></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">Sucursales Agregadas: <?php echo number_format($totalSucursales); ?></li>
+              <li class="header">Sucursales Agregadas: <?php echo number_format($totalUsuarios); ?></li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -63,7 +63,7 @@
 
                   <li>
                     <a >
-                      <i class="fa fa-building text-aqua"></i> <?php echo number_format($totalSucursales); ?> Agregados
+                      <i class="fa fa-building text-aqua"></i> <?php echo number_format($totalUsuarios); ?> Agregados
                     </a>
                   </li>
 
@@ -77,7 +77,7 @@
             <li class="dropdown notifications-menu"> 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-address-card-o"></i>
-              <span class="label label-warning"><?php echo number_format($totalSucursales); ?></span>
+              <span class="label label-warning"><?php echo number_format($totalUsuarios); ?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">Conductores Agregadas: <!-- <?php echo number_format($totalSucursales); ?> --></li>
@@ -101,7 +101,7 @@
             <li class="dropdown notifications-menu"> 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-car"></i>
-              <span class="label label-warning"><?php echo number_format($totalSucursales); ?></span>
+              <span class="label label-warning"><?php echo number_format($totalUsuarios); ?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">Camiones Agregadas: <!-- <?php echo number_format($totalSucursales); ?> --></li>
@@ -130,23 +130,53 @@
 
             <?php
 
-            if($_SESSION["foto"] != ""){
+                $actual = $_SESSION["id"];
 
-              echo '<img src="'.$_SESSION["foto"].'" class="user-image">';
+                $item = null;
+                $valor = null;
 
-            }else{
+                $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+ 
+                foreach ($usuario as $key => $value){
+ 
+                    if($actual == $value["id"] ){ 
 
 
-              // echo '<img src="vistas/img/usuarios/default/usuario1.png" class="user-image">';
-              echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
+                      $item = "id";
+                   $valor = $value["id_empleado"];
+                   $empleado_nombre = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
 
-            }
+                   
+ 
+ 
+                
+            
+                   if($value["foto"] != ""){
 
+                    echo '<td><img src="'.$value["foto"].'" class="user-image"  ></td>';
 
-            ?>
+                  }else{
+
+                    echo '<td><img src="vistas/img/usuarios/default/anonymous2.png" class="user-image"  ></td>';
+
+                  }
+ 
+              
+
+                       
+                    }
+                 
+                  }
+
+                  
+
+                ?>  
             
             <span class="hidden-xs">
-              <?php  echo $_SESSION["usuario"]; ?></span>
+              <?php  echo $_SESSION["usuario"]; ?>
+                
+              </span>
 
           </a>
 
@@ -157,47 +187,159 @@
 
 
 
-              <?php
+             <?php
 
-              if($_SESSION["foto"] != ""){
+                $actual = $_SESSION["id"];
 
-                echo '<img src="'.$_SESSION["foto"].'" class="img-circle" alt="User Image">';
+                $item = null;
+                $valor = null;
 
-              }else{
+                $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
-
-                // echo '<img src="vistas/img/usuarios/default/usuario1.png" class="img-circle" alt="User Image">';
-                echo '<img src="vistas/img/usuarios/default/anonymous.png" class="img-circle" alt="User Image">';
-
-              }
-
-
-              ?>
-
-              <p>
+ 
+                foreach ($usuario as $key => $value){
+ 
+                    if($actual == $value["id"] ){ 
 
 
-                <small> <?php echo $_SESSION["usuario"]; ?> </small>
-               
-               <?php
+                      $item = "id";
+                   $valor = $value["id_empleado"];
+                   $empleado_nombre = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
+
+                   
+ 
+ 
                 
-                if($_SESSION["id_rol"] == 1){ 
+            
+                   if($value["foto"] != ""){
 
-                echo "Administrador";
+                    echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
 
-                 }   
-                               
+                  }else{
+
+                    echo '<td><img src="vistas/img/usuarios/default/anonymous2.png" class="img-thumbnail" width="40px"></td>';
+
+                  }
+ 
+              
+
+                       
+                    }
+                 
+                  }
+
+                  
 
                 ?>  
+
+               
+
+              <p>
+                    <?php
+
+                $actual = $_SESSION["id"];
+
+                $item = null;
+                $valor = null;
+
+                $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+ 
+                foreach ($usuario as $key => $value){
+ 
+                    if($actual == $value["id"] ){ 
+
+
+                      $item = "id";
+                   $valor = $value["id_empleado"];
+                   $empleado_nombre = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
+
+                   
+
+                  echo ' <tr>
+                  <td>'.$empleado_nombre["nombre"].'</td>';
+ 
+                
+
+                       
+                    }
+                 
+                  }
+
+                  
+
+                ?> 
+                  <br>
+
+                               <?php
+
+                $actual = $_SESSION["id"];
+
+                $item = null;
+                $valor = null;
+
+                $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+ 
+                foreach ($usuario as $key => $value){
+ 
+                    if($actual == $value["id"] ){ 
+
+
+                      $item = "id";
+                   $valor = $value["id_rol"];
+                   $rol_nombre = ControladorRoles::ctrMostrarRoles($item, $valor);
+
+                   
+
+                  echo ' <tr>
+                  <td>'.$rol_nombre["nombre"].'</td>';
+ 
+                
+
+                       
+                    }
+                 
+                  }
+
+                  
+
+                ?>
+               
+
+
+                
 
              </p>
 
            </li>
 
+           <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                  <div class="col-xs-4 text-center btn btn-info btn-flat">
+                    <a href="bienvenida">Bienvenida</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+
 
 
            <!-- Menu Footer-->
            <li class="user-footer">
+
+            <div class="pull-left">
+            <a href="perfil" class="btn btn-warning btn-flat">Perfil</a>
+            </div>
+
+             
+                   
 
             <div class="pull-right">
               <a href="salir" class="btn btn-danger btn-flat">Salir</a>
@@ -209,7 +351,8 @@
   </div>
 </nav>
 </header>
+
+ 
  
 
-
- <!-- checar bien los modulos y estatus -->
+ 

@@ -24,6 +24,8 @@ class ControladorEmpleados{
 
 				$tabla = "empleados";
 
+			
+
 				$datos = array("id_sucursal" => $_POST["nuevoSucursal"],
 							   "nombre" => $_POST["nuevoNombreE"], 
 					           "telefono" => $_POST["nuevoTelefonoE"]);
@@ -37,7 +39,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "success",
-						title: "¡El Empleado ha sido guardada correctamente!",
+						title: "¡El Empleado ha sido guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -185,7 +187,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "success",
-						title: "¡El empleado ha sido guardada correctamente!",
+						title: "¡El empleado ha sido editado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -276,6 +278,134 @@ class ControladorEmpleados{
 						if(result.value){
 						
 							window.location = "empleados";
+
+						}
+
+					});
+				
+
+				</script>';
+
+			}
+
+		}
+	}
+
+	static public function ctrEditarEmpleadoPerfil(){
+
+		if(isset($_POST["editarNombreE"])){
+
+			if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreE"])){
+
+
+				$tabla = "empleados";
+
+				$datos = array("nombre"=>$_POST["editarNombreE"],
+							    "telefono"=>$_POST["editarTelefonoE"],
+							   "id"=>$_POST["idEmpleado"]);
+
+				$respuesta = ModeloEmpleados::mdlEditarEmpleadoPerfil($tabla, $datos);
+
+		
+				if($respuesta == "ok"){
+
+
+					echo '<script>
+
+					swal({
+
+						type: "success",
+						title: "¡El Perfil ha sido editado correctamente!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "perfil";
+
+						}
+
+					});
+				
+
+					</script>';
+
+
+				}else{
+
+				echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "¡El Perfil no puede ir vacío o llevar caracteres especiales!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "perfil";
+
+						}
+
+					});
+				
+
+				</script>';
+
+			}
+
+			if($respuesta != "ok"){
+
+					echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "¡error con Base de Datos !",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "perfil";
+
+						}
+
+					});
+				
+
+					</script>';
+
+
+			    }
+			}
+			else{
+
+				echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "¡Tu nombre contiene numeros!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "perfil";
 
 						}
 

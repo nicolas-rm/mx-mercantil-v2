@@ -142,7 +142,7 @@ class ConductoresControlador
 				$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 				$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
 				/* FILAS DE LA BASE DE DATOS */
-				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id"]);
 				// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
 				foreach ($respuesta as $key => $value) {
 					$descripcion = null;
@@ -163,7 +163,7 @@ class ConductoresControlador
 						}
 					}
 
-					if ($descripcion != "inactivo" && $descripcion != "INACTIVO" && $value["ID_CONDUCTORES"] != "1") {
+					if ($descripcion != "inactivo" && $descripcion != "INACTIVO") {
 						echo '
 				<tr>
 					<td>
@@ -205,7 +205,7 @@ class ConductoresControlador
 				$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 				$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
 				/* FILAS DE LA BASE DE DATOS */
-				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id"]);
 				// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
 				foreach ($respuesta as $key => $value) {
 					$descripcion = null;
@@ -228,7 +228,7 @@ class ConductoresControlador
 
 					if (
 						$descripcion != "inactivo" && $descripcion != "INACTIVO"
-						&& $value["ID_SUCURSALES"] == $idSucursal["id_sucursal"] && $value["ID_CONDUCTORES"] != "1"
+						&& $value["ID_SUCURSALES"] == $idSucursal["id_sucursal"]
 					) {
 						echo '
 				<tr>
@@ -271,7 +271,7 @@ class ConductoresControlador
 				$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 				$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
 				/* FILAS DE LA BASE DE DATOS */
-				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+				$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id"]);
 				// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
 				foreach ($respuesta as $key => $value) {
 					$descripcion = null;
@@ -294,7 +294,7 @@ class ConductoresControlador
 
 					if (
 						$descripcion != "inactivo" && $descripcion != "INACTIVO"
-						&& $value["ID_SUCURSALES"] != $idSucursal["id_sucursal"] && $value["ID_CONDUCTORES"] != "1"
+						&& $value["ID_SUCURSALES"] != $idSucursal["id_sucursal"]
 					) {
 						echo '
 				<tr>
@@ -338,7 +338,7 @@ class ConductoresControlador
 			$status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 			$sucursales = ModeloSucursales::mdlMostrarSucursales("sucursales", "", "");
 			/* FILAS DE LA BASE DE DATOS */
-			$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id_empleado"]);
+			$idSucursal = Condiciones::mdlMostrarUsuarios($_SESSION["id"]);
 			// $_SESSION["ID_SUCURSAL"] = $idSucursal["id_sucursal"];
 			foreach ($respuesta as $key => $value) {
 				$descripcion = null;
@@ -360,7 +360,7 @@ class ConductoresControlador
 				}
 
 				if (
-					$descripcion != "inactivo" && $descripcion != "INACTIVO" && $value["ID_CONDUCTORES"] != "1"
+					$descripcion != "inactivo" && $descripcion != "INACTIVO"
 				) {
 					echo '
 				<tr>

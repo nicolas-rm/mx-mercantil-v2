@@ -1,7 +1,7 @@
 <?php
 // require_once "../controladores/conductores.controlador.php";
 require_once "../modelos/camiones.modelo.php";
-require_once "../modelos/camiones.modelo.php";
+// require_once "../modelos/camiones.modelo.php";
 // require_once "./modelos/conexion.php";
 
 class AjaxCamiones

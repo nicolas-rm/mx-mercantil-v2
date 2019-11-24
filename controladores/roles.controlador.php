@@ -41,7 +41,7 @@ class ControladorRoles{
 					swal({
 
 						type: "success",
-						title: "¡El Rol ha sido guardada correctamente!",
+						title: "¡El Rol ha sido guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -122,7 +122,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡La nombre del rol contiene numeros!",
+						title: "¡El nombre del rol contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -216,7 +216,7 @@ class ControladorRoles{
 					swal({
 
 						type: "success",
-						title: "¡El Rol ha sido guardada correctamente!",
+						title: "¡El Rol ha sido editado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -297,7 +297,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡La nombre del rol contiene numeros!",
+						title: "¡El nombre del rol contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false

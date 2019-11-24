@@ -16,7 +16,7 @@ class Condiciones
 
         $stmt = Conexion::conectar()->prepare("SELECT id_sucursal FROM empleados WHERE id = :id");
 
-        $stmt->bindParam(":id", $item, PDO::PARAM_STR);
+        $stmt->bindParam(":id", $item, PDO::PARAM_INT);
 
         $stmt->execute();
 

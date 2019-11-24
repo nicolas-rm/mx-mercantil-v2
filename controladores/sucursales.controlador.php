@@ -23,8 +23,7 @@ class ControladorSucursales{
 
 		if(isset($_POST["nuevoNombreS"])){
 
-			if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreS"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["nuevoTelefonoS"]) &&
+			if(preg_match('/^[0-9]+$/', $_POST["nuevoTelefonoS"]) &&
 			   preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCiudadS"])){
 
 				$tabla = "sucursales";
@@ -44,6 +43,143 @@ class ControladorSucursales{
 
 						type: "success",
 						title: "¡La Sucursal ha sido guardada correctamente!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "sucursales";
+
+						}
+
+					});
+				
+
+					</script>';
+
+
+				}else{
+
+				echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "¡La Sucursal no puede ir vacío o llevar caracteres especiales!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "sucursales";
+
+						}
+
+					});
+				
+
+				</script>';
+
+			}
+
+			if($respuesta != "ok"){
+
+					echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "¡error con Base de Datos !",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "sucursales";
+
+						}
+
+					});
+				
+
+					</script>';
+
+
+			    }
+			}
+			else{
+
+				echo '<script>
+
+					swal({
+
+						type: "error",
+						title: "¡Datos incorrectos!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>{
+
+						if(result.value){
+						
+							window.location = "sucursales";
+
+						}
+
+					});
+				
+
+				</script>';
+
+			}
+
+		}
+	}
+
+
+
+
+		/*=============================================
+	REGISTRO DE SUCURSAL
+	=============================================*/
+
+	static public function ctrEditarSucursal(){
+
+		if(isset($_POST["editarNombreS"])){
+
+			if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreS"])){
+
+
+				$tabla = "sucursales";
+
+				$datos = array("nombre"=>$_POST["editarNombreS"],
+							   "telefono"=>$_POST["editarTelefonoS"],
+							   "ciudad"=>$_POST["editarCiudadS"],
+							   "direccion"=>$_POST["editarDireccionS"],
+							   "id"=>$_POST["idSucursal"]);
+
+				$respuesta = ModeloSucursales::mdlEditarSucursal($tabla, $datos);
+
+		
+				if($respuesta == "ok"){
+
+
+					echo '<script>
+
+					swal({
+
+						type: "success",
+						title: "¡La Sucursal ha sido editada correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -145,6 +281,42 @@ class ControladorSucursales{
 			}
 
 		}
+	}
+
+
+		static public function ctrBorrarSucursal(){
+
+		if(isset($_GET["idSucursal"])){
+
+			$tabla ="sucursales";
+			$datos = $_GET["idSucursal"];
+
+ 			$respuesta = ModeloSucursales::mdlBorrarSucursal($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "La Sucursal ha sido borrada correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar",
+					  closeOnConfirm: false
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "sucursales";
+
+								}
+							})
+
+				</script>';
+
+			}		
+
+		}
+
 	}
 
 

@@ -18,19 +18,34 @@ class ajaxPDF
         $respuesta = $res->mostrarDatosPDF();
         echo json_encode($respuesta);
     }
+
+
+    public function pdfMantenimientoUnique()
+    {
+        $id = $this->idCamiones;
+        $res = new pdfControlador();
+        $respuesta = $res->mostrarDatosMantenimientoUnique($id);
+        echo json_encode($respuesta);
+    }
+
     public function pdfCamionesUnique()
     {
-		$id = $this->idCamiones;
+        $id = $this->idCamiones;
         $res = new pdfControlador();
         $respuesta = $res->mostrarDatosPDFUnique($id);
         echo json_encode($respuesta);
     }
 
-    public function pdfMantenimientoUnique()
+    public function pdfMantetodos()
     {
-		$id = $this->idCamiones;
         $res = new pdfControlador();
-        $respuesta = $res->mostrarDatosMantenimientoUnique($id);
+        $respuesta = $res->mostrarDatosPDFMantetodos();
+        echo json_encode($respuesta);
+    }
+    public function pdfMantetotal()
+    {
+        $res = new pdfControlador();
+        $respuesta = $res->mostrarDatosPDFMantetotal1();
         echo json_encode($respuesta);
     }
 }
@@ -45,7 +60,7 @@ if (isset($_POST["PDFJS"])) {
 if (isset($_POST["unique"])) {
 
     $editar = new AjaxPDF();
-    $editar -> idCamiones = $_POST["idPDFCamionesUnique"];
+    $editar->idCamiones = $_POST["idPDFCamionesUnique"];
     $editar->pdfCamionesUnique();
 }
 
@@ -53,6 +68,17 @@ if (isset($_POST["unique"])) {
 if (isset($_POST["PDFMANTENIMIENTO"])) {
 
     $editar = new AjaxPDF();
-    $editar -> idCamiones = $_POST["idPDFmantenimientoUnique"];
+    $editar->idCamiones = $_POST["idPDFmantenimientoUnique"];
     $editar->pdfMantenimientoUnique();
+}
+
+if (isset($_POST["PDFJStodo"])) {
+
+    $editar = new AjaxPDF();
+    $editar->pdfMantetodos();
+}
+if (isset($_POST["PDFJStotal"])) {
+
+    $editar = new AjaxPDF();
+    $editar->pdfMantetotal();
 }

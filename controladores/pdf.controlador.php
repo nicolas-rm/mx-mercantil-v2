@@ -22,4 +22,17 @@ class pdfControlador
         $datos = pdfModelo::mostrarDatosMantenimientoUnique($id);
         return $datos;
     }
+
+    public function mostrarDatosPDFMantetodos()
+    {
+        # code...
+        $datos = pdfModelo::mostrarDatosPDFMante();
+        return $datos;
+    }
+    public function mostrarDatosPDFMantetotal1()
+    {
+        # code...
+        $datos = pdfModelo::mostrarDatosPDFMantetota();
+        return $datos;
+    }
 }

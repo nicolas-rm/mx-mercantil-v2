@@ -24,7 +24,7 @@ $(function() {
                 $('#editNombre').val(respuesta["NOMBRE"]);
                 $('#editApellidos').val(respuesta["APELLIDOS"]);
                 $('#editTelefono').val(respuesta["TELEFONO"]);
-                // $('#editFechaNacimiento').val(respuesta["FECHA_NACIMIENTO"]);
+                $('#editSucursalConductores').val(respuesta["ID_SUCURSALES"]);
                 // $('#editCurp').val(respuesta["CURP"]);
                 // $('#editDireccion').val(respuesta["DIRECCION"]);
                 $('#editNumeroLicencia').val(respuesta["NUMERO_LICENCIA"]);

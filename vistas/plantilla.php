@@ -5,16 +5,18 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <title>Mercantil del Constructor SA de CV</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
 
   <link rel="icon" href="vistas/img/plantilla/merca1.ico">
 
@@ -39,7 +41,7 @@ session_start();
 
 
   <!-- Google Font -->
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 
   <!-- DataTables -->
@@ -52,9 +54,13 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.css">
 
 
+
+
+
   <!--=====================================
   PLUGINS DE JAVASCRIPT
   ======================================-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
@@ -67,6 +73,9 @@ session_start();
 
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
+  <script src="vistas/dist/js/modernizr.js"></script>
+  <script src="vistas/dist/js/respond.js"></script>
+  <script src="vistas/dist/js/push.min.js"></script>
 
   <!-- DataTables -->
   <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -81,7 +90,12 @@ session_start();
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini login-page">
+<!--=====================================
+CUERPO DOCUMENTO
+======================================-->
+<!-- oncontextmenu="return false"   ponerselo al body -->
+
+<body oncontextmenu="return false" class="hold-transition skin-blue-light sidebar-mini fixed login-page">
 
   <?php
 
@@ -108,12 +122,17 @@ session_start();
     if (isset($_GET["ruta"])) {
 
       if (
-        $_GET["ruta"] == "inicio" ||     //ya esta
-        $_GET["ruta"] == "salir" ||      //ya esta
+        $_GET["ruta"] == "inicio"      || //ya esta
+        $_GET["ruta"] == "salir"       || //ya esta
+        $_GET["ruta"] == "perfil"      || //ya esta
+        $_GET["ruta"] == "calendario"      ||
+        $_GET["ruta"] == "bienvenida"      || //ya esta
 
-        $_GET["ruta"] == "roles" ||      //ya esta 
-        $_GET["ruta"] == "usuarios" ||   //ya esta .. falta editar cambiar foto  < ------------------  
-        $_GET["ruta"] == "empleados" ||  //ya esta 
+        $_GET["ruta"] == "roles"       || //ya esta 
+        $_GET["ruta"] == "usuarios"    || //ya esta  
+        $_GET["ruta"] == "empleados"   ||
+
+        $_GET["ruta"] == "sucursales" ||
         $_GET["ruta"] == "mantenimiento" ||
         $_GET["ruta"] == "sucursales" || //ya esta .. falta editar y eliminar .. (modulo de ricardo)
         $_GET["ruta"] == "conductores" ||
@@ -123,8 +142,8 @@ session_start();
         $_GET["ruta"] == "agenda" ||
         $_GET["ruta"] == "historial" ||
         $_GET["ruta"] == "pdf"
-      ) {
 
+      ) {
 
         include "modulos/" . $_GET["ruta"] . ".php";
       } else {
@@ -150,14 +169,25 @@ session_start();
 
   ?>
 
+
+
+
   <script src="vistas/js/plantilla.js"></script>
+
   <script src="vistas/js/roles.js"></script>
   <script src="vistas/js/empleados.js"></script>
-
   <script src="vistas/js/usuarios.js"></script>
-
-
   <script src="vistas/js/sucursales.js"></script>
+
+
+  <!-- <script src="vistas/js/plantilla.js"></script> -->
+  <!-- <script src="vistas/js/roles.js"></script> -->
+  <!-- <script src="vistas/js/empleados.js"></script> -->
+
+  <!-- <script src="vistas/js/usuarios.js"></script> -->
+
+
+  <!-- <script src="vistas/js/sucursales.js"></script> -->
   <script src="vistas/js/mantenimiento.js"></script>
   <script src="vistas/js/conductores.js"></script>
   <script src="vistas/js/pdf.js"></script>
@@ -168,3 +198,15 @@ session_start();
 </body>
 
 </html>
+
+
+<!-- ************** NOTAS IMPORTANTES ************** -->
+
+
+<!-- 1 .. borrar comentarios de todos y ponerlos en base a su modulo ............... comentar todoooo el proyecto -->
+
+<!-- 2 ..  Componer el menu y hacerlo fixed-->
+
+<!-- 3 ..  convertir el calendario a mvc -->
+
+<!-- 4. control de pedidos ..   mostrar la informacion para diferentes usuarios-->

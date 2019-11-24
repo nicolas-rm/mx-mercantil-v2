@@ -123,14 +123,14 @@
                         
                         // $status = $readStatus->mostrarEstatus("ESTATUS_CAMIONES");
                         foreach ($respuesta as $key => $value) {
-                          if ($value["ID_CONDUCTORES"] != "1") {
+                          // if ($value["ID_CONDUCTORES"] != "1") {
                             # code...
                             foreach ($sucursales as $key => $vale) {
                               if($value["ID_SUCURSALES"] == $vale["id"]){
                                 echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"], " ", $value["APELLIDOS"], " - ", $vale["nombre"] . '</option>';
                               }
                             }
-                          }
+                          // }
                         }
                         ?>
                       </select>

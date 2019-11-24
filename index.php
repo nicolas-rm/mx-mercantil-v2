@@ -27,8 +27,4 @@ require_once "modelos/camiones.modelo.php";
 require_once "modelos/viaje.modelo.php";
 
 $plantilla = new ControladorPlantilla();
-$plantilla -> ctrPlantilla();
-
-?>
-
- 
+$plantilla->ctrPlantilla();

@@ -1,13 +1,13 @@
 /*=============================================
-EDITAR USUARIO
+EDITAR SUCURSAL
 =============================================*/
 
-$(".btnEditarSucursal").click(function(){ //cuando de clic traiga todo los datos del usuario
+$(".btnEditarSucursal").click(function(){
 
   var idSucursal = $(this).attr("idSucursal");
   
-  var datos = new FormData(); //guardo los datos
-  datos.append("idSucursal", idSucursal); //le asigno el id a la variable datos
+  var datos = new FormData();
+  datos.append("idSucursal", idSucursal);
 
   $.ajax({
 
@@ -19,13 +19,14 @@ $(".btnEditarSucursal").click(function(){ //cuando de clic traiga todo los datos
     processData: false,
     dataType: "json",
     success: function(respuesta){
-
-      $("#idSucursal").val(respuesta["id"]);
       
       $("#editarNombreS").val(respuesta["nombre"]);
       $("#editarTelefonoS").val(respuesta["telefono"]);
       $("#editarCiudadS").val(respuesta["ciudad"]);
       $("#editarDireccionS").val(respuesta["direccion"]);
+
+      $("#idSucursal").val(respuesta["id"]);
+ 
 
     }
 
@@ -33,4 +34,32 @@ $(".btnEditarSucursal").click(function(){ //cuando de clic traiga todo los datos
 
 })
 
+
+
+$(".btnEliminarSucursal").click(function(){
+
+  var idSucursal = $(this).attr("idSucursal");
+
+  swal({
+    title: '¿Está seguro de borrar el Sucursal?',
+    text: "¡Si no lo está puede cancelar la accíón!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, borrar sucursal!'
+  }).then((result)=>{
+
+    if(result.value){
+
+      
+
+      window.location = "index.php?ruta=sucursales&idSucursal="+idSucursal;
+
+    }
+
+  })
+
+})
 

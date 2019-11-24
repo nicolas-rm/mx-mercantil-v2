@@ -37,7 +37,7 @@
 
                     <span class="input-group-addon"><i class="fa fa-building"></i></span> 
 
-                    <input type="text" class="form-control text-uppercase"   name="nuevoNombreS" placeholder="requerido" required="">
+                    <input type="text" class="form-control "   name="nuevoNombreS" placeholder="requerido" required="">
 
                   </div>
 
@@ -61,13 +61,13 @@
                  
 
                 <div class="form-group">
-                  <label>Ciudad / Municipio:</label>
+                  <label>Ubicacion:</label>
 
                   <div class="input-group">
 
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                    <input type="text" class="form-control text-uppercase" name="nuevoCiudadS" placeholder="requerido" required="">
+                    <input type="text" class="form-control " name="nuevoCiudadS" placeholder="requerido" required="">
 
                   </div>
 
@@ -82,7 +82,7 @@
 
                     <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span> 
 
-                    <input type="text" class="form-control text-uppercase" name="nuevoDireccionS" placeholder="requerido" required="">
+                    <input type="text" class="form-control " name="nuevoDireccionS" placeholder="requerido" required="">
 
                   </div>
 
@@ -125,67 +125,18 @@
 
 
                 <thead>
-
-                  <?php 
-                  if($_SESSION["id_rol"] == 1){
-
-                  echo ' <tr>
-                  <th style="width:150px">Nombre</th>
-
-                  <th style="width:50px" >Telefono</th>';
-
-                  echo '<th style="width:80px">Ubicacion</th>';
-
-                  echo '<th style="width:170px">Direccion</th>';
-
-                  echo '<th style="width:20px" ></th>';
-
-  
-                  
  
-                  echo '<th style="width:20px" ></th>
-
-                </tr>';
-
-
-
-                  }else{
-
-
-                                      echo ' <tr>
-                  <th style="width:150px">Nombre</th>
-
-                  <th style="width:50px" >Telefono</th>';
-
-                  echo '<th style="width:80px">Ubicacion</th>';
-
-                  echo '<th style="width:170px">Direccion</th>';
-
- 
-                  echo '<th style="width:20px" ></th>
-
-                </tr>';
-
-
-
-                  }
-
-                   ?>
-
-
-
-
-<!--                  <tr>
+                   <tr>
 
                    <th style="width:150px">Nombre</th>
-                   <th style="width:50px" >Telefono</th>                     MODIFICAR DISEÑO DE TABLAS Y PERFILES EN BASE A MODULO SUCURSAL Y JAVA SCRIPT DE TABLAS
+                   <th style="width:50px" >Telefono</th>
                    <th style="width:80px">Ubicacion</th>
                    <th style="width:170px">Direccion</th>
-                   
                     
-                   <th style="width:20px" ></th>
+                   <th>Acciones</th>
 
-                 </tr>  -->
+                 </tr> 
+ 
 
                </thead>
 
@@ -208,26 +159,19 @@
                   echo '<td>'.$value["ciudad"].'</td>';
 
                   echo '<td>'.$value["direccion"].'</td>';
-
-
-                  if($_SESSION["id_rol"] == 1){
-                  echo '<td>
-
-                    <button class="btn btn-warning  "  ><i class="fa fa-pencil"></i></button>
-
-                  </td>';
-                          }
                   
  
                   echo '<td>
 
-                      <button class="btn btn-danger btnEliminarRol" idRol="'.$value["id"].'"  ><i class="fa fa-times"></i></button>
-                   
-                  </td>
+                  <div class="btn-group">
 
+                  <button class="btn btn-primary btnEditarSucursal " idSucursal="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarSucursal"><i class="fa fa-pencil"></i></button>
 
-                </tr>';
+                  <button class="btn btn-danger btnEliminarSucursal" idSucursal="'.$value["id"].'" ><i class="fa fa-times"></i></button>
 
+                  </div>  
+
+                  </td>';
                
 
                 }
@@ -251,4 +195,134 @@
   <!-- /.content -->
 </div>
 
+<!--=====================================
+MODAL EDITAR ROL
+======================================-->
 
+<div id="modalEditarSucursal" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar sucursal</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+                  <div class="form-group">
+                  <label>Nombre:</label>
+
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-building"></i></span> 
+
+                    <input type="text" class="form-control "   name="editarNombreS" id="editarNombreS" >
+
+                      <input type="hidden"  name="idSucursal" id="idSucursal">
+
+                  </div>
+
+                </div>
+
+                 
+
+                <div class="form-group">
+                  <label>Telefono:</label>
+
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+
+                    <input type="number" class="form-control" name="editarTelefonoS" id="editarTelefonoS">
+
+                  </div>
+
+                </div>
+
+                 
+
+                <div class="form-group">
+                  <label>Ubicacion:</label>
+
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                    <input type="text" class="form-control " name="editarCiudadS" id="editarCiudadS">
+
+                  </div>
+
+                </div>
+
+                 
+
+                <div class="form-group">
+                  <label>Direccion:</label>
+
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span> 
+
+                    <input type="text" class="form-control " name="editarDireccionS" id="editarDireccionS" >
+
+                  </div>
+
+                </div>
+
+
+          </div>
+ 
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Modificar sucursal</button>
+
+        </div>
+
+        <?php
+
+         $editarSucursal = new ControladorSucursales();
+         $editarSucursal -> ctrEditarSucursal();
+
+        ?> 
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+ <?php
+
+ $borrarSucursal = new ControladorSucursales();
+ $borrarSucursal -> ctrBorrarSucursal();
+
+ ?> 

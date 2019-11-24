@@ -92,9 +92,7 @@ class ModeloRoles{
 
 	}
 
-		/*=============================================
-	EDITAR CATEGORIA
-	=============================================*/
+ 
 
 	static public function mdlEditarRol($tabla, $datos){
 

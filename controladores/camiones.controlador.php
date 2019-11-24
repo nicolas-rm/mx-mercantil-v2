@@ -187,16 +187,16 @@ class CamionesControlador
 						<td>';
 
 				if ($value["ESTATUS_CAMIONES"] == "Disponible") {
-					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-success estatusCamiones">' . $value["ESTATUS_CAMIONES"] . '</button>';
+					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-success">' . $value["ESTATUS_CAMIONES"] . '</button>';
 				}
 				if ($value["ESTATUS_CAMIONES"] == "Mantenimiento") {
-					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-warning estatusCamiones">' . $value["ESTATUS_CAMIONES"] . '</button>';
+					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-warning">' . $value["ESTATUS_CAMIONES"] . '</button>';
 				}
 				if ($value["ESTATUS_CAMIONES"] == "Cargado") {
-					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-primary estatusCamiones">' . $value["ESTATUS_CAMIONES"] . '</button>';
+					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-primary">' . $value["ESTATUS_CAMIONES"] . '</button>';
 				}
 				if ($value["ESTATUS_CAMIONES"] == "Repartiendo") {
-					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-danger estatusCamiones">' . $value["ESTATUS_CAMIONES"] . '</button>';
+					echo '<button id="' . $value["ID_CAMIONES"] . '" idConductor="' . $value["ID_CONDUCTORES"] . '" value="" class="btn btn-xs btn-danger">' . $value["ESTATUS_CAMIONES"] . '</button>';
 				}
 				echo '</td>					
 						<td>

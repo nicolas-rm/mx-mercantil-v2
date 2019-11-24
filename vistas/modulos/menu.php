@@ -8,13 +8,38 @@
 			<div class="pull-left image">
 				<?php
 
-				if ($_SESSION["foto"] != "") {
+				$actual = $_SESSION["id"];
 
-					echo '<img src="' . $_SESSION["foto"] . '" class="user-image">';
-				} else {
-					// echo '<img src="vistas/img/usuarios/default/usuario1.png" class="user-image">';
-					echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
+				$item = null;
+				$valor = null;
+
+				$usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+
+				foreach ($usuario as $key => $value) {
+
+					if ($actual == $value["id"]) {
+
+
+						$item = "id";
+						$valor = $value["id_empleado"];
+						$empleado_nombre = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
+
+
+
+
+
+
+						if ($value["foto"] != "") {
+
+							echo '<td><img src="' . $value["foto"] . '" class="img-thumbnail" width="40px"></td>';
+						} else {
+
+							echo '<td><img src="vistas/img/usuarios/default/anonymous2.png" class="img-thumbnail" width="40px"></td>';
+						}
+					}
 				}
+
 
 
 				?>
@@ -22,16 +47,16 @@
 
 
 			<div class="pull-left info">
-				<p><?php echo $_SESSION["usuario"]; ?></p>
+				<p> <i class="fa fa-circle text-success"></i> <span>Activo: </span> <?php echo $_SESSION["usuario"]; ?> </p>
 
-				<i class="fa fa-circle text-success"></i> Activado</span>
+
 			</div>
 		</div>
 
 		<!-- sidebar menu: : style can be found in sidebar.less -->
-		<ul class="sidebar-menu" data-widget="tree">
+		<ul class="sidebar-menu " data-widget="tree">
 			<li class="header">
-				<center>MENU PRINCIPAL</center>
+				<center> MENU PRINCIPAL </center>
 			</li>
 
 
@@ -39,8 +64,12 @@
 
 				<a href="inicio">
 
+
+
 					<i class="fa fa-home"></i>
 					<span>Inicio</span>
+
+
 
 				</a>
 
@@ -57,15 +86,15 @@
 
 				<a href="#">
 
-					<i class="fa fa-star"></i>
+					 <i class="fa fa-star"></i>
 					
-					<span>Administrador</span>
+					 <span>Administrador</span>
 					
 					<span class="pull-right-container">
 					
 						<i class="fa fa-angle-left pull-right"></i>
 
-					</span>
+					</span> 
 
 				</a>
 
@@ -124,32 +153,10 @@
 
 			<li>
 
-				<a href="">
+				<a href="calendario">
 
-					<i class="fa fa-times"></i>
-					<span>x</span>
-
-				</a>
-
-			</li>
-
-			<li>
-
-				<a href="">
-
-					<i class="fa fa-times"></i>
-					<span>x</span>
-
-				</a>
-
-			</li>
-
-			<li>
-
-				<a href="">
-
-					<i class="fa fa-times"></i>
-					<span>x</span>
+					<i class="fa fa-calendar"></i>
+					<span>calendario</span>
 
 				</a>
 
@@ -254,14 +261,14 @@
 					</li>
 					<!-- <li>
 
-						<a href="conductoresRead">
+		<a href="conductoresRead">
 
-							<i class="fa fa-podcast"></i>
-							<span>Mostrar Estatus</span>
+			<i class="fa fa-podcast"></i>
+			<span>Mostrar Estatus</span>
 
-						</a>
+		</a>
 
-					</li> -->
+	</li> -->
 
 
 
@@ -299,14 +306,14 @@
 					</li>
 					<!-- <li>
 
-						<a href="conductoresRead">
+		<a href="conductoresRead">
 
-							<i class="fa fa-podcast"></i>
-							<span>Mostrar Estatus</span>
+			<i class="fa fa-podcast"></i>
+			<span>Mostrar Estatus</span>
 
-						</a>
+		</a>
 
-					</li> -->
+	</li> -->
 
 
 
@@ -346,24 +353,17 @@
 							<span>Agenda</span>
 
 						</a>
-						<a href="historial">
-
-							<i class="fa fa-podcast"></i>
-							<span>Historial</span>
-
-						</a>
-
 					</li>
 					<!-- <li>
 
-						<a href="conductoresRead">
+		<a href="conductoresRead">
 
-							<i class="fa fa-podcast"></i>
-							<span>Mostrar Estatus</span>
+			<i class="fa fa-podcast"></i>
+			<span>Mostrar Estatus</span>
 
-						</a>
+		</a>
 
-					</li> -->
+	</li> -->
 
 
 
@@ -403,8 +403,12 @@
 			</li>
 
 
-		</ul>
 
+
+
+
+
+		</ul>
 
 	</section>
 
