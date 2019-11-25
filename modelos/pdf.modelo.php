@@ -109,7 +109,7 @@ class pdfModelo
 
 
 
-        // AND CAMIONES.ID_SUCURSALES = sucursales.id   = PERTENENCIA CAMION
+        // CAMIONES.ID_SUCURSALES = sucursales.id   = PERTENENCIA CAMION
         // CONDUCTORES.ID_SUCURSALES = sucursales.id    = PERTENENCIA CONDUCTOR
         $stmt1->execute();
 
