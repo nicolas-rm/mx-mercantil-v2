@@ -141,6 +141,7 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "viaje" ||
         $_GET["ruta"] == "agenda" ||
         $_GET["ruta"] == "historial" ||
+        $_GET["ruta"] == "automoviles" ||
         $_GET["ruta"] == "pdf"
 
       ) {

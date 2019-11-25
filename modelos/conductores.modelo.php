@@ -106,4 +106,22 @@ class ModeloConductores
 
         $pdo->close();
     }
+
+    static public function eliminarConductor($tabladb, $id)
+    {
+        # code...
+
+        $pdo = Conexion::conectar()->prepare("UPDATE $tabladb SET ID_ESTATUS_CONDUCTORES = '1' WHERE ID_CONDUCTORES = :ID_CONDUCTORES");
+        // $pdo->bindParam(":ID_ESTATUS_CONDUCTORES", "1", PDO::PARAM_STR);
+        $pdo->bindParam(":ID_CONDUCTORES", $id, PDO::PARAM_INT);
+        if ($pdo->execute()) {
+            /* RESPUESTA POR SI TODO SALIO BIEN */
+            return "ok";
+        } else {
+            /* RESPUESTA POR SI TODO SALIO MAL*/
+            return "error";
+        }
+
+        $pdo->close();
+    }
 }

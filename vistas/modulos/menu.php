@@ -231,50 +231,7 @@
 
 			</li>
 
-			<!-- ESTATUS -->
-			<li class="treeview">
-
-				<a href="#">
-
-					<i class="fa fa-star"></i>
-
-					<span>Estatus</span>
-
-					<span class="pull-right-container">
-
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-				</a>
-
-				<ul class="treeview-menu">
-					<li>
-
-						<a href="estatus">
-
-							<i class="fa fa-podcast"></i>
-							<span>Estatus</span>
-
-						</a>
-
-					</li>
-					<!-- <li>
-
-		<a href="conductoresRead">
-
-			<i class="fa fa-podcast"></i>
-			<span>Mostrar Estatus</span>
-
-		</a>
-
-	</li> -->
-
-
-
-				</ul>
-
-			</li>
+			
 
 			<!-- CAMIONES -->
 			<li class="treeview">
@@ -283,7 +240,7 @@
 
 					<i class="fa fa-star"></i>
 
-					<span>Camiones</span>
+					<span>Vehiculos</span>
 
 					<span class="pull-right-container">
 

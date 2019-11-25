@@ -3,13 +3,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Administrar Roles
+      Administrar Conductores
 
     </h1>
     <ol class="breadcrumb">
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Roles</li>
+      <li class="active">Conductores</li>
     </ol>
   </section>
 
@@ -25,7 +25,7 @@
           <form role="form" method="post" enctype="multipart/form-data">
 
             <div class="box-header">
-              <h3 class="box-title">Insertar datos</h3>
+              <h3 class="box-title">Datos Principales</h3>
             </div>
 
             <div class="box-body">
@@ -73,7 +73,11 @@
 
                     foreach ($status as $key => $value) {
                       if ($value["DESCRIPCION"] != "INACTIVO") {
-                        echo '<option value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
+                        if ($value["DESCRIPCION"] == "Activo" || $value["DESCRIPCION"] == "ACTIVO") {
+                          echo '<option selected value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
+                        } else {
+                          echo '<option value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
+                        }
                       }
                     }
                     ?>
@@ -105,7 +109,7 @@
 
                 <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
 
-                <button type="submit" class="btn btn-primary">Guardar Roles</button>
+                <button type="submit" class="btn btn-primary">Guardar Conductor</button>
 
               </div>
 
@@ -127,7 +131,7 @@
       <div class="col-md-8">
         <div class="box box-primary">
           <div class="box-header">
-            <h3 class="box-title">Roles agregadas</h3>
+            <h3 class="box-title">Conductores Registrados</h3>
           </div>
           <!-- /.box-header -->
           <form role="form" method="post" enctype="multipart/form-data">

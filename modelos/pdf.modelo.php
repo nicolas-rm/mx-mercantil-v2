@@ -98,4 +98,27 @@ class pdfModelo
 
         $stmt1 = null;
     }
+    static public function mostrarDatosPDFCamiones()
+    {
+        # code...
+        // $stmt1 = Conexion::conectar()->prepare("SELECT sucursales.nombre,camiones.NOMBRE_CAMION,SUM(mantenimiento.precio) TOTAL, COUNT(camiones.NOMBRE_CAMION) AS mantenimientos_totales FROM mantenimiento INNER JOIN sucursales on mantenimiento.id_sucursal=sucursales.id inner join camiones on mantenimiento.ID_CAMIONES=camiones.ID_CAMIONES GROUP BY sucursales.id,camiones.NOMBRE_CAMION HAVING COUNT(*)>=1");
+
+
+
+        $stmt1 = Conexion::conectar()->prepare("SELECT sucursales.nombre, CAMIONES.NOMBRE_CAMION, CAMIONES.TIPO_CAMION, CAMIONES.NUMERO_SERIE, CAMIONES.MODELO, CONDUCTORES.NOMBRE, CONDUCTORES.APELLIDOS  FROM CONDUCTORES INNER JOIN sucursales INNER JOIN CAMIONES ON CAMIONES.ID_CONDUCTORES = CONDUCTORES.ID_CONDUCTORES AND CAMIONES.ID_SUCURSALES = sucursales.id");
+
+
+
+        // AND CAMIONES.ID_SUCURSALES = sucursales.id   = PERTENENCIA CAMION
+        // CONDUCTORES.ID_SUCURSALES = sucursales.id    = PERTENENCIA CONDUCTOR
+        $stmt1->execute();
+
+        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
+        return $stmt1->fetchAll();
+
+        /* CERRAR LA CONEXION DE LA CONSULTA */
+        $stmt1->close();
+
+        $stmt1 = null;
+    }
 }

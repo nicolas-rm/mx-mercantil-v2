@@ -15,13 +15,13 @@ class ViajesControlador
             $tabla = "VIAJE";
 
             $datos = array(
-                "ID_CAMIONES" => $_POST["nuevoCamionViaje"],
-                "TIPO_VIAJE" => $_POST["nuevoTipoViaje"],
-                "CANTIDAD_PEDIDOS" => $_POST["nuevoCantidadPedidos"],
-                "MONTO_TOTAL" => $_POST["nuevoTotalPagos"],
-                "DESCRIPCION" => $_POST["nuevoRutaViaje"],
-                "FECHA_SALIDA" => $_POST["nuevoFechaViaje"],
-                "ESTATUS" => "1",
+                "ID_CAMIONES" => strtoupper($_POST["nuevoCamionViaje"]),
+                "TIPO_VIAJE" => strtoupper($_POST["nuevoTipoViaje"]),
+                "CANTIDAD_PEDIDOS" => strtoupper($_POST["nuevoCantidadPedidos"]),
+                "MONTO_TOTAL" => strtoupper($_POST["nuevoTotalPagos"]),
+                "DESCRIPCION" => strtoupper($_POST["nuevoRutaViaje"]),
+                "FECHA_SALIDA" => strtoupper($_POST["nuevoFechaViaje"]),
+                "ESTATUS" => strtoupper("1"),
             );
 
             date_default_timezone_set('America/Mexico_City');
@@ -108,9 +108,9 @@ class ViajesControlador
     
                       <div class="btn-group">
     
-                    <button id="viajeFin" idViaje="'.$value["ID_VIAJE"].'" class="btn btn-success viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-check"></i></button>
+                    <button id="viajeFin" idViaje="' . $value["ID_VIAJE"] . '" class="btn btn-success viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-check"></i></button>
 
-                    <button id="viajeFin" idViaje="'.$value["ID_VIAJE"].'" class="btn btn-danger viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-times"></i></button>
+                    <button id="viajeFin" idViaje="' . $value["ID_VIAJE"] . '" class="btn btn-danger viajeFin" value="' . $value["ID_CAMIONES"] . '" data-toggle="modal" data-target="#modalEditarConductor"  value=""><i class="fa fa-times"></i></button>
 
                       </div>  
     

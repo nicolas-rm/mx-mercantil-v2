@@ -156,33 +156,47 @@ class CamionesControlador
 			$nombre = null;
 			# code...
 			$encargado = null;
-			if ($value["TIPO_CAMION"] == "Camion") {
+			$telefono = null;
+			// if ($value["TIPO_CAMION"] == "Camion") {
 
-				foreach ($sucursales as $key => $vale) {
+			foreach ($sucursales as $key => $vale) {
+				# code...
+				if ($value["ID_SUCURSALES"] == $vale["id"]) {
 					# code...
-					if ($value["ID_SUCURSALES"] == $vale["id"]) {
-						# code...
-						$nombre = $vale["nombre"];
-					}
+					$nombre = $vale["nombre"];
 				}
+			}
 
-				foreach ($conductor as $key => $val) {
+			foreach ($conductor as $key => $val) {
+				# code...
+				if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
 					# code...
-					if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
-						# code...
-						$encargado = $val["NOMBRE"];
-					}
+					// $encargado = $val["NOMBRE"];
+					// if (empty($val["NOMBRE"])) {
+					// 	$encargado = "";
+					// } else {
+					$encargado = $val["NOMBRE"];
+					// }	
+					$telefono = $val["TELEFONO"];
 				}
+			}
+
+			if ($value["ESTATUS_CAMIONES"] != "Inactivo") {
+
+				// }
 				echo '
 					<tr>
 						<td>
-						' . $value["DESCRIPCION"] . '
+						' . $nombre . '
 						</td>
 						<td>
 						' . $value["NOMBRE_CAMION"] . '					
 						</td>
 						<td>
 						' . $encargado . '					
+						</td>
+						<td>
+						' . $telefono . '					
 						</td>
 						<td>';
 
@@ -207,7 +221,7 @@ class CamionesControlador
 						  <div class="btn-group">
 		
 						  <button id="' . $value["ID_CAMIONES"] . '" class="btn btn-primary editCamiones" data-toggle="modal" data-target="#modalEditarCamion"><i class="fa fa-pencil"></i></button>
-						  <button id="deletConductor"  class="btn btn-warning" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
+						  <button id="deletConductor"  class="btn btn-warning" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-times"></i></button>
 						  <button id="pdfCamiones" class="btn btn-danger" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-file-pdf-o"></i></button>
 		
 						  </div>  

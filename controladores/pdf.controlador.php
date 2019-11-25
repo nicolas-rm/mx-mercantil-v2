@@ -35,4 +35,10 @@ class pdfControlador
         $datos = pdfModelo::mostrarDatosPDFMantetota();
         return $datos;
     }
+    public function mostrarDatosPDFCamiones()
+    {
+        # code...
+        $datos = pdfModelo::mostrarDatosPDFCamiones();
+        return $datos;
+    }
 }

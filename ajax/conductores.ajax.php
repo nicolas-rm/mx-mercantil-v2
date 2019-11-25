@@ -31,6 +31,16 @@ class AjaxConductores
 		// $_POST["ID_ESTATUS_CONDUCTORES"] = $datos["ID_ESTATUS_CONDUCTORES"];
 		return $valor;
 	}
+
+	public function eliminarConductor()
+	{
+		# code...$valor = $this->editConductor;
+		$valor = $this->editConductor;
+		$datos = ModeloConductores::eliminarConductor("CONDUCTORES",$valor);
+		// var_dump($datos);
+		// $_POST["ID_ESTATUS_CONDUCTORES"] = $datos["ID_ESTATUS_CONDUCTORES"];
+		echo json_encode($datos);
+	}
 }
 
 /*=============================================
@@ -44,5 +54,17 @@ if (isset($_POST["editConductor"])) {
 	$editar->editConductor = $_POST["editConductor"];
 	$editar->ajaxEditarConductor();
 }
+if (isset($_POST["delet"])) {
+
+	$editar = new AjaxConductores();
+	$editar->editConductor = $_POST["deletConductor"];
+	$editar->eliminarConductor();
+}
+// if (isset($_POST["deletConductor"])) {
+
+// 	$editar = new AjaxConductores();
+// 	$editar->editConductor = $_POST["idCamion"];
+// 	$editar->eliminarConductor();
+// }
 
 // echo '<script> console.log("SI ENTRO AL AJAX"); </script>';

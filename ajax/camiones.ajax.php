@@ -16,7 +16,7 @@ class AjaxCamiones
 
         $estatus = $this->estatusEdit;
         $id = $this->idCamion;
-        $res = ModeloCamiones::actualizarCamionesModelo($estatus,$id);
+        $res = ModeloCamiones::actualizarCamionesModelo($estatus, $id);
         echo json_encode($res);
     }
     public function Editar()
@@ -24,10 +24,17 @@ class AjaxCamiones
 
         // $estatus = $this->estatusEdit;
         $id = $this->idCamion;
-        $res = ModeloCamiones::editarCamionesModelo("CAMIONES",$id);
+        $res = ModeloCamiones::editarCamionesModelo("CAMIONES", $id);
         echo json_encode($res);
     }
 
+    public function eliminarCamiones()
+    {
+        # code...
+        $id = $this->idCamion;
+        $res = ModeloCamiones::eliminarCamionesModelo("CAMIONES", $id);
+        echo json_encode($res);
+    }
 }
 
 if (isset($_POST["valorEstatusActual"])) {
@@ -41,6 +48,13 @@ if (isset($_POST["editCamiones"])) {
     // $editar->estatusEdit = $_POST["valorEstatusActual"];
     $editar->idCamion = $_POST["idCamion"];
     $editar->Editar();
+}
+
+if (isset($_POST["deletConductor"])) {
+    $editar = new AjaxCamiones();
+    // $editar->estatusEdit = $_POST["valorEstatusActual"];
+    $editar->idCamion = $_POST["idCamion"];
+    $editar->eliminarCamiones();
 }
 
 // echo '<script> console.log("SI ENTRO AL AJAX"); </script>';

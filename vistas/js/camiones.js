@@ -31,18 +31,93 @@ $('body', function() {
                 $('#editPlacas').val(respuesta["NUMERO_PLACAS"]);
                 $('#editNombreCamion').val(respuesta["NOMBRE_CAMION"]);
                 $('#editModelo').val(respuesta["MODELO"]);
-                // $('#editTipoCamiones').val(respuesta["TIPO_CAMION"]);
-                // $('#editConductorCamiones').val(respuesta["ESTATUS_CAMIONES"]);
-                // $('#editApellidos').val(respuesta["ESTATUS_CAMIONES"]);
+                $('#editTipoCamiones').val(respuesta["TIPO_CAMION"]);
+                $('#editConductorCamiones').val(respuesta["ID_CONDUCTORES"]);
+                $('#editEstatusCamiones').val(respuesta["ESTATUS_CAMIONES"]);
+                $('#editSucursalConductores').val(respuesta["ID_SUCURSALES"]);
                 // $('#editTelefono').val(respuesta["TELEFONO"]);
                 // // $('#editFechaNacimiento').val(respuesta["FECHA_NACIMIENTO"]);
                 // // $('#editCurp').val(respuesta["CURP"]);
                 // // $('#editDireccion').val(respuesta["DIRECCION"]);
                 // $('#editNumeroLicencia').val(respuesta["NUMERO_LICENCIA"]);
                 // // $('#editAntiguedad').val(respuesta["ANTIGUEDAD"]);
-                // // $('#editEstatusConductores').val(respuesta["ID_ESTATUS_CONDUCTORES"]);
             }
         });
+    });
+
+
+    $('body').on('click', 'button#deletConductor', function(e) {
+
+
+
+
+        swal({
+            title: 'Desea Finalizar El Camion',
+            text: "Usted no podra revertir este proceso!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Finalizar'
+        }).then((result) => {
+            if (result.value) {
+                swal(
+                    'Camion Eliminado!',
+                    // '.',
+                    // 'Aceptar',
+                    // 'confirmButtonText: SI'
+
+                ).finally(() => {
+
+                    // console.log("HOLA");
+
+                    // var valorEstatus = $(this).text();
+                    var idCamion = $(this).attr("value");
+                    // console.log("ESTATUS ENTRANTE", $(this).text());
+                    console.log("id", idCamion);
+
+
+                    var datos = new FormData(); //guardo los datos
+                    datos.append('idCamion', idCamion); //le asigno el id a la variable datos
+                    datos.append('deletConductor', 'deletConductor'); //le asigno el id a la variable datos
+                    // datos.append('idCamion', idCamion); //le asigno el id a la variable datos
+
+                    $.ajax({
+
+                        url: "ajax/camiones.ajax.php",
+                        method: "POST",
+                        data: datos,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        dataType: "json",
+                        success: function(respuesta) {
+                            // console.log("el valor de respuesta: ");
+                            console.log(respuesta);
+
+                            window.location.href = 'camiones';
+
+                            // $('#editCamiones').val(respuesta["ID_CAMIONES"]);
+                            // $('#editDescripcion').val(respuesta["DESCRIPCION"]);
+                            // $('#editNumSerie').val(respuesta["NUMERO_SERIE"]);
+                            // $('#editPlacas').val(respuesta["NUMERO_PLACAS"]);
+                            // $('#editNombreCamion').val(respuesta["NOMBRE_CAMION"]);
+                            // $('#editModelo').val(respuesta["MODELO"]);
+                            // $('#editTipoCamiones').val(respuesta["TIPO_CAMION"]);
+                            // $('#editConductorCamiones').val(respuesta["ID_CONDUCTORES"]);
+                            // $('#editEstatusCamiones').val(respuesta["ESTATUS_CAMIONES"]);
+                            // $('#editSucursalConductores').val(respuesta["ID_SUCURSALES"]);
+                            // $('#editTelefono').val(respuesta["TELEFONO"]);
+                            // // $('#editFechaNacimiento').val(respuesta["FECHA_NACIMIENTO"]);
+                            // // $('#editCurp').val(respuesta["CURP"]);
+                            // // $('#editDireccion').val(respuesta["DIRECCION"]);
+                            // $('#editNumeroLicencia').val(respuesta["NUMERO_LICENCIA"]);
+                            // // $('#editAntiguedad').val(respuesta["ANTIGUEDAD"]);
+                        }
+                    });
+                });
+            }
+        })
     });
 
 
@@ -110,12 +185,12 @@ $('body', function() {
                 var data = [];
 
                 /* TIPO ARRAY - OBJETO  */
-                console.log("DATA");
-                console.log(data);
+                // console.log("DATA");
+                // console.log(data);
 
-                /* TIPO ARRAY - OBJETO */
-                console.log("RESPUESTA");
-                console.log(respuesta);
+                // /* TIPO ARRAY - OBJETO */
+                // console.log("RESPUESTA");
+                // console.log(respuesta);
 
 
                 /* SE AGREGAN UNO POR UNO AL ARRAY */
@@ -124,19 +199,8 @@ $('body', function() {
                 };
 
 
-                console.log("DESPUES DE POP");
-                console.log(data);
-
-                // pdf.autoTable(columns, data, { margin: { top: 55 }, didDrawPage: header });
-                // const pageCount = pdf.internal.getNumberOfPages();
-                // for (var i = 0; i < pageCount; i++) {
-                //     // pdf.text(String(i + 1), 196, 285);
-
-                //     pdf.text('Pag ' + String(i + 1) + ' | ' + String(pageCount), 185, 285, 'center');
-
-                // }
-                // }
-                // };
+                // console.log("DESPUES DE POP");
+                // console.log(data);
 
                 pdf.autoTable(columns, data, { margin: { top: 50 }, didDrawPage: header });
                 const pageCount = pdf.internal.getNumberOfPages();

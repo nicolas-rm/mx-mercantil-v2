@@ -19,7 +19,7 @@
 
           <div class="col-md-4">
               <p><strong>Ejemplo usando PHP y MySQL.</strong></p>
-              <button id="Generar" class="btn btn-default">Crear PDF MySQL</button>
+              <button id="camiones" class="btn btn-default">Crear PDF MySQL</button>
               <!-- <br> -->
           </div>
 

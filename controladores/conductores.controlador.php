@@ -18,12 +18,12 @@ class ConductoresControlador
 				$tabla = "CONDUCTORES";
 
 				$datos = array(
-					"NOMBRE" => $_POST["nuevoNombre"],
-					"APELLIDOS" => $_POST["nuevoApellidos"],
-					"TELEFONO" => $_POST["nuevoTelefono"],
-					"NUMERO_LICENCIA" => $_POST["nuevoNumeroLicencia"],
-					"ID_ESTATUS_CONDUCTORES" => $_POST["nuevoEstatusConductores"],
-					"ID_SUCURSALES" => $_POST["nuevoSucursalConductores"]
+					"NOMBRE" => strtoupper($_POST["nuevoNombre"]),
+					"APELLIDOS" => strtoupper($_POST["nuevoApellidos"]),
+					"TELEFONO" => strtoupper($_POST["nuevoTelefono"]),
+					"NUMERO_LICENCIA" => strtoupper($_POST["nuevoNumeroLicencia"]),
+					"ID_ESTATUS_CONDUCTORES" => strtoupper($_POST["nuevoEstatusConductores"]),
+					"ID_SUCURSALES" => strtoupper($_POST["nuevoSucursalConductores"])
 				);
 
 				$respuesta = ModeloConductores::agregarConductorModelo($tabla, $datos);
@@ -386,7 +386,7 @@ class ConductoresControlador
 	
 					  <button class="btn btn-primary editConductor"  data-toggle="modal" data-target="#modalEditarConductor"  value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-pencil"></i></button>
 	
-					  <button id="deletConductor" class="btn btn-danger" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
+					  <button class="btn btn-danger deletConductor" value="' . $value["ID_CONDUCTORES"] . '"><i class="fa fa-times"></i></button>
 	
 					  </div>  
 	
@@ -420,13 +420,13 @@ class ConductoresControlador
 		if (isset($_POST["editNombre"])) {
 			/* DATOS ENVIADOS Y ALMACENA EN UN ARRAY CON LOS NOMBRES DE LA BASE DE DATOS */
 			$datosControlador = array(
-				"ID_CONDUCTORES" => $_POST["editConductor"],
-				"NOMBRE" => $_POST["editNombre"],
-				"APELLIDOS" => $_POST["editApellidos"],
-				"TELEFONO" => $_POST["nuevoTelefono"],
-				"NUMERO_LICENCIA" => $_POST["editNumeroLicencia"],
-				"ID_ESTATUS_CONDUCTORES" => $_POST["editEstatusConductores"],
-				"ID_SUCURSALES" => $_POST["editSucursalConductores"]
+				"ID_CONDUCTORES" => strtoupper($_POST["editConductor"]),
+				"NOMBRE" => strtoupper($_POST["editNombre"]),
+				"APELLIDOS" => strtoupper($_POST["editApellidos"]),
+				"TELEFONO" => strtoupper($_POST["editTelefono"]),
+				"NUMERO_LICENCIA" => strtoupper($_POST["editNumeroLicencia"]),
+				"ID_ESTATUS_CONDUCTORES" => strtoupper($_POST["editEstatusConductores"]),
+				"ID_SUCURSALES" => strtoupper($_POST["editSucursalConductores"])
 			);
 
 			/* TABLA DE BASE DE DATOS */

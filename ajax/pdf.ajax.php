@@ -48,6 +48,12 @@ class ajaxPDF
         $respuesta = $res->mostrarDatosPDFMantetotal1();
         echo json_encode($respuesta);
     }
+    public function todosCamiones()
+    {
+        $res = new pdfControlador();
+        $respuesta = $res->mostrarDatosPDFCamiones();
+        echo json_encode($respuesta);
+    }
 }
 
 if (isset($_POST["PDFJS"])) {
@@ -81,4 +87,11 @@ if (isset($_POST["PDFJStotal"])) {
 
     $editar = new AjaxPDF();
     $editar->pdfMantetotal();
+}
+
+
+if (isset($_POST["CAMIONESTOTAL"])) {
+
+    $editar = new AjaxPDF();
+    $editar->todosCamiones();
 }
