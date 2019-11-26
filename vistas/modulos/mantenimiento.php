@@ -210,7 +210,8 @@
                <div class="modal-footer">
                  <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
                  <button type="submit" class="btn btn-primary">Guardar Mantenimientos</button>
-
+                 
+                 <button id="todospdf" class="btn btn-primary todoPDF pull-left">TODOS LOS PDF</button>
                </div>
 
                <?php
@@ -222,7 +223,6 @@
 
              </div>
            </form>
-           <button id="todospdf" class="btn btn-primary todoPDF">TODOS LOS PDF</button>
 
          </div>
 

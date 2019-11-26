@@ -49,7 +49,7 @@
                 <label>Telefono:</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                  <input type="text" class="form-control text-uppercase" id="nuevoTelefono" name="nuevoTelefono" placeholder="Apellidos" required>
+                  <input type="text" class="form-control text-uppercase" id="nuevoTelefono" name="nuevoTelefono" placeholder="Telefono" required>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@
                     <option value="3">Foraneo</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Mostrar Estatus</button>
+                <button type="submit" class="btn btn-primary">Mostrar Conductores</button>
               </div>
             </div>
           </form>

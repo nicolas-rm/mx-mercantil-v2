@@ -39,7 +39,7 @@ $(function() {
 
 
         swal({
-            title: 'Desea Finalizar Conductor',
+            title: 'Desea Eliminar El Conductor',
             text: "Usted no podra revertir este proceso!",
             type: 'warning',
             showCancelButton: true,
