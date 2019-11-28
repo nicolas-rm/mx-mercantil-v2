@@ -42,6 +42,28 @@ class ViajesControlador
 
 
 
+            echo '<script>
+					
+					swal({
+						
+						type: "success",
+						title: "Conductor Guardado Correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+						
+					}).then((result)=>{
+						
+						if(result.value){
+							
+							window.location = "viaje";
+							
+						}
+						
+					});
+					
+					
+					</script>';
 
             // var_dump($datos);
 

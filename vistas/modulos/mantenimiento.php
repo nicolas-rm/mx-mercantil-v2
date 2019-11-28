@@ -291,43 +291,54 @@
 
                   foreach ($mantenimiento as $key => $value) {
 
-
-                    echo ' <tr>';
-                    $item = "id";
-
-
-                    $valor = $value["id_sucursal"];
-                    $sucur_nombre = ControladorSucursales::ctrMostrarSucursales($item, $valor);
-                    echo '<td>' . $sucur_nombre["nombre"] . '</td>';
-
-
-                    $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
-                    $chofe = null;
-                    foreach ($respuesta as $key => $val) {
-
-                      if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
-                        $chofe = $val["NOMBRE"];
+                    $estat = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+                    $estatus = null;
+                    foreach ($estat as $key => $valores) {
+                      # code...
+                      if ($value["ID_CAMIONES"] = $valores["ID_CAMIONES"]) {
+                        $estatus = $valores["ESTATUS_CAMIONES"];
                       }
                     }
 
-                    $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
-                    $camionzila = null;
-                    foreach ($respuesta as $key => $vale) {
+                    if ($estatus == "Mantenimiento") {
 
-                      if ($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]) {
-                        $camionzila = $vale["NOMBRE_CAMION"];
+
+                      echo ' <tr>';
+                      $item = "id";
+
+
+                      $valor = $value["id_sucursal"];
+                      $sucur_nombre = ControladorSucursales::ctrMostrarSucursales($item, $valor);
+                      echo '<td>' . $sucur_nombre["nombre"] . '</td>';
+
+
+                      $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+                      $chofe = null;
+                      foreach ($respuesta as $key => $val) {
+
+                        if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
+                          $chofe = $val["NOMBRE"];
+                        }
                       }
-                    }
-                    echo '<td>' . $chofe . '</td>';
-                    echo '<td>' . $camionzila . '</td>';
-                    echo '<td>' . $value["nombre_taller"] . '</td>';
-                    echo '<td>' . $value["kilometraje"] . '</td>';
-                    echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td>' . $value["nombre_mecanico"] . '</td>';
-                    echo '<td>' . $value["precio"] . '</td>';
+
+                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+                      $camionzila = null;
+                      foreach ($respuesta as $key => $vale) {
+
+                        if ($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]) {
+                          $camionzila = $vale["NOMBRE_CAMION"];
+                        }
+                      }
+                      echo '<td>' . $chofe . '</td>';
+                      echo '<td>' . $camionzila . '</td>';
+                      echo '<td>' . $value["nombre_taller"] . '</td>';
+                      echo '<td>' . $value["kilometraje"] . '</td>';
+                      echo '<td>' . $value["descripcion"] . '</td>';
+                      echo '<td>' . $value["nombre_mecanico"] . '</td>';
+                      echo '<td>' . $value["precio"] . '</td>';
 
 
-                    echo ' 
+                      echo ' 
 
                   <td>
 
@@ -337,13 +348,13 @@
 
                 <button id="unpdf" class="btn btn-danger" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
 
+                    <button id="total" class="btn btn-warning" value="' . $value["id"] . '"><i class="fa fa-bar-chart-o"></i></button>
 
-                <button id="total" class="btn btn-warning" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
-                    </div>  
-
-
+                    <button id="finalizar" class="btn btn-danger" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-remove"></i></button>
+                      </div>
 
                   </td>';
+                    }
                   }
                   ?>
 

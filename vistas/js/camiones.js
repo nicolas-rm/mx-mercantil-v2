@@ -52,7 +52,7 @@ $('body', function() {
 
 
         swal({
-            title: 'Desea Finalizar El Camion',
+            title: 'Desea Eliminar El Camion',
             text: "Usted no podra revertir este proceso!",
             type: 'warning',
             showCancelButton: true,

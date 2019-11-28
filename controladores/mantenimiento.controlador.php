@@ -38,8 +38,8 @@ class ControladorMantenimientos{
 					"precio" => $_POST["nuevoCosto"]);
 
 				$respuesta = ModeloMantenimientos::mdlIngresarMantenimiento($tabla, $datos);
+                ModeloCamiones::actualizarCamionesModelo("Mantenimiento", $datos["ID_CAMIONES"]);
 
-		
 				if($respuesta == "ok"){
 
 

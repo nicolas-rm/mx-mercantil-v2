@@ -3,13 +3,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Administrar Camiones
+      Administrar Pedidos
 
     </h1>
     <ol class="breadcrumb">
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Camiones</li>
+      <li class="active">Pedidos</li>
     </ol>
   </section>
 
@@ -21,7 +21,7 @@
       <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header">
-            <h3 class="box-title">Camiones Agregados</h3>
+            <h3 class="box-title">Pedidos En Proceso</h3>
           </div>
           <!-- /.box-header -->
           <form role="form" method="post" enctype="multipart/form-data">
