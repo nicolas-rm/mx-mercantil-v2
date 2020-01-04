@@ -55,10 +55,7 @@
 
 		<!-- sidebar menu: : style can be found in sidebar.less -->
 		<ul class="sidebar-menu " data-widget="tree">
-			<li class="header">
-				<center> MENU PRINCIPAL </center>
-			</li>
-
+ 
 
 			<li class="active">
 
@@ -115,7 +112,7 @@
 
 						<a href="roles">
 							
-							<i class="fa fa-podcast"></i>
+							<i class="fa fa-handshake-o"></i>
 							<span>Roles</span>
 
 						</a>
@@ -151,60 +148,13 @@
 
 			</li>
 
-			<li>
-
-				<a href="calendario">
-
-					<i class="fa fa-calendar"></i>
-					<span>calendario</span>
-
-				</a>
-
-			</li>
-
-
-			<li class="treeview">
-
-				<a href="#">
-
-					<i class="fa fa-star"></i>
-
-					<span>mantenimiento</span>
-
-					<span class="pull-right-container">
-
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-				</a>
-
-				<ul class="treeview-menu">
-
-					<li>
-
-						<a href="mantenimiento">
-
-							<i class="fa fa-podcast"></i>
-							<span>Agregar mantenimiento</span>
-
-						</a>
-
-					</li>
-
-
-
-				</ul>
-
-
-			</li>
-
+ 
 			<!-- CONDUCTORES -->
 			<li class="treeview">
 
 				<a href="#">
 
-					<i class="fa fa-star"></i>
+					<i class="fa fa-address-card"></i>
 
 					<span>Conductores</span>
 
@@ -221,7 +171,7 @@
 
 						<a href="conductores">
 
-							<i class="fa fa-podcast"></i>
+							<i class="fa fa-user"></i>
 							<span>Conductor</span>
 
 						</a>
@@ -238,7 +188,7 @@
 
 				<a href="#">
 
-					<i class="fa fa-star"></i>
+					<i class="fa fa-car"></i>
 
 					<span>Vehiculos</span>
 
@@ -255,7 +205,7 @@
 
 						<a href="camiones">
 
-							<i class="fa fa-podcast"></i>
+							<i class="fa fa-random"></i>
 							<span>Camiones</span>
 
 						</a>
@@ -278,12 +228,52 @@
 
 			</li>
 
+
+			 
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-plug"></i>
+
+					<span>mantenimiento</span>
+
+					<span class="pull-right-container">
+
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+
+					 
+
+								<li>
+
+				<a href="calendario">
+
+					<i class="fa fa-calendar"></i>
+					<span>calendario</span>
+
+				</a>
+
+			</li>
+
+
+
+				</ul>
+
+
+			</li>
+
 			<!-- VIAJES -->
 			<li class="treeview">
 
 				<a href="#">
 
-					<i class="fa fa-star"></i>
+					<i class="fa fa-map-marker"></i>
 
 					<span>Viaje</span>
 
@@ -300,13 +290,13 @@
 
 						<a href="viaje">
 
-							<i class="fa fa-podcast"></i>
+							<i class="fa fa-bookmark"></i>
 							<span>Viaje</span>
 
 						</a>
 						<a href="agenda">
 
-							<i class="fa fa-podcast"></i>
+							<i class="fa fa-book"></i>
 							<span>Agenda</span>
 
 						</a>
@@ -329,7 +319,7 @@
 			</li>
 
 			<!-- PDF -->
-			<li class="treeview">
+<!-- 			<li class="treeview">
 
 				<a href="#">
 
@@ -357,7 +347,7 @@
 
 					</li>
 				</ul>
-			</li>
+			</li> -->
 
 
 

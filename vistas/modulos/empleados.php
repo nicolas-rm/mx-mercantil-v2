@@ -35,7 +35,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control text-uppercase" name="nuevoNombreE" placeholder="requerido" required="">
 
@@ -50,7 +50,7 @@
                   
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
                     
                     <select class="form-control text-uppercase" id="nuevoSucursal" name="nuevoSucursal" required>
 
@@ -88,7 +88,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="number" class="form-control" name="nuevoTelefonoE" placeholder="requerido" required="">
 
@@ -249,7 +249,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control" id="editarNombreE" name="editarNombreE"  required >
 
@@ -265,7 +265,7 @@ MODAL EDITAR ROL
                   
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
                     
                     <select class="form-control text-uppercase" id="editarSucursal" name="editarSucursal" required>
 
@@ -303,7 +303,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="number" class="form-control" id="editarTelefonoE" name="editarTelefonoE" >
 

@@ -31,7 +31,7 @@
           <section class="content">
             
               <center>
-              <img class="img-responsive" src="vistas/img/plantilla/inicio.jpg" width="1000" height="100">
+              <img class="img-responsive" src="vistas/img/plantilla/me3.PNG" width="1000" height="100">
               </center>
             
           </section>
@@ -77,7 +77,7 @@
                                             <a  target="_blank"><img src="vistas/img/plantilla/pedidos.png" alt="Comunidad"></a>
                                         </p>
                                         <p><a   class="btn btn-primary waves-effect waves-light" target="_blank">Pedidos</a></p>
-                                        <p class="text-muted">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                        <p class="text-muted">Delega la gestión de pedidos seleccionando los vehículos a los que cada conductor tendrá acceso para administrar su información.</p>
                                     </div> 
 
 
@@ -87,14 +87,14 @@
                                         </p>
                                         <p><a class="btn btn-primary waves-effect waves-light" target="_blank">Reportes</a></p>
                                          
-                                        <p class="text-muted">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                        <p class="text-muted">Administra los gastos y ganancias usandolo como información valiosa para tu análisis y toma de decisiones.</p>
                                     </div>                                        
                                     <div class="col-12 col-sm-4 text-center">
                                         <p>
                                             <a ><img src="vistas/img/plantilla/mantenimiento.png" alt="Ticket"></a>
                                         </p>
                                         <p><a  class="btn btn-primary waves-effect waves-light">Mantenimientos</a></p>
-                                        <p class="text-muted">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                        <p class="text-muted">Crea un historial de mantenimientos y toma mejores decisiones al renovar tus vehículos identificando los más costosos.</p>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
 
           <div class="card-body bg-success text-white text-center">
                           
-               <center><h3>¿ Como Funciona ?</h3></center> 
+               <center><h3> ¡¡ VENTAJAS !!</h3></center> 
           </div>
 
  
@@ -120,20 +120,20 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-4 text-center">
                                         
-                                        <h2> <b> <p> Registra vehiculos </p></b></h2>
-                                        <p class="text-muted">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                        <h2> <b> <p> DISPONIBILIDAD </p></b></h2>
+                                        <p class="text-muted">Conéctate a SAUR desde cualquier dispositivo conectado a internet usando tu navegador web favorito.</p>
                                     </div> 
 
 
                                     <div class="col-12 col-sm-4 text-center">
                                         
-                                        <h2> <b> <p> Consulta reportes </p></b></h2>
-                                        <p class="text-muted">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                        <h2> <b> <p> Cero instalaciones</p></b></h2>
+                                        <p class="text-muted">¡No necesitas instalarlo! Sólo abre tu navegador favorito y comienza a utilizarlo.</p>
                                     </div>                                         
                                     <div class="col-12 col-sm-4 text-center">
                                         
-                                        <h2> <b> <p> Agenda mantenimientos </p></b></h2>
-                                        <p class="text-muted">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                        <h2> <b> <p> COMPATIBILIDAD </p></b></h2>
+                                        <p class="text-muted">No importa que sistema operativo uses O plataforma,</p>
                                     </div> 
                                 </div>
                             </div>

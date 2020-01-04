@@ -37,9 +37,9 @@ session_start();
   <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
 
   <!-- AdminLTE Skins -->
-  <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
+  <!-- <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css"> -->
 
-
+  <link rel="stylesheet" href="vistas/dist/css/skins/skin-blue-light.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
@@ -52,6 +52,15 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
+  <!-- para grafico barra -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
+  <link rel="stylesheet" href="vistas/bower_components/morris/morris.css">
+  <script src="vistas/bower_components/morris/morris.min.js"></script>
+
+ <script src="vistas/bower_components/push/push.min.js"></script>
 
 
 
@@ -87,6 +96,10 @@ session_start();
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
   <script src="vistas/bower_components/jspdf/dist/jspdf.min.js"></script>
   <script src="vistas/bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
+
+
+
+ 
 
 </head>
 
@@ -134,6 +147,7 @@ CUERPO DOCUMENTO
 
         $_GET["ruta"] == "sucursales" ||
         $_GET["ruta"] == "mantenimiento" ||
+        $_GET["ruta"] == "mmantenimiento" ||
         $_GET["ruta"] == "sucursales" || //ya esta .. falta editar y eliminar .. (modulo de ricardo)
         $_GET["ruta"] == "conductores" ||
         $_GET["ruta"] == "estatus" ||
@@ -141,8 +155,8 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "viaje" ||
         $_GET["ruta"] == "agenda" ||
         $_GET["ruta"] == "historial" ||
-        $_GET["ruta"] == "automoviles" ||
-        $_GET["ruta"] == "pdf"
+        $_GET["ruta"] == "automoviles" 
+         
 
       ) {
 
@@ -168,8 +182,39 @@ CUERPO DOCUMENTO
     include "modulos/login.php";
   }
 
-  ?>
 
+
+   $respuesta = ModeloCalendario::mdlMostrarCalendario();
+
+   foreach ($respuesta as $key => $value){
+
+     echo '
+
+     <script>
+      
+      Push.create("Recordatorio",{
+        body: "Mantenimiento proximo, ¡¡ Realiza el Regitro !!",
+        icon: "vistas/img/plantilla/SAUR_logo.png",
+        timeout: 20000,
+        onClick: function() {
+          window.location="mantenimiento";
+        }
+
+
+      });
+
+
+    </script>'
+
+ ;
+
+
+   }
+
+ 
+
+  ?>
+ 
 
 
 
@@ -196,18 +241,8 @@ CUERPO DOCUMENTO
   <script src="vistas/js/estatus.js"></script>
   <script src="vistas/js/camiones.js"></script>
   <script src="vistas/js/viaje.js"></script>
+
 </body>
 
 </html>
-
-
-<!-- ************** NOTAS IMPORTANTES ************** -->
-
-
-<!-- 1 .. borrar comentarios de todos y ponerlos en base a su modulo ............... comentar todoooo el proyecto -->
-
-<!-- 2 ..  Componer el menu y hacerlo fixed-->
-
-<!-- 3 ..  convertir el calendario a mvc -->
-
-<!-- 4. control de pedidos ..   mostrar la informacion para diferentes usuarios-->
+ 

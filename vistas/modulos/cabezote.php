@@ -48,72 +48,24 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+ 
 
-            <li class="dropdown notifications-menu"> 
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-building"></i>
-              <span class="label label-warning"><?php echo number_format($totalUsuarios); ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Sucursales Agregadas: <?php echo number_format($totalUsuarios); ?></li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  
-
-                  <li>
-                    <a >
-                      <i class="fa fa-building text-aqua"></i> <?php echo number_format($totalUsuarios); ?> Agregados
-                    </a>
-                  </li>
-
-                </ul>
-              </li>
-              <li class="footer"><a href="sucursales">Ver todas</a></li>
-            </ul>
-          </li>
-
-
-            <li class="dropdown notifications-menu"> 
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-address-card-o"></i>
-              <span class="label label-warning"><?php echo number_format($totalUsuarios); ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Conductores Agregadas: <!-- <?php echo number_format($totalSucursales); ?> --></li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  
-
-                  <li>
-                    <a >
-                      <i class="fa fa-address-card-o text-aqua"></i><!--  <?php echo number_format($totalSucursales); ?> --> Agregados
-                    </a>
-                  </li>
-
-                </ul>
-              </li>
-              <li class="footer"><a href="conductores">Ver todos</a></li>
-            </ul>
-          </li>
-
-            <li class="dropdown notifications-menu"> 
+            <!-- <li class="dropdown notifications-menu"> 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-car"></i>
               <span class="label label-warning"><?php echo number_format($totalUsuarios); ?></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Camiones Agregadas: <!-- <?php echo number_format($totalSucursales); ?> --></li>
-              <li>
+            <ul class="dropdown-menu"> -->
+              <!-- <li class="header">Camiones en mantenimiento: --> <!-- <?php echo number_format($totalSucursales); ?>  </li>-->
+              <!-- <li> -->
                 <!-- inner menu: contains the actual data -->
-                <ul class="menu">
+                <!-- <ul class="menu">
                   
 
                   <li>
-                    <a >
-                      <i class="fa fa-car text-aqua"></i><!--  <?php echo number_format($totalSucursales); ?> --> Agregados
-                    </a>
+                    <a > -->
+                      <!-- <i class="fa fa-car text-aqua"></i> --><!--  <?php echo number_format($totalSucursales); ?> -  Agregados-->
+                   <!--  </a>
                   </li>
 
                 </ul>
@@ -121,7 +73,7 @@
               <li class="footer"><a href="camiones">Ver todos</a></li>
             </ul>
           </li>
-
+ -->
 
 
         <!-- User Account: style can be found in dropdown.less -->

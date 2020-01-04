@@ -104,6 +104,9 @@
                     </div>
 
                   </div>
+
+                  <input type="hidden"  name="usuario" value=<?php $_SESSION["usuario"]; ?> >  
+
                 </div>
 
 
@@ -150,10 +153,7 @@
         </div>
       </div>
 
-
-      <!-- /.col (right) -->
-
-    </div>
+     </div>
     <!-- /.row -->
 
   </section>
@@ -365,3 +365,4 @@
 </div>
 </div>
 <!--  -->
+ 

@@ -21,7 +21,8 @@
    <section class="content">
 
      <div class="row">
-       <div class="col-md-4">
+
+       <div class="col-md-12">
          <!-- xs (phones), sm (tablets), md (desktops), and lg (larger desktops).-->
 
          <div class="box box-primary">
@@ -34,31 +35,33 @@
 
              <div class="box-body">
 
+               <div class="row">
 
+                            <div class="col-md-4">
+           
 
 
                <div class="form-group">
 
-                 <label>Procedencia:</label>
+                 <label>Nombre del camion:</label>
 
                  <div class="input-group">
 
-                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                   <select class="form-control text-uppercase" id="nuevoSucursal" name="nuevoSucursal" required>
+                   <select class="form-control text-uppercase" id="nuevoCamion" name="nuevoCamion" required>
 
-                     <option value="">Seleccionar Sucursal</option>
+                     <option value="">Seleccionar camion</option>
 
                      <?php
 
-                      $item = null;
-                      $valor = null;
+                         $respuesta = ModeloCalendario::mdlMostrarCalendario();
 
-                      $sucursales = ControladorSucursales::ctrMostrarSucursales($item, $valor);
+                      foreach ($respuesta as $key => $value) {
+                        // if ($value["ID_CAMIONES"] != "1") {
 
-                      foreach ($sucursales as $key => $value) {
-
-                        echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
+                        echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                        // }
                       }
 
                       ?>
@@ -79,7 +82,7 @@
 
                  <div class="input-group">
 
-                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
                    <select class="form-control text-uppercase" id="nuevoConductor" name="nuevoConductor" required>
 
@@ -122,29 +125,33 @@
                  </div>
 
                </div>
+           
+              <!-- /.form-group -->
+            </div>
+               <div class="col-md-4">
+ 
+                                   <div class="form-group">
 
-
-               <div class="form-group">
-
-                 <label>Nombre del camion:</label>
+                 <label>Procedencia:</label>
 
                  <div class="input-group">
 
-                   <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                   <select class="form-control text-uppercase" id="nuevoCamion" name="nuevoCamion" required>
+                   <select class="form-control text-uppercase" id="nuevoSucursal" name="nuevoSucursal" required>
 
-                     <option value="">Seleccionar camion</option>
+                     <option value="">Seleccionar Sucursal</option>
 
                      <?php
 
-                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+                      $item = null;
+                      $valor = null;
 
-                      foreach ($respuesta as $key => $value) {
-                        // if ($value["ID_CAMIONES"] != "1") {
+                      $sucursales = ControladorSucursales::ctrMostrarSucursales($item, $valor);
 
-                        echo '<option value="' . $value["ID_CAMIONES"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
-                        // }
+                      foreach ($sucursales as $key => $value) {
+
+                        echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
                       }
 
                       ?>
@@ -168,7 +175,12 @@
                  </div>
 
                </div>
+              <!-- /.form-group -->
+            </div>
 
+            <div class="col-md-4">
+
+  
                <div class="form-group">
                  <label>kilometraje:</label>
 
@@ -183,20 +195,6 @@
                </div>
 
 
-
-               <div class="form-group">
-                 <label>Descripcion:</label>
-
-                 <div class="input-group">
-
-                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-
-                   <textarea class="form-control" id="nuevoDescripcion" step="0.01" name="nuevoDescripcion" placeholder="requerido" required> </textarea>
-
-                 </div>
-
-               </div>
-
                <div class="form-group">
                  <label>nombre de mecanico:</label>
 
@@ -210,6 +208,10 @@
 
                </div>
 
+              <!-- /.form-group -->
+            </div>
+
+             <div class="col-md-4">
 
                <div class="form-group">
                  <label>costo:</label>
@@ -224,13 +226,42 @@
 
                </div>
 
+    
+ 
+
+              <!-- /.form-group -->
+            </div>
+
+ 
+             <div class="col-md-8">
+
+      
+
+               <div class="form-group">
+                 <label>Descripcion:</label>
+
+                 <div class="input-group">
+
+                   <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+
+                   <input class="form-control" id="nuevoDescripcion" step="0.01" name="nuevoDescripcion" placeholder="requerido" required>  
+
+                 </div>
+
+               </div>
+ 
+
+              <!-- /.form-group -->
+            </div>
+
+             </div> 
+
                <br>
                <div class="modal-footer">
                  <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
                  <button type="submit" class="btn btn-primary">Guardar Mantenimientos</button>
 
-                 <button id="todospdf" class="btn btn-primary todoPDF pull-left">TODOS LOS PDF</button>
-               </div>
+              </div>
 
                <?php
 
@@ -251,14 +282,19 @@
        <div class="col-md-12">
          <div class="box box-primary">
            <div class="box-header">
-             <h3 class="box-title">Roles agregadas</h3>
+             <h3 class="box-title">Mantemientos agregados</h3>
+
+                <button id="todospdf" class="btn btn-primary todoPDF pull-right">TODOS LOS PDF</button>
            </div>
+
            <!-- /.box-header -->
-           <div class="box-body">
+           <div class="box-body"> 
              <table class="table table-bordered dt-responsive example">
 
 
+
                <thead>
+
 
                  <tr>
 
@@ -291,54 +327,43 @@
 
                   foreach ($mantenimiento as $key => $value) {
 
-                    $estat = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
-                    $estatus = null;
-                    foreach ($estat as $key => $valores) {
-                      # code...
-                      if ($value["ID_CAMIONES"] = $valores["ID_CAMIONES"]) {
-                        $estatus = $valores["ESTATUS_CAMIONES"];
+
+                    echo ' <tr>';
+                    $item = "id";
+
+
+                    $valor = $value["id_sucursal"];
+                    $sucur_nombre = ControladorSucursales::ctrMostrarSucursales($item, $valor);
+                    echo '<td>' . $sucur_nombre["nombre"] . '</td>';
+
+
+                    $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+                    $chofe = null;
+                    foreach ($respuesta as $key => $val) {
+
+                      if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
+                        $chofe = $val["NOMBRE"];
                       }
                     }
 
-                    if ($estatus == "Mantenimiento") {
+                    $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
+                    $camionzila = null;
+                    foreach ($respuesta as $key => $vale) {
 
-
-                      echo ' <tr>';
-                      $item = "id";
-
-
-                      $valor = $value["id_sucursal"];
-                      $sucur_nombre = ControladorSucursales::ctrMostrarSucursales($item, $valor);
-                      echo '<td>' . $sucur_nombre["nombre"] . '</td>';
-
-
-                      $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
-                      $chofe = null;
-                      foreach ($respuesta as $key => $val) {
-
-                        if ($value["ID_CONDUCTORES"] == $val["ID_CONDUCTORES"]) {
-                          $chofe = $val["NOMBRE"];
-                        }
+                      if ($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]) {
+                        $camionzila = $vale["NOMBRE_CAMION"];
                       }
-
-                      $respuesta = ModeloCamiones::mostrarCamionesModelo("CAMIONES");
-                      $camionzila = null;
-                      foreach ($respuesta as $key => $vale) {
-
-                        if ($value["ID_CAMIONES"] == $vale["ID_CAMIONES"]) {
-                          $camionzila = $vale["NOMBRE_CAMION"];
-                        }
-                      }
-                      echo '<td>' . $chofe . '</td>';
-                      echo '<td>' . $camionzila . '</td>';
-                      echo '<td>' . $value["nombre_taller"] . '</td>';
-                      echo '<td>' . $value["kilometraje"] . '</td>';
-                      echo '<td>' . $value["descripcion"] . '</td>';
-                      echo '<td>' . $value["nombre_mecanico"] . '</td>';
-                      echo '<td>' . $value["precio"] . '</td>';
+                    }
+                    echo '<td>' . $chofe . '</td>';
+                    echo '<td>' . $camionzila . '</td>';
+                    echo '<td>' . $value["nombre_taller"] . '</td>';
+                    echo '<td>' . $value["kilometraje"] . '</td>';
+                    echo '<td>' . $value["descripcion"] . '</td>';
+                    echo '<td>' . $value["nombre_mecanico"] . '</td>';
+                    echo '<td>' . $value["precio"] . '</td>';
 
 
-                      echo ' 
+                    echo ' 
 
                   <td>
 
@@ -348,13 +373,13 @@
 
                 <button id="unpdf" class="btn btn-danger" value="' . $value["id"] . '"><i class="fa fa-file-pdf-o"></i></button>
 
-                    <button id="total" class="btn btn-warning" value="' . $value["id"] . '"><i class="fa fa-bar-chart-o"></i></button>
 
-                    <button id="finalizar" class="btn btn-danger" value="' . $value["ID_CAMIONES"] . '"><i class="fa fa-remove"></i></button>
-                      </div>
+                <button id="total" class="btn btn-warning" value="' . $value["id"] . '"><i class="fa fa-bar-chart-o"></i></button>
+
+                    
+
 
                   </td>';
-                    }
                   }
                   ?>
 
@@ -409,7 +434,7 @@
 
              <div class="input-group">
 
-               <span class="input-group-addon"><i class="fa fa-building"></i></span>
+               <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
                <select class="form-control text-uppercase" id="editarSucursal" name="editarSucursal" required>
 
@@ -440,7 +465,7 @@
 
              <div class="input-group">
 
-               <span class="input-group-addon"><i class="fa fa-building"></i></span>
+               <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
                <select class="form-control text-uppercase" id="editarConductor" name="editarConductor" required>
 
@@ -473,7 +498,7 @@
 
              <div class="input-group">
 
-               <span class="input-group-addon"><i class="fa fa-building"></i></span>
+               <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
                <select class="form-control text-uppercase" id="editarCamion" name="editarCamion" required>
 

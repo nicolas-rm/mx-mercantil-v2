@@ -1,7 +1,7 @@
 <?php
 try
 {
-	$bdd = new pdo("mysql:dbname=saur_mercantil;host=localhost" ,
+	$bdd = new pdo("mysql:dbname=mx_mercantil;host=localhost" ,
 	"root",
 	"");
 

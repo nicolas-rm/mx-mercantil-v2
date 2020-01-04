@@ -21,6 +21,8 @@ class ControladorMantenimientos{
 
 	static public function ctrCrearMantenimiento(){
 
+		
+
 		if(isset($_POST["nuevoNombreTaller"])){
 
 			if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreTaller"])){
@@ -38,8 +40,11 @@ class ControladorMantenimientos{
 					"precio" => $_POST["nuevoCosto"]);
 
 				$respuesta = ModeloMantenimientos::mdlIngresarMantenimiento($tabla, $datos);
-                ModeloCamiones::actualizarCamionesModelo("Mantenimiento", $datos["ID_CAMIONES"]);
+				 ModeloCamiones::actualizarCamionesModelo("Mantenimiento", $datos["ID_CAMIONES"]);
 
+				 ModeloCalendario::mdlBorrarCalendario();
+
+		
 				if($respuesta == "ok"){
 
 

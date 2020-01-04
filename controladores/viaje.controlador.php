@@ -12,6 +12,9 @@ class ViajesControlador
 
         if (isset($_POST["nuevoCamionViaje"])) {
 
+            
+ 
+
             $tabla = "VIAJE";
 
             $datos = array(
@@ -21,7 +24,8 @@ class ViajesControlador
                 "MONTO_TOTAL" => strtoupper($_POST["nuevoTotalPagos"]),
                 "DESCRIPCION" => strtoupper($_POST["nuevoRutaViaje"]),
                 "FECHA_SALIDA" => strtoupper($_POST["nuevoFechaViaje"]),
-                "ESTATUS" => strtoupper("1"),
+                "ESTATUS" => strtoupper("1"), 
+                
             );
 
             date_default_timezone_set('America/Mexico_City');
@@ -42,28 +46,6 @@ class ViajesControlador
 
 
 
-            echo '<script>
-					
-					swal({
-						
-						type: "success",
-						title: "Conductor Guardado Correctamente",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar",
-						closeOnConfirm: false
-						
-					}).then((result)=>{
-						
-						if(result.value){
-							
-							window.location = "viaje";
-							
-						}
-						
-					});
-					
-					
-					</script>';
 
             // var_dump($datos);
 

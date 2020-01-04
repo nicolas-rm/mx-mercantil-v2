@@ -10,13 +10,14 @@ if (isset($_POST['title'])  && isset($_POST['start']) && isset($_POST['HoraI']) 
 	$start = $_POST['start'];
 	$HoraI = $_POST['HoraI'];
 	$color = $_POST['color'];
+	$estatus = $_POST['estatus'];
 
 
 	$aux = $start." ".$HoraI;
 	$start = $aux;
 	$end = $start;
 
-	$sql = "INSERT INTO events(title, start, end, color) values ('$title', '$start', '$end', '$color')";
+	$sql = "INSERT INTO events(title, start, end, color, estatus) values ('$title', '$start', '$end', '$color', '$estatus')";
 	
 	echo $sql;
 	
@@ -32,7 +33,10 @@ if (isset($_POST['title'])  && isset($_POST['start']) && isset($_POST['HoraI']) 
 	}
 }
 
-header('Location: '.$_SERVER['HTTP_REFERER']);
+// header('Location: '.$_SERVER['HTTP_REFERER']);  
 
-	
+header('Location: '.$_SERVER['HTTP_REFERER']); 
+
+			 
 ?>
+

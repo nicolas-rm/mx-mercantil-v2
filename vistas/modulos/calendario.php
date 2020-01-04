@@ -4,7 +4,7 @@
     require_once('modelos/bdd.php');
 
 
-    $sql = "SELECT id, title, start, end, color FROM events ";
+    $sql = "SELECT id, title, start, end, color FROM events where estatus = 1 ";
 
     $req = $bdd->prepare($sql);
     $req->execute();
@@ -16,46 +16,8 @@
 
   <div class="content-wrapper">
 
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Selecciona una fecha para agendar mantenimiento
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        
-        <li class="active">Roles</li>
-      </ol>
-    </section>
-    
 
-    <!-- Main content -->
-    <section class="content">
-
-      <div class="row">
-        <!DOCTYPE html>
-        <html lang="es">
-
-        <head>
-
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <meta name="description" content="">
-          <meta name="author" content="">
-
-          <title>Calendario</title>
-          
-          <!-- Bootstrap Core CSS -->
-          <!-- <link href="vistas/dist/FullCalendar/css/bootstrap.min.css" rel="stylesheet"> -->
-          
-          <!-- FullCalendar -->
-          <link href='vistas/dist/FullCalendar/css/fullcalendar.css' rel='stylesheet' />
-
-
-          <!-- Custom CSS -->
-          <style>
+    <style>
           body {
             padding-top: 20px;
             
@@ -85,26 +47,124 @@
             text-color: #ffff;
           }
           </style>
+ 
+                   <!-- /.clock -->
+          <script src="vistas/js/FullCalendar/js/bootstrap-clockpicker.js"></script>
+          <script src="vistas/js/FullCalendar/js/clockpicker.js"></script>
+          <link rel="stylesheet" href="vistas/dist/FullCalendar/css/bootstrap-clockpicker.css">
+          <link rel="stylesheet" href="vistas/dist/FullCalendar/css/clockpicker.css">
+
+          <!-- jQuery Version 1.11.1 -->
+          
+          <script src="vistas/js/FullCalendar/js/jquery.js"></script>
+
+          <!-- Bootstrap Core JavaScript -->
+          <script src="vistas/js/FullCalendar/js/bootstrap.min.js"></script>
+          
+          <!-- FullCalendar -->
+          <script src='vistas/js/FullCalendar/js/moment.min.js'></script>
+          <script src='vistas/js/FullCalendar/js/fullcalendar/fullcalendar.min.js'></script>
+          <script src='vistas/js/FullCalendar/js/fullcalendar/fullcalendar.js'></script>
+          <script src='vistas/js/FullCalendar/js/fullcalendar/locale/es.js'></script>
+          <!-- /.clock -->
+          <script src="vistas/js/FullCalendar/js/bootstrap-clockpicker.js"></script>
+          <link rel="stylesheet" href="vistas/dist/FullCalendar/css/bootstrap-clockpicker.css">
+           <link href='vistas/dist/FullCalendar/css/fullcalendar.css' rel='stylesheet'>
 
 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Selecciona una fecha para agendar mantenimiento
+        
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        
+        <li class="active">Roles</li>
+      </ol>
+    </section>
+    
 
-        </head>
 
+    <!-- Main content -->
+    <section class="content">
 
-        <body>
-          <!-- Page Content -->
-          <div class="container">
+       <div class="row">
 
-            <div class="row">
-              <div class="col-lg-12 text-center">
-                <div  id="calendar" class="col-centered">
-                </div>
+        <div class="col-md-12">
+          
+
+          <div class="alert alert-warning alert-dismissible">
+                <h4><i class="icon fa fa-warning"></i> Atencion! .. Instrucciones</h4>
+                1. Realizar el registro del mantenimiento del camion en el Calendario. <br>
+                2. Dar click en la Notificacion para registrar los detalles del mantenimiento. <br>
+                3. Cuando se finalice un mantenimiento dar click en el boton Finalizar.
               </div>
-              
+
+        </div>
+
+         <div class="col-md-3">
+        <div class="box box-success">
+
+             <div class="box box-solid">
+            <div class="box-header with-border">
+              <h4 class="box-title">Tipos de mantenimientos</h4>
             </div>
-            <!-- /.row -->
-            
-            <!-- Modal -->
+            <div class="box-body">
+              <!-- the events -->
+              <div id="external-events">
+                <div class="external-event bg-green">Preventivo</div>
+                <div class="external-event bg-yellow">Correctivo</div>
+                <div class="external-event bg-red">Urgente</div>
+                 
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+
+                <div class="box box-success">
+
+             <div class="box box-solid">
+            <div class="box-header with-border">
+              <h4 class="box-title">Finalizar mantenimientos</h4>
+            </div>
+            <div class="box-body">
+              <!-- the events -->
+              <div id="external-events">
+                  <center><a href="mmantenimiento" class="btn btn-primary">Finalizar</a></center>
+
+
+                 
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+       <div class="col-md-9">
+        <div class="box box-success">
+
+       <div  id="calendar" class="col-centered">  </div>
+        </div>
+      </div>
+ 
+ 
+      </div>
+ 
+
+    </section>
+  <!-- /.content -->
+</div>
+
+
+                        <!-- Modal -->
             <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -112,26 +172,46 @@
               
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Agendar Mantenimiento</h4>
+                <h4 class="modal-title" id="myModalLabel">Recoradorio de Mantenimiento</h4>
               </div>
               <div class="modal-body">
                 
-                <div class="form-group">
-                  <label for="title" class="col-sm-2 control-label">Vehiculo</label>
+                 
+                 <div class="form-group">
+                  <label for="color" class="col-sm-2 control-label">Camion / Vehiculo</label>
                   <div class="col-sm-10">
-                  <input type="text" name="title" class="form-control" id="title" placeholder="Apodo del vehiculo" required>
+                 <select class="form-control text-uppercase" id="title" name="title" required>
+
+                     <option value="">Seleccionar camion</option>
+
+                     <?php
+
+                      $respuesta = ModeloCamiones::mostrarCamionesLibre("CAMIONES");
+
+                      foreach ($respuesta as $key => $value) {
+                        // if ($value["ID_CAMIONES"] != "1") {
+
+                        echo '<option value="' . $value["NOMBRE_CAMION"] . '">' . $value["NOMBRE_CAMION"] . '</option>';
+                        // }
+                      }
+
+                      ?>
+
+                   </select>
                   </div>
                   </div>
 
-                  
+
+
+
                 <div class="form-group">
                   <label for="color" class="col-sm-2 control-label">Tipo</label>
                   <div class="col-sm-10">
                   <select name="color" class="form-control" id="color">
-                          <option required value="#008000">Seleccione tipo de mantenimiento</option>
-                    <option style="color:#008000;" value="#008000">&#9724; Preventivo</option>						  
+                      <option required value="#008000">Seleccione tipo de mantenimiento</option>
+                    <option style="color:#008000;" value="#008000">&#9724; Preventivo</option>              
                     <option style="color:#FFD700;" value="#e1c900">&#9724; Correctivo</option>
-                    <option style="color:#FF0000;" value="#FF0000">&#9724; Urgente</option>						  
+                    <option style="color:#FF0000;" value="#FF0000">&#9724; Urgente</option>             
                     </select>
                   </div>
                   </div>
@@ -141,35 +221,38 @@
                   <div class="col-sm-10">
                   <input type="text" name="start" class="form-control" id="start" readonly>
                   </div>
+
+
+                   <input type="hidden"  name="estatus" value="1">
+
                   </div>
                   
                   <div class="form-group">
                   <label for="Hora" class="col-sm-2 control-label">¿A que hora?</label>
                   <div class="col-sm-10">
                     <div class="input-group clockpicker" data-autoclose="true">
-                      <input type="text" name="HoraI" class="form-control" id="HoraI" placeholder="Establezca la hora" required readonly>
+                      <input type="text" name="HoraI" class="form-control" id="HoraI" placeholder="Establezca la hora" required>
                     </div>
                   </div>
-                </div>
-                  
+                </div>                
                         
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary ">Guardar</button>
+                <button type="submit" class="btn btn-primary ">Aceptar</button>
               </div>
               </form>
               </div>
             </div>
             </div>
-            
-            
-            
-            <!-- Modal -->
+
+
+
+                        <!-- Modal -->
             <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-              <form class="form-horizontal" method="POST" action="modelos/FullCalendar/editEventTitle.php">
+              <form class="form-horizontal" method="POST" action="modelos/editEventTitle.php">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
@@ -177,17 +260,17 @@
               <div class="modal-body">
                 
                 <div class="form-group">
-                  <label for="title" class="col-sm-2 control-label">Titulo</label>
+                  <label for="title" class="col-sm-2 control-label">Camion / Vehiculo</label>
                   <div class="col-sm-10">
-                  <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+                  <input type="text" name="title" class="form-control" id="title" placeholder="Titulo" readonly>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="color" class="col-sm-2 control-label">Color</label>
+                  <label for="color" class="col-sm-2 control-label">Tipo</label>
                   <div class="col-sm-10">
                   <select name="color" class="form-control" id="color">
-                    <option value="">Seleccionar</option>
-                    <option style="color:#008000;" value="#008000">&#9724; preventivo</option>						  
+                    <option value="">Tipo de mantenimiento</option>
+                    <option style="color:#008000;" value="#008000">&#9724; preventivo</option>              
                     <option style="color:#FFD700;" value="#FFD700">&#9724; Correctivo</option>
                     <option style="color:#FF0000;" value="#FF0000">&#9724; Urgente</option>
                     
@@ -215,33 +298,7 @@
             </div>
             </div>
 
-          </div>
-          <!-- /.clock -->
-          <script src="vistas/js/FullCalendar/js/bootstrap-clockpicker.js"></script>
-          <script src="vistas/js/FullCalendar/js/clockpicker.js"></script>
-          <link rel="stylesheet" href="vistas/dist/FullCalendar/css/bootstrap-clockpicker.css">
-          <link rel="stylesheet" href="vistas/dist/FullCalendar/css/clockpicker.css">
-
-          <!-- jQuery Version 1.11.1 -->
-          
-          <script src="vistas/js/FullCalendar/js/jquery.js"></script>
-
-          <!-- Bootstrap Core JavaScript -->
-          <script src="vistas/js/FullCalendar/js/bootstrap.min.js"></script>
-          
-          <!-- FullCalendar -->
-          <script src='vistas/js/FullCalendar/js/moment.min.js'></script>
-          <script src='vistas/js/FullCalendar/js/fullcalendar/fullcalendar.min.js'></script>
-          <script src='vistas/js/FullCalendar/js/fullcalendar/fullcalendar.js'></script>
-          <script src='vistas/js/FullCalendar/js/fullcalendar/locale/es.js'></script>
-          <!-- /.clock -->
-          <script src="vistas/js/FullCalendar/js/bootstrap-clockpicker.js"></script>
-          <link rel="stylesheet" href="vistas/dist/FullCalendar/css/bootstrap-clockpicker.css">
-
-
-            
-          
-          <script>
+ <script>
 
 
           $(document).ready(function() {
@@ -284,7 +341,7 @@
                   $('#ModalEdit #color').val(event.color);
                   $('#ModalEdit').modal('show');
                 });
-              },		
+              },    
               eventDrop: function(event, delta, revertFunc) { // si changement de position
 
                 edit(event);
@@ -317,9 +374,9 @@
               
                 {
                   id: '<?php echo $event['id']; ?>',
-                  title: '<?php echo $event['title']; ?>',					
+                  title: '<?php echo $event['title']; ?>',          
                   start: '<?php echo $start; ?>',
-                  end: '<?php echo $end; ?>',				
+                  end: '<?php echo $end; ?>',       
                   color: '<?php echo $event['color']; ?>',
 
                 },
@@ -344,7 +401,7 @@
               Event[2] = end;
               
               $.ajax({
-              url: 'modelos/FullCalendar/editEventDate.php',
+              url: 'modelos/editEventDate.php',
               type: "POST",
               data: {Event:Event},
               success: function(rep) {
@@ -361,13 +418,3 @@
           $('.clockpicker').clockpicker();
         </script>
 
-        </body>
-
-        </html>	
-       
-      </div>
-    <!-- /.row -->
-
-    </section>
-  <!-- /.content -->
-</div>

@@ -3,13 +3,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Administrar Pedidos
+      Administrar Camiones
 
     </h1>
     <ol class="breadcrumb">
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Pedidos</li>
+      <li class="active">Camiones</li>
     </ol>
   </section>
 
@@ -17,11 +17,12 @@
   <section class="content">
 
     <div class="row">
+ 
       <!-- /.col (right) -->
       <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header">
-            <h3 class="box-title">Pedidos Agregados</h3>
+            <h3 class="box-title">Camiones Registrados</h3>
           </div>
           <!-- /.box-header -->
           <form role="form" method="post" enctype="multipart/form-data">
@@ -47,37 +48,18 @@
 
               <thead>
                 <tr>
-                  <!-- <th>
-                    SUCURSAL
-                  </th> -->
+                 
                   <th>
-                    CAMION
+                    NOMBRE DEL CAMION
                   </th>
                   <th>
-                    CONDUCTOR
+                    ENCARGADO
                   </th>
-                  <th>
-                    TELEFONO
-                  </th>
-                  <!-- <th>
-                    NUM. SERIE
-                  </th> -->
-                  <th>
-                    VIAJE
-                  </th>
+                   
                   <th>
                     ESTATUS
                   </th>
-                  <th>
-                    PEDIDOS
-                  </th>
-                  <th>
-                    MONTO PEDIDOS
-                  </th>
-                  <th>
-                    DESCRIPCION
-                  </th>
-
+                   
                   <th>
                     Acciones
                   </th>
@@ -87,8 +69,8 @@
               <tbody>
 
                 <?php
-                $read = new ViajesControlador();
-                $read->mostrarViajesControlador();
+                $read = new CamionesControlador();
+                $read->mostrarCamionesControlador2();
                 ?>
 
               </tbody>
@@ -113,7 +95,7 @@
       <form role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header" style="background:#3c8dbc; color:white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Editar Conductor</h4>
+          <h4 class="modal-title">Editar Vehiculo</h4>
         </div>
         <div class="modal-body">
           <div class="box-header">
@@ -123,38 +105,10 @@
 
           <input type="hidden" class="form-control" name="editCamiones" id="editCamiones">
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Descripcion:</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <input type="text" class="form-control text-uppercase" id="editDescripcion" name="editDescripcion" placeholder="EJEM. NISSAN TSURU" required>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Numero Serie:</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <input type="text" class="form-control text-uppercase" id="editNumSerie" name="editNumSerie" placeholder="Numero Serie" required>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
 
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Placas:</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <input type="text" class="form-control text-uppercase" id="editPlacas" name="editPlacas" placeholder="Placas" required>
-                  </div>
-                </div>
-              </div>
+ 
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Nombre:</label>
@@ -167,36 +121,7 @@
             </div>
 
 
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Modelo:</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <input type="text" class="form-control text-uppercase" id="editModelo" name="editModelo" placeholder="Modelo" required>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-
-                <div id="tipo" class="form-group">
-                  <label>Tipo Vehiculo:</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <select class="form-control" value="" id="editTipoCamiones" value="" name="editTipoCamiones" required>
-                      <option value="default" disabled selected>Tipo Vehiculo</option>
-                      <option value="Automovil">Automovil</option>
-                      <option value="Camioneta">Camioneta</option>
-                      <option value="Camion">Camion</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row">
+             <div class="row">
 
               <div id="editconductor" class="col-md-6">
                 <div class="form-group">
@@ -209,12 +134,32 @@
                       <?php
                       // $readStatus = new EstatusControlador();
                       $respuesta = ModeloConductores::mostrarConductorModelo("CONDUCTORES");
+
+                      $value = null;
+                      $item = null;
+
+                      $sucursales = ControladorSucursales::ctrMostrarSucursales($value, $item);
+                      $status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
+
                       // $status = $readStatus->mostrarEstatus("ESTATUS_CAMIONES");
                       foreach ($respuesta as $key => $value) {
-                        if ($value["ID_CONDUCTORES"] != "1") {
-                          # code...
-                          echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"], " ", $value["APELLIDOS"] . '</option>';
+                        // if ($value["ID_CONDUCTORES"] != "1") {
+                        # code...
+                        $descripcion = null;
+                        foreach ($status as $key => $valor) {
+                          if ($value["ID_ESTATUS_CONDUCTORES"] == $valor["ID_ESTATUS_CONDUCTORES"]) {
+                            $descripcion = $valor["DESCRIPCION"];
+                          }
                         }
+
+                        if ($descripcion == "ACTIVO") {
+                          foreach ($sucursales as $key => $vale) {
+                            if ($value["ID_SUCURSALES"] == $vale["id"]) {
+                              echo '<option value="' . $value["ID_CONDUCTORES"] . '">' . $value["NOMBRE"], " ", $value["APELLIDOS"], " - ", $vale["nombre"] . '</option>';
+                            }
+                          }
+                        }
+                        // }
                       }
                       ?>
                     </select>
@@ -241,8 +186,7 @@
                       <option value="default" disabled selected>Estatus</option>
                       <option value="Disponible">Disponible</option>
                       <option value="Mantenimiento">Mantenimiento</option>
-                      <option value="Repartiendo">Repartiendo</option>
-                      <option value="Cargado">Cargado</option>
+                       
                       <!-- <option value="Disponible" >Disponible</option> -->
                       <!-- <option value="2" >Estatus</option>
                     <option value="3" >Estatus</option>
@@ -260,45 +204,18 @@
               </div>
             </div>
 
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Sucursal:</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <select class="form-control" id="editSucursalConductores" name="editSucursalConductores" required>
-                      <option value="default" disabled selected>Sucursal</option>
-                      <?php
-                      $value = null;
-                      $item = null;
-
-                      $sucursales = ControladorSucursales::ctrMostrarSucursales($value, $item);
-
-                      foreach ($sucursales as $key => $value) {
-                        echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-                      }
-                      ?>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <!--  <div class="col-md-6">
-
-                </div> -->
-            </div>
-
+ 
             <div class="modal-footer">
 
               <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
 
-              <button type="submit" class="btn btn-primary">Guardar Roles</button>
+              <button type="submit" class="btn btn-primary">Guardar Vehiculo</button>
 
             </div>
 
             <?php
             $insert = new CamionesControlador();
-            $insert->actualizarCamionesControlador();
+            $insert->actualizarCamionesControlador2();
             ?>
 
 

@@ -35,7 +35,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-building"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control "   name="nuevoNombreS" placeholder="requerido" required="">
 
@@ -50,7 +50,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="number" class="form-control" name="nuevoTelefonoS" placeholder="requerido" required="">
 
@@ -65,7 +65,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control " name="nuevoCiudadS" placeholder="requerido" required="">
 
@@ -80,7 +80,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control " name="nuevoDireccionS" placeholder="requerido" required="">
 
@@ -232,7 +232,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-building"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control "   name="editarNombreS" id="editarNombreS" >
 
@@ -249,7 +249,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="number" class="form-control" name="editarTelefonoS" id="editarTelefonoS">
 
@@ -264,7 +264,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control " name="editarCiudadS" id="editarCiudadS">
 
@@ -279,7 +279,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control " name="editarDireccionS" id="editarDireccionS" >
 

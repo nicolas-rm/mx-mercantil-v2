@@ -54,6 +54,37 @@ class ModeloCamiones
 
         $stmt = null;
     }
+
+    static public function mostrarCamionesLibre($tabla)
+    {
+        # code...
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla where ESTATUS_CAMIONES = 'Disponible'");
+        $stmt->execute();
+
+        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
+        return $stmt->fetchAll();
+
+        /* CERRAR LA CONEXION DE LA CONSULTA */
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+    static public function mostrarCamionesMantenimiento($tabla)
+    {
+        # code...
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla where ESTATUS_CAMIONES = 'Mantenimiento'");
+        $stmt->execute();
+
+        /* RETORNO DE TODA LA CONSULTA GENERADA POR LA QUERY */
+        return $stmt->fetchAll();
+
+        /* CERRAR LA CONEXION DE LA CONSULTA */
+        $stmt->close();
+
+        $stmt = null;
+    }
+
     static public function editarCamionesModelo($tabla,$id)
     {
         # code...
@@ -138,6 +169,40 @@ class ModeloCamiones
         $pdo->close();
     }
 
+        static public function updateCamionesModelo2($tabla,$datos)
+    {
+
+
+        $pdo = Conexion::conectar()->prepare("UPDATE $tabla SET NOMBRE_CAMION = :NOMBRE_CAMION, ESTATUS_CAMIONES = :ESTATUS_CAMIONES, ID_CONDUCTORES = :ID_CONDUCTORES WHERE ID_CAMIONES = :ID_CAMIONES");
+
+
+        /* QUERY PARA LA INSERCCION A LA BASE DE DATOS */
+        /* PARAMETROS CON SUS RESPECTIVOS VALORES DE LAS COLUMNAS DE LAS TABLAS */
+         
+        $pdo->bindParam(":NOMBRE_CAMION", $datos["NOMBRE_CAMION"], PDO::PARAM_STR);
+         
+        $pdo->bindParam(":ESTATUS_CAMIONES", $datos["ESTATUS_CAMIONES"], PDO::PARAM_STR);
+        $pdo->bindParam(":ID_CONDUCTORES", $datos["ID_CONDUCTORES"], PDO::PARAM_STR);
+         
+        $pdo->bindParam(":ID_CAMIONES", $datos["ID_CAMIONES"], PDO::PARAM_STR);
+        // $pdo->bindParam(":ID_SUCURSALES", $datosC["ID_SUCURSALES"], PDO::PARAM_);
+
+        /* CONDICION PARA VER SI EXISTE ALGUN ERROR */
+        /* FUNCION PARA EJECUTAR LA QUERY */
+        if ($pdo->execute()) {
+            /* RESPUESTA POR SI TODO SALIO BIEN */
+            // var_dump($datosC);
+            return "ok";
+        } else {
+            // var_dump($datosC);
+
+            /* RESPUESTA POR SI TODO SALIO MAL*/
+            return "error";
+        }
+
+        $pdo->close();
+    }
+
 
     static public function eliminarCamionesModelo($tabla,$id)
     {
@@ -175,4 +240,9 @@ class ModeloCamiones
 
         $pdo->close();
     }
+
+ 
 }
+
+ 
+ 

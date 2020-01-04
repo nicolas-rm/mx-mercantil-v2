@@ -38,7 +38,7 @@
                   
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
                     
                     <select class="form-control text-uppercase" id="nuevoEmpleadoU" name="nuevoEmpleadoU" required>
 
@@ -71,7 +71,7 @@
                   
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
                     
                     <select class="form-control text-uppercase" id="nuevoRolU" name="nuevoRolU" required>
 
@@ -106,7 +106,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control" name="nuevoUsuario" placeholder="requerido" id="nuevoUsuario" required>
                      
@@ -121,7 +121,7 @@
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="password" class="form-control" name="nuevoPassword" placeholder="requerido" required>
 
@@ -329,7 +329,7 @@ MODAL EDITAR ROL
                   
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
                     
                     <select class="form-control text-uppercase" id="editarEmpleadoU" name="editarEmpleadoU">
 
@@ -363,7 +363,7 @@ MODAL EDITAR ROL
                   
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
                     
                     <select class="form-control text-uppercase" id="editarRolU" name="editarRolU" required>
 
@@ -397,7 +397,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control" name="editarUsuario"  id="editarUsuario" readonly>
                      
@@ -412,7 +412,7 @@ MODAL EDITAR ROL
 
                   <div class="input-group">
 
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span> 
 
                     <input type="text" class="form-control" id="editarPassword" name="editarPassword" required>
 

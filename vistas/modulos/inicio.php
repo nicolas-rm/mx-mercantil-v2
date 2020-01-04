@@ -1,5 +1,34 @@
  
+<?php 
+//index.php
+$connect = mysqli_connect("localhost", "root", "", "mx_mercantil");
+$query = "SELECT SUM(MONTO_TOTAL) as tPrecio, YEAR(fecha_registro) as fechaT FROM viaje GROUP BY YEAR(fecha_registro)";
+$result = mysqli_query($connect, $query);
+$chart_data = '';
+while($row = mysqli_fetch_array($result))
+{
+ $chart_data .= "{ year:'".$row["fechaT"]."', profit:".$row["tPrecio"]."}, ";
+}
+$chart_data = substr($chart_data, 0, -2);
 
+
+?>
+
+<?php 
+
+
+$connect2 = mysqli_connect("localhost", "root", "", "mx_mercantil");
+$query2 = "SELECT SUM(precio) as tPrecio, YEAR(fecha) as fechaT FROM mantenimiento GROUP BY YEAR(fecha)";
+$result2 = mysqli_query($connect2, $query2);
+$chart_data2 = '';
+while($row = mysqli_fetch_array($result2))
+{
+ $chart_data2 .= "{ year2:'".$row["fechaT"]."', profit2:".$row["tPrecio"]."}, ";
+}
+$chart_data2 = substr($chart_data2, 0, -2);
+
+
+ ?>
 
 <div class="content-wrapper">
 
@@ -8,7 +37,7 @@
 
          <div class="row">
  
-        <div class="col-md-12">
+        <div class="col-md-8">
            <div class="box box-primary">
 
             <div class="box-header with-border">
@@ -60,8 +89,96 @@
           </div> 
           <!-- /.box -->
         </div> 
+
+          <div class="col-md-4">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#activity" data-toggle="tab">Mision</a></li>
+              <li><a href="#timeline" data-toggle="tab">Vision</a></li>
+              <li><a href="#settings" data-toggle="tab">Valores</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="active tab-pane" id="activity">
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="vistas/img/plantilla/MC.png" alt="user image">
+                        <span class="username">
+                          <a href="#">Mercantil del Contructor S.A. de C.V.</a>
+                          
+                        </span>
+                     
+                  </div>
+                  <!-- /.user-block -->
+                  <CENTER> 
+                  <p>
+                    Ser el líder en la comercialización de materiales y productos para la construcción.
+                  </p>
+                  </CENTER>
+                   
+                </div>
+                <br><br><br><br><br><br><br>
+                <!-- /.post -->
+ 
+                <!-- /.post -->
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="timeline">
+                   <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="vistas/img/plantilla/MC.png" alt="user image">
+                        <span class="username">
+                          <a href="#">Mercantil del Contructor S.A. de C.V.</a>
+                          
+                        </span>
+                     
+                  </div>
+                  <!-- /.user-block -->
+                  <CENTER> 
+                  <p>
+                    Nuestra visión es el continuo crecimiento utilizando todas las herramientas disponibles, para continuar siendo una empresa líder  en  la  comercialización de productos para la industria de la construcción
+                  </p>
+                  </CENTER>
+                   
+                </div>
+                <br><br><br><br><br>
+     
+                 
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="settings">
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="vistas/img/plantilla/MC.png" alt="user image">
+                        <span class="username">
+                          <a href="#">Mercantil del Contructor S.A. de C.V.</a>
+                          
+                        </span>
+                     
+                  </div>
+                  <!-- /.user-block -->
+                  
+                  <p>  
+                  <strong>* Ética.</strong> <br> Nuestra ética laboral, comercial y social es lo que nos distingue. <br>
+                  <strong>* Trabajo.</strong> <br> Estamos conscientes de que el trabajo duro e inteligente es la mejor forma de lograr nuestros objetivos de mejora continua. <br>
+                  <strong>* Responsabilidad.</strong> <br> Hacia nuestros clientes, colaboradores y la sociedad.
+                  </p>
+                  
+                   
+                </div>
+                
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
       
     </div> 
+
+   
 
  <div class="row">
           <div class="col-md-12">
@@ -136,6 +253,48 @@
         </div>
          
       </div>
+
+      <div class="row">
+
+       <div class="col-md-12">
+                <div class="box box-success">
+
+          <div class="card-body bg-success text-white text-center">
+                          
+               <center><h3>Viajes por años</h3></center> 
+          </div>
+
+             <div class="nav-tabs-custom">
+ 
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+              <div id="chart1" style="position: relative; height: 300px;"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+           <div class="col-md-12">
+                <div class="box box-warning">
+
+          <div class="card-body bg-warning text-white text-center">
+                          
+               <center><h3>Mantenimientos por años</h3></center> 
+          </div>
+
+             <div class="nav-tabs-custom">
+ 
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+              <div id="chart2" style="position: relative; height: 300px;"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+</div>
+
+        
      
   </section>
 
@@ -143,8 +302,34 @@
 </div>
 <!-- /.content-wrapper -->
 
+ <script>
+ 
+ Morris.Bar({
+ element : 'chart1',
+ data:[<?php echo $chart_data; ?>],
+ xkey:'year',
+ ykeys:['profit'], //precio
+ labels:['precio'],
+ hideHover:'auto',
+ stacked:true,
+ barColors: ['#57CA65'],
+ barWidth: 1,
+ resize: true
+});
 
-  
+Morris.Bar({
+ element : 'chart2',
+ data:[<?php echo $chart_data2; ?>],
+ xkey:'year2',
+ ykeys:['profit2'], //precio
+ labels:['precio'],
+ hideHover:'auto',
+ stacked:true,
+ barColors: ['#BF39F5'],
+ barWidth: 1,
+ resize: true
+});
  
  
-
+</script>
+ 

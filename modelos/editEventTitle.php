@@ -39,7 +39,6 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	}
 
 }
-header('Location: index.php');
-
+header('Location: '.$_SERVER['HTTP_REFERER']);
 	
 ?>

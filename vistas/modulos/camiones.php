@@ -319,7 +319,7 @@
       <form role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header" style="background:#3c8dbc; color:white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Editar Camion</h4>
+          <h4 class="modal-title">Editar Vehiculo</h4>
         </div>
         <div class="modal-body">
           <div class="box-header">
@@ -518,7 +518,7 @@
 
               <!-- <button type="reset" class="btn btn-danger pull-left" value="Borrar">Cancelar</button> -->
 
-              <button type="submit" class="btn btn-primary">Guardar Roles</button>
+              <button type="submit" class="btn btn-primary">Guardar Vehiculo</button>
 
             </div>
 
