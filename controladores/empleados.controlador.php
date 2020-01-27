@@ -39,7 +39,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "success",
-						title: "¡El Empleado ha sido guardado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -137,7 +137,7 @@ class ControladorEmpleados{
 
 				swal({
 					  type: "success",
-					  title: "El Empleado ha sido borrado correctamente",
+					  title: "¡Registro eliminado correctamente!",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
 					  closeOnConfirm: false
@@ -187,7 +187,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "success",
-						title: "¡El empleado ha sido editado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -213,7 +213,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "error",
-						title: "¡El empleado no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -268,7 +268,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "error",
-						title: "¡La nombre del empleado contiene numeros!",
+						title: "¡La registro del empleado contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -315,7 +315,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "success",
-						title: "¡El Perfil ha sido editado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -341,7 +341,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "error",
-						title: "¡El Perfil no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -396,7 +396,7 @@ class ControladorEmpleados{
 					swal({
 
 						type: "error",
-						title: "¡Tu nombre contiene numeros!",
+						title: "¡El registro contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false

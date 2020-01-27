@@ -12,9 +12,6 @@ class ViajesControlador
 
         if (isset($_POST["nuevoCamionViaje"])) {
 
-            
- 
-
             $tabla = "VIAJE";
 
             $datos = array(
@@ -24,8 +21,7 @@ class ViajesControlador
                 "MONTO_TOTAL" => strtoupper($_POST["nuevoTotalPagos"]),
                 "DESCRIPCION" => strtoupper($_POST["nuevoRutaViaje"]),
                 "FECHA_SALIDA" => strtoupper($_POST["nuevoFechaViaje"]),
-                "ESTATUS" => strtoupper("1"), 
-                
+                "ESTATUS" => strtoupper("1"),
             );
 
             date_default_timezone_set('America/Mexico_City');
@@ -43,6 +39,34 @@ class ViajesControlador
             $respuesta = ModeloViaje::agregarViajeModelo($tabla, $datos);
             // var_dump($fecha);
             // var_dump($fechaActual);
+
+
+
+                if ($respuesta == "ok") {
+
+                    echo '<script>
+
+                    swal({
+
+                        type: "success",
+                        title: "¡Registro guardado correctamente!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false
+
+                    }).then((result)=>{
+
+                        if(result.value){
+                        
+                            window.location = "agenda";
+
+                        }
+
+                    });
+                
+
+                    </script>';
+                }
 
 
 

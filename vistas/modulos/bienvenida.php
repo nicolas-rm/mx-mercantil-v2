@@ -31,7 +31,7 @@
           <section class="content">
             
               <center>
-              <img class="img-responsive" src="vistas/img/plantilla/me3.PNG" width="1000" height="100">
+              <img class="img-responsive" src="vistas/img/plantilla/cendi.jpg" width="1000" height="100">
               </center>
             
           </section>

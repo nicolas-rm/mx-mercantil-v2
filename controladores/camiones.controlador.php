@@ -46,7 +46,7 @@ class CamionesControlador
 					swal({
 						
 						type: "success",
-						title: "Conductor Guardado Correctamente",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -71,7 +71,7 @@ class CamionesControlador
 					swal({
 						
 						type: "error",
-						title: "Error En Guardar El Conductor, Revise Los Datos",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -96,7 +96,7 @@ class CamionesControlador
 				swal({
 					
 					type: "error",
-					title: "¡error con Base de Datos !",
+					title: "¡Error con Base de Datos !",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -123,7 +123,7 @@ class CamionesControlador
 				swal({
 					
 					type: "error",
-					title: "¡La mantenimiento del rol contiene numeros!",
+					title: "¡El registro contiene numeros!",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -341,7 +341,7 @@ static public function actualizarCamionesControlador2()
 					swal({
 						
 						type: "success",
-						title: "Mantenimiento Finalizado",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -366,7 +366,7 @@ static public function actualizarCamionesControlador2()
 					swal({
 						
 						type: "error",
-						title: "Error En Guardar El Conductor, Revise Los Datos",
+						itle: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -391,7 +391,7 @@ static public function actualizarCamionesControlador2()
 				swal({
 					
 					type: "error",
-					title: "¡error con Base de Datos !",
+					title: "¡Error con Base de Datos !",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -418,7 +418,7 @@ static public function actualizarCamionesControlador2()
 				swal({
 					
 					type: "error",
-					title: "¡La mantenimiento del rol contiene numeros!",
+					title: "¡El registro contiene numeros!",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -438,24 +438,6 @@ static public function actualizarCamionesControlador2()
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -499,7 +481,7 @@ static public function actualizarCamionesControlador2()
 					swal({
 						
 						type: "success",
-						title: "Conductor Guardado Correctamente",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -524,7 +506,7 @@ static public function actualizarCamionesControlador2()
 					swal({
 						
 						type: "error",
-						title: "Error En Guardar El Conductor, Revise Los Datos",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -549,7 +531,7 @@ static public function actualizarCamionesControlador2()
 				swal({
 					
 					type: "error",
-					title: "¡error con Base de Datos !",
+					title: "¡Error con Base de Datos !",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -576,7 +558,7 @@ static public function actualizarCamionesControlador2()
 				swal({
 					
 					type: "error",
-					title: "¡La mantenimiento del rol contiene numeros!",
+					title: "¡El registro contiene numeros!",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false

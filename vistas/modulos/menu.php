@@ -211,6 +211,17 @@
 						</a>
 
 					</li>
+
+					<li>
+
+						<a href="pdf">
+
+							<i class="fa fa-podcast"></i>
+							<span>General</span>
+
+						</a>
+
+					</li>
 					<!-- <li>
 
 		<a href="conductoresRead">
@@ -301,16 +312,51 @@
 
 						</a>
 					</li>
-					<!-- <li>
 
-		<a href="conductoresRead">
+					<li class="treeview">
 
-			<i class="fa fa-podcast"></i>
-			<span>Mostrar Estatus</span>
+				<a href="#">
 
-		</a>
+					 <i class="fa fa-file-text"></i>
+					
+					 <span>Documentos</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
 
-	</li> -->
+					</span> 
+
+				</a>
+
+				<ul class="treeview-menu">
+
+					<li>
+
+						<a href="vale">
+							
+							<i class="fa fa-address-card-o"></i>
+							<span>Vale de Gasolina</span>
+
+						</a>
+
+					</li>
+					
+					<li>
+
+						<a href="checklist">
+							
+							 <i class="fa fa-list-ol"></i> 
+							<span>Checklist</span>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+			</li>
+ 
 
 
 

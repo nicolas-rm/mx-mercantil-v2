@@ -7,14 +7,14 @@ $(".btnEliminarEmpleado").click(function(){
    
 
   swal({
-    title: '¿Está seguro de borrar el EMPLEADO?',
-    text: "¡Si no lo está puede cancelar la accíón!",
+    title: 'Eliminar registro',
+    text: "Usted no podra revertir este proceso!",
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, borrar empleado!'
+      confirmButtonText: 'Si, borrar registro!'
   }).then((result)=>{
 
     if(result.value){

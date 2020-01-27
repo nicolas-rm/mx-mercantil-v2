@@ -55,7 +55,7 @@ class ModeloCamiones
         $stmt = null;
     }
 
-    static public function mostrarCamionesLibre($tabla)
+        static public function mostrarCamionesDisponible($tabla)
     {
         # code...
         $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla where ESTATUS_CAMIONES = 'Disponible'");
@@ -69,6 +69,8 @@ class ModeloCamiones
 
         $stmt = null;
     }
+
+
 
     static public function mostrarCamionesMantenimiento($tabla)
     {

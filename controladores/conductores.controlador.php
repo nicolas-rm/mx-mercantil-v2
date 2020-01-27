@@ -3,6 +3,16 @@
 class ConductoresControlador
 {
 
+		static public function ctrMostrarEstatusC($item, $valor){
+
+		$tabla = "estatus_conductores";
+
+		$respuesta = ModeloConductores::mdlMostrarEstatusC($tabla, $item, $valor);
+
+		return $respuesta;
+	}
+
+
 	/*=============================================
 	REGISTRO DE CONDUCTORES
 	=============================================*/
@@ -22,7 +32,7 @@ class ConductoresControlador
 					"APELLIDOS" => strtoupper($_POST["nuevoApellidos"]),
 					"TELEFONO" => strtoupper($_POST["nuevoTelefono"]),
 					"NUMERO_LICENCIA" => strtoupper($_POST["nuevoNumeroLicencia"]),
-					"ID_ESTATUS_CONDUCTORES" => strtoupper($_POST["nuevoEstatusConductores"]),
+					"ID_ESTATUS_CONDUCTORES" => $_POST["nuevoEstatusConductores"],
 					"ID_SUCURSALES" => strtoupper($_POST["nuevoSucursalConductores"])
 				);
 
@@ -37,7 +47,8 @@ class ConductoresControlador
 					swal({
 						
 						type: "success",
-						title: "Conductor Guardado Correctamente",
+						title: "¡Registro guardado correctamente!",
+
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -61,7 +72,7 @@ class ConductoresControlador
 					swal({
 						
 						type: "error",
-						title: "Error En Guardar El Conductor, Revise Los Datos",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -85,7 +96,7 @@ class ConductoresControlador
 				swal({
 					
 					type: "error",
-					title: "¡error con Base de Datos !",
+					title: "¡Error con Base de Datos !",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -109,7 +120,7 @@ class ConductoresControlador
 				swal({
 					
 					type: "error",
-					title: "¡La mantenimiento del rol contiene numeros!",
+					title: "¡El registro contiene numeros!",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false
@@ -443,7 +454,8 @@ class ConductoresControlador
 				swal({
 					
 					type: "success",
-					title: "Conductor Guardado Correctamente",
+					title: "¡Registro guardado correctamente!",
+
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar",
 					closeOnConfirm: false

@@ -41,7 +41,7 @@ class ControladorRoles{
 					swal({
 
 						type: "success",
-						title: "¡El Rol ha sido guardado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -67,7 +67,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡El Rol no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -94,7 +94,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡error con Base de Datos !",
+						title: "¡Error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -122,7 +122,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡El nombre del rol contiene numeros!",
+						title: "¡El registro contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -166,7 +166,7 @@ class ControladorRoles{
 
 				swal({
 					  type: "success",
-					  title: "El rol ha sido borrado correctamente",
+					  title: "¡Registro eliminado correctamente!",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
 					  closeOnConfirm: false
@@ -216,7 +216,7 @@ class ControladorRoles{
 					swal({
 
 						type: "success",
-						title: "¡El Rol ha sido editado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -242,7 +242,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡El Rol no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -269,7 +269,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡error con Base de Datos !",
+						title: "¡Error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -297,7 +297,7 @@ class ControladorRoles{
 					swal({
 
 						type: "error",
-						title: "¡El nombre del rol contiene numeros!",
+						title: "¡El registro contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false

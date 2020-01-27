@@ -97,9 +97,11 @@ session_start();
   <script src="vistas/bower_components/jspdf/dist/jspdf.min.js"></script>
   <script src="vistas/bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
 
+ <script src=""></script>
 
 
- 
+
+  
 
 </head>
 
@@ -108,7 +110,7 @@ CUERPO DOCUMENTO
 ======================================-->
 <!-- oncontextmenu="return false"   ponerselo al body -->
 
-<body oncontextmenu="return false" class="hold-transition skin-blue-light sidebar-mini fixed login-page">
+<body class="hold-transition skin-blue-light sidebar-mini fixed login-page">
 
   <?php
 
@@ -155,6 +157,12 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "viaje" ||
         $_GET["ruta"] == "agenda" ||
         $_GET["ruta"] == "historial" ||
+        $_GET["ruta"] == "pdf" ||
+
+        $_GET["ruta"] == "vale" ||
+        $_GET["ruta"] == "vale1" ||
+        $_GET["ruta"] == "checklist" ||
+
         $_GET["ruta"] == "automoviles" 
          
 
@@ -170,20 +178,7 @@ CUERPO DOCUMENTO
       include "modulos/inicio.php";
     }
 
-    /*=============================================
-    FOOTER
-    =============================================*/
-
-    include "modulos/footer.php";
-
-    echo '</div>';
-  } else {
-
-    include "modulos/login.php";
-  }
-
-
-
+    
    $respuesta = ModeloCalendario::mdlMostrarCalendario();
 
    foreach ($respuesta as $key => $value){
@@ -211,7 +206,18 @@ CUERPO DOCUMENTO
 
    }
 
- 
+    /*=============================================
+    FOOTER
+    =============================================*/
+
+    include "modulos/footer.php";
+
+    echo '</div>';
+  } else {
+
+    include "modulos/login.php";
+  }
+
 
   ?>
  
@@ -225,15 +231,6 @@ CUERPO DOCUMENTO
   <script src="vistas/js/usuarios.js"></script>
   <script src="vistas/js/sucursales.js"></script>
 
-
-  <!-- <script src="vistas/js/plantilla.js"></script> -->
-  <!-- <script src="vistas/js/roles.js"></script> -->
-  <!-- <script src="vistas/js/empleados.js"></script> -->
-
-  <!-- <script src="vistas/js/usuarios.js"></script> -->
-
-
-  <!-- <script src="vistas/js/sucursales.js"></script> -->
   <script src="vistas/js/mantenimiento.js"></script>
   <script src="vistas/js/conductores.js"></script>
   <script src="vistas/js/pdf.js"></script>
@@ -241,7 +238,8 @@ CUERPO DOCUMENTO
   <script src="vistas/js/estatus.js"></script>
   <script src="vistas/js/camiones.js"></script>
   <script src="vistas/js/viaje.js"></script>
-
+  
+  <script src="vistas/js/vale.js"></script>
 </body>
 
 </html>

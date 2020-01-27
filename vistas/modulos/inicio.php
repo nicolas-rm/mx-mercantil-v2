@@ -1,7 +1,7 @@
  
 <?php 
 //index.php
-$connect = mysqli_connect("localhost", "root", "", "mx_mercantil");
+$connect = mysqli_connect("localhost", "root", "", "bd_merca");
 $query = "SELECT SUM(MONTO_TOTAL) as tPrecio, YEAR(fecha_registro) as fechaT FROM viaje GROUP BY YEAR(fecha_registro)";
 $result = mysqli_query($connect, $query);
 $chart_data = '';
@@ -17,7 +17,7 @@ $chart_data = substr($chart_data, 0, -2);
 <?php 
 
 
-$connect2 = mysqli_connect("localhost", "root", "", "mx_mercantil");
+$connect2 = mysqli_connect("localhost", "root", "", "bd_merca");
 $query2 = "SELECT SUM(precio) as tPrecio, YEAR(fecha) as fechaT FROM mantenimiento GROUP BY YEAR(fecha)";
 $result2 = mysqli_query($connect2, $query2);
 $chart_data2 = '';
@@ -50,7 +50,7 @@ $chart_data2 = substr($chart_data2, 0, -2);
                 <ol class="carousel-indicators">
                   <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                   <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                  <!-- <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li> -->
                 </ol>
                 <div class="carousel-inner">
                   <div class="item active">
@@ -62,15 +62,15 @@ $chart_data2 = substr($chart_data2, 0, -2);
                       Cendi
                     </div>
                   </div>
-                  <div class="item">
+                  <!-- <div class="item">
                     <center> <img src="vistas/img/plantilla/fondox.jpg" style="width: 100%"  alt="First slide"></center>
 
                     <div class="carousel-caption">
                       Casa Matriz
                     </div>
-                  </div>
+                  </div> -->
                   <div class="item">
-                   <center> <img src="vistas/img/plantilla/casaHerrero2.jpg" style="width: 100%" alt="Third slide"></center>
+                   <center> <img src="vistas/img/plantilla/casaHerrero2.jpg" style="width: 100%" alt="Second slide"></center>
 
                     <div class="carousel-caption">
                       Casa del Herrero

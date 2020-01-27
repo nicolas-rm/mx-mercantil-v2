@@ -4,7 +4,7 @@
     require_once('modelos/bdd.php');
 
 
-    $sql = "SELECT id, title, start, end, color FROM events where estatus = 1 ";
+    $sql = "SELECT id, title, start, end, color FROM events ";
 
     $req = $bdd->prepare($sql);
     $req->execute();
@@ -186,7 +186,7 @@
 
                      <?php
 
-                      $respuesta = ModeloCamiones::mostrarCamionesLibre("CAMIONES");
+                      $respuesta = ModeloCamiones::mostrarCamionesDisponible("CAMIONES");
 
                       foreach ($respuesta as $key => $value) {
                         // if ($value["ID_CAMIONES"] != "1") {

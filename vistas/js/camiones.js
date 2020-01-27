@@ -52,7 +52,7 @@ $('body', function() {
 
 
         swal({
-            title: 'Desea Eliminar El Camion',
+            title: 'Eliminar registro',
             text: "Usted no podra revertir este proceso!",
             type: 'warning',
             showCancelButton: true,
@@ -62,7 +62,7 @@ $('body', function() {
         }).then((result) => {
             if (result.value) {
                 swal(
-                    'Camion Eliminado!',
+                    'Registro Eliminado!',
                     // '.',
                     // 'Aceptar',
                     // 'confirmButtonText: SI'

@@ -42,7 +42,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "success",
-						title: "¡La Sucursal ha sido guardada correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -68,7 +68,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "error",
-						title: "¡La Sucursal no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -95,7 +95,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "error",
-						title: "¡error con Base de Datos !",
+						title: "¡Error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -179,7 +179,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "success",
-						title: "¡La Sucursal ha sido editada correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -205,7 +205,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "error",
-						title: "¡La Sucursal no puede ir vacío o llevar caracteres especiales!",
+						title: "¡La registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -232,7 +232,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "error",
-						title: "¡error con Base de Datos !",
+						title: "¡Error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -260,7 +260,7 @@ class ControladorSucursales{
 					swal({
 
 						type: "error",
-						title: "¡La nombre de la Sucursal contiene numeros!",
+						title: "¡El registro contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -299,7 +299,7 @@ class ControladorSucursales{
 
 				swal({
 					  type: "success",
-					  title: "La Sucursal ha sido borrada correctamente",
+					  title: "¡Registro eliminada correctamente!",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
 					  closeOnConfirm: false

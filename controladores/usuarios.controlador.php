@@ -114,6 +114,7 @@ class ControladorUsuarios
 
 				$ruta = "";
 
+
 				if (isset($_FILES["nuevaFoto"]["tmp_name"])) {
 
 					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
@@ -192,7 +193,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "success",
-						title: "¡El usuario ha sido guardado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -216,7 +217,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -242,7 +243,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡error con Base de Datos !",
+						title: "¡Error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -297,7 +298,7 @@ class ControladorUsuarios
 
 				swal({
 					  type: "success",
-					  title: "El usuario ha sido borrado correctamente",
+					  title: "¡Registro eliminado correctamente!",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
 					  closeOnConfirm: false
@@ -425,7 +426,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "success",
-						title: "¡El usuario ha sido editado correctamente!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -449,7 +450,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -474,7 +475,7 @@ class ControladorUsuarios
 
 					swal({
 
-						type: "error",
+						type: "Error",
 						title: "¡error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
@@ -500,7 +501,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡El nombre del usuario contiene numeros!",
+						title: "¡El registro contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -628,7 +629,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "success",
-						title: "¡Perfil Actualizado!",
+						title: "¡Registro guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -652,7 +653,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡El perfil no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -678,7 +679,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡error con Base de Datos !",
+						title: "¡Error con Base de Datos !",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false
@@ -703,7 +704,7 @@ class ControladorUsuarios
 					swal({
 
 						type: "error",
-						title: "¡El nombre del Perfil contiene numeros!",
+						title: "¡El registro contiene numeros!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar",
 						closeOnConfirm: false

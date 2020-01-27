@@ -39,7 +39,7 @@ $(function() {
 
 
         swal({
-            title: 'Desea Eliminar El Conductor',
+            title: 'Eliminar registro',
             text: "Usted no podra revertir este proceso!",
             type: 'warning',
             showCancelButton: true,
@@ -49,7 +49,7 @@ $(function() {
         }).then((result) => {
             if (result.value) {
                 swal(
-                    'Conductor Eliminado!',
+                    'registro eliminado!',
                     // '.',
                     // 'Aceptar',
                     // 'confirmButtonText: SI'

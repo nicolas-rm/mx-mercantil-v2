@@ -4,13 +4,13 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
           <h1>
-              Administrar Roles
+              Administrar Camiones
 
           </h1>
           <ol class="breadcrumb">
               <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-              <li class="active">Roles</li>
+              <li class="active">Camiones</li>
           </ol>
       </section>
 
@@ -18,15 +18,11 @@
       <section class="content">
 
           <div class="col-md-4">
-              <p><strong>Ejemplo usando PHP y MySQL.</strong></p>
-              <button id="camiones" class="btn btn-default">Crear PDF MySQL</button>
+              <p><strong>Reporte Genaral.</strong></p>
+              <button id="camiones" class="btn btn-default">Generar</button>
               <!-- <br> -->
           </div>
 
       </section>
       <!-- /.content -->
   </div>
-
-  <!--=====================================
-MODAL EDITAR ROL
-======================================-->

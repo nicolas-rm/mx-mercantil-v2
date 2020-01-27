@@ -62,28 +62,39 @@
               </div>
 
               <div class="form-group">
-                <label>Estatus:</label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
 
-                  <select class="form-control" id="nuevoEstatusConductores" name="nuevoEstatusConductores" required>
-                    <option value="default" disabled selected>Estatus</option>
+                   <label>Estatus:</label>
+                  
+                  <div class="input-group">
+                    
+                    <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+                    
+                    <select class="form-control text-uppercase" id="nuevoEstatusConductores" name="nuevoEstatusConductores" required>
+
+                    <option value="">Seleccionar estatus</option>
+
                     <?php
-                    $status = EstatusModelo::MostrarEstatus("ESTATUS_CONDUCTORES");
 
-                    foreach ($status as $key => $value) {
-                      if ($value["DESCRIPCION"] != "INACTIVO") {
-                        if ($value["DESCRIPCION"] == "Activo" || $value["DESCRIPCION"] == "ACTIVO") {
-                          echo '<option selected value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
-                        } else {
-                          echo '<option value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
-                        }
+                      $item = null;
+                      $valor = null;
+
+                      $estatus = ConductoresControlador::ctrMostrarEstatusC($item, $valor);
+
+                       
+                       foreach ($estatus as $key => $value) {
+
+                        if ($value["DESCRIPCION"] != "INACTIVO") {
+                        echo '<option value="' . $value["ID_ESTATUS_CONDUCTORES"] . '">' . $value["DESCRIPCION"] . '</option>';
                       }
-                    }
+                       }
                     ?>
-                  </select>
+
+                    </select>
+                                     
+                  </div>
+                
                 </div>
-              </div>
+
               <div class="form-group">
                 <label>Sucursal:</label>
                 <div class="input-group">

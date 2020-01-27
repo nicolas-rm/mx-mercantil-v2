@@ -128,7 +128,7 @@
                   <label>Conductor:</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
-                    <select class="form-control" value="" id="editConductorCamiones" value="" name="editConductorCamiones" required>
+                    <select class="form-control" value="" id="editConductorCamiones" value="" name="editConductorCamiones" required >
                       <option value="default" disabled selected>Conductor</option>
                       <!-- <option value="default">PRUEBA</option> -->
                       <?php
